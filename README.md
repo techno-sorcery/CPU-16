@@ -16,8 +16,12 @@ zero, overflow, carry, IX zero, and IY zero.
 Two maskable interrupts (IRJ and IRK) are available, along with two non-maskable ones (RESET and NMI), direct memory access (used by the front panel), software breakpoints, and
 a HALT state. In addition, DMA, RESET, NMI, IRJ, IRK, and HALT can all be invoked by peripheral devices.
 
-Although microcode is mostly an obsolete relic of old, I decided to use it as I wanted to have experience with writing a microassembler. In a tradeoff between speed and space/complexity,
-the decoder uses several demultiplexers and only six microcode EPROMS.
+Although microcode is mostly an obsolete relic of old, I decided to use it as I wanted to have experience with writing a microassembler. In a tradeoff between speed and space/complexity, the decoder uses several demultiplexers and only six microcode EPROMS.
 
-A two-phase clock is used in order to avoid clock skew. The microcode flip-flops are loaded on the first phase, and all other synchronous chips are clocked on the second. A limited
-fetch-cycle overlap pipeline is supported, although it is not yet used on any instructions.
+A two-phase clock is used in order to avoid clock skew. The microcode flip-flops are loaded on the first phase, and all other synchronous chips are clocked on the second. A limitedfetch-cycle overlap pipeline is supported, although it is not yet used on any instructions.
+
+# Construction
+
+A variety of 74LS series TTL chips will be used, including the 74LS181, 74LS151, 74LS173, 74LS245, 74LS169, 74LS08, 74LS00, 74LS373, 74LS74, 74LS32, 74LS283, and 74LS04.
+
+The computer will be built onto 8 to 10 18x25cm perfboards, which will be plugged into a custom backplane via two 2x40-pin connectors.
