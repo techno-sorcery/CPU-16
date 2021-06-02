@@ -1,4 +1,6 @@
 # CPU-8
+My YouTube account is [here](https://www.youtube.com/channel/UC0kihtgYtJHA7ZHQloiz2jA), I'll be regularly posting progress videos to it.
+
 The CPU-8, from Atlas Digital Industries, is an 8-bit CISC minicomputer based around the 74LS181 ALU.
 
 Four general-purpose 8-bit registers are provided to the programmer, including the accumulator. Two of the registers, B and C, can be used as a 16-bit pair in a limited number of 
