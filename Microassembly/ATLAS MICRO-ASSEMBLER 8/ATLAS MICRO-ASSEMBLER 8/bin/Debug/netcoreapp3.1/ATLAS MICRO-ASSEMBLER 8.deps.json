@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ATLAS MICRO-ASSEMBLER 8/1.0.0": {
+        "runtime": {
+          "ATLAS MICRO-ASSEMBLER 8.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ATLAS MICRO-ASSEMBLER 8/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

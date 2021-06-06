@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATLAS MICRO-ASSEMBLER 8", "ATLAS MICRO-ASSEMBLER 8\ATLAS MICRO-ASSEMBLER 8.csproj", "{64A7B410-714E-4259-B872-F1AAB620C33F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64A7B410-714E-4259-B872-F1AAB620C33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A7B410-714E-4259-B872-F1AAB620C33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A7B410-714E-4259-B872-F1AAB620C33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A7B410-714E-4259-B872-F1AAB620C33F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0550878-D2F7-4819-83D8-4F8CB8597AE0}
+	EndGlobalSection
+EndGlobal
