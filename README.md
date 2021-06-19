@@ -5,10 +5,9 @@ My YouTube account is [here](https://www.youtube.com/channel/UC0kihtgYtJHA7ZHQlo
 
 The CPU-16, from Atlas Digital Industries, is an 16-bit CISC minicomputer based around the 74LS181 ALU.
 
-Four general-purpose registers are provided to the programmer, including the accumulator. Two index registers are also provided, along with a user-mode stack pointer and a supervisor mode stack pointer. There are also two temporary registers, which are only used by microinstructions.
+Four general-purpose registers are provided to the programmer, including the accumulator. Two index registers are also provided, along with a 16-bit stack pointerstack pointer. There are also two temporary registers, which are only used by microinstructions.
 
-The instruction set supports a multitude of addressing modes, including register, immediate, direct, direct relative, indirect, indexed relative direct, and indexed relative
-indirect. Offsets for relative addressing modes are encoded as a signed 16-bit integer.
+The instruction set supports a multitude of addressing modes including register, immediate, direct, indirect, relative, direct indexed offset, and indirect indexed offset. Fast relative addressing is enabled through the use of a separate memory address adder.
 
 Up to 64K of memory can be accessed by the computer at once when in real mode, though it can access 24 bits (16 MB) through the use of paging. Each paged process is given a 64k memory space, split into 32 2k pages. For speed purposes, memory is accessed in 16-bit words. However, a number of byte-access operations are available
 
