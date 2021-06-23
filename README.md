@@ -1,5 +1,6 @@
 # CPU-16
 NOTE: THIS USED TO BE AN 8-BIT COMPUTER. I HAVE SINCE REVISED THE DESIGN!
+NOTEx2: I NEED TO CLEAN UP THE DESC A BIT
 
 My YouTube account is [here](https://www.youtube.com/channel/UC0kihtgYtJHA7ZHQloiz2jA), I'll be regularly posting progress videos to it.
 
