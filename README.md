@@ -6,17 +6,17 @@ My YouTube account is [here](https://www.youtube.com/channel/UC0kihtgYtJHA7ZHQlo
 
 The CPU-16, from Atlas Digital Industries, is an 16-bit CISC minicomputer based around the 74LS181 ALU.
 
-Four general-purpose registers are provided to the programmer, including the accumulator. Two index registers are also provided, along with a 16-bit stack pointerstack pointer. There are also two temporary registers, which are only used by microinstructions.
+Four general-purpose registers are provided to the programmer, including the accumulator. Two index registers are also provided, along with a 16-bit stack pointerstack pointer. 
 
-The instruction set supports a multitude of addressing modes including register, immediate, direct, indirect, relative, direct indexed offset, and indirect indexed offset. Fast relative addressing is enabled through the use of a separate memory address adder.
+The instruction set supports a multitude of addressing modes including immediate, direct, indirect, relative, direct indexed relative, and indirect indexed relative. Fast relative addressing is enabled through the inclusion of a memory address adder, separate to the main ALU.
 
-Up to 64K of memory can be accessed by the computer at once when in real mode, though it can access 24 bits (16 MB) through the use of paging. Each paged process is given a 64k memory space, split into 32 2k pages. For speed purposes, memory is accessed in 16-bit words. However, a number of byte-access operations are available
+Up to 64K of memory can be accessed by the computer at once, as it has a 16-bit wide address bus. For the sake of simplicity, it will (for now) feature a flat memory map with the first 48k delegated to the RAM, the next 8k delegated to device IO, and the final 8k delegated to ROM
 
-The instruction set includes a variety of different conditional branching instructions, all making use of direct relative addressing. They test for four flag values: negative, zero, overflow, and carry.
+The instruction set includes a variety of different conditional branching instructions, all making use of relative addressing. They test for four flag values: negative, zero, overflow, and carry.
 
-The architecture includes a single masked interrupt line, and a single non-maskable interrupt line. However, with additional planned circuitry, it will be able to use eight maskable interrupts. 
+The architecture includes a single internal masked interrupt line and, with additional support hardware, 16 individually maskable interrupts. It also is capable of halting and engaging in DMA.
 
-Although I'm a believer in the RISC way of doing things, I wanted to make a microcoded CISC architecture this time around primarily because that's what pretty much all "old-school" computers were, and because I wanted machine code programming to be easy (maybe I'll make a RISC machine next time around...). The control signals for things like register loads and bus outputs are all encoded and demultiplexed. Although this somewhat slows things down (more gates and such), it reduces the number of microcode EPROMS needed down to six. 
+Although I'm a believer in the RISC way of doing things, I wanted to make a microcoded CISC CPU this time around to make programming easier, and so I could save on RAM space. The control signals for the register loads and bus outputs are encoded and demultiplexed. Although this somewhat slows things down and increases the amount of support logic needed, it reduces the number of microcode EPROMS needed down to only six. 
 
 A two-phase clock is used in order to avoid clock skew. The microcode flip-flops are loaded on the first phase, and all other synchronous chips are clocked on the second. A limited fetch-cycle overlap pipeline is supported, but its not yet used on any instructions.
 
