@@ -1,6 +1,6 @@
 # CPU-16
 NOTE: THIS USED TO BE AN 8-BIT COMPUTER. I HAVE SINCE REVISED THE DESIGN!
-NOTEx2: I NEED TO CLEAN UP THE DESC A BIT
+
 
 My YouTube account is [here](https://www.youtube.com/channel/UC0kihtgYtJHA7ZHQloiz2jA), I'll be regularly posting progress videos to it.
 
@@ -20,14 +20,14 @@ Although I'm a believer in the RISC way of doing things, I wanted to make a micr
 
 A two-phase clock is used in order to avoid clock skew. The microcode flip-flops are loaded on the first phase, and all other synchronous chips are clocked on the second. A limited fetch-cycle overlap pipeline is supported, but its not yet used on any instructions.
 
-![cpu8_arch](https://user-images.githubusercontent.com/83188735/120168086-57b94b00-c1b3-11eb-84ce-eec87e9da384.png)
+![cpu8](https://user-images.githubusercontent.com/83188735/124211509-0e099c00-daa2-11eb-8a8b-396c0b3bc76e.png)
 
 
 # Construction
 
 A variety of 74LS series TTL chips will be used, including the 74LS181, 74LS151, 74LS173, 74LS245, 74LS169, 74LS08, 74LS00, 74LS373, 74LS74, 74LS32, 74LS283, and 74LS04.
 
-The computer will be built onto 12 18x25cm perfboards, which will be plugged into a custom backplane with two 2x40-pin connectors per card.
+The computer will be built onto 9 18x25cm perfboards, which will be plugged into a custom backplane with two 2x40-pin connectors per card.
 
 The case will probably be custom built. If thermals end up being an issue, I'll probably put the CPU backplane and cards in the it and chuck in a couple fans. Otherwise, I'd like for everything to sit on top of the case.
 
@@ -36,7 +36,8 @@ The case will probably be custom built. If thermals end up being an issue, I'll 
 
 I've developed a simulation of the CPU-16 in H. Neemann's excellent logical simulator, Digital. It has helped me develop microcode, test new concepts, and fix issues while waiting to gradually purchase the parts that I need. You can download it from this repo, and try it out for yourself. It's able to run at a cool ~500kHz on my i7 8700k PC, which I believe is the upper limit of Digital's speed.
 
-![simulator](https://user-images.githubusercontent.com/83188735/120168736-0e1d3000-c1b4-11eb-9012-773b9390b32b.PNG)
+![cpu16](https://user-images.githubusercontent.com/83188735/124211584-342f3c00-daa2-11eb-92ee-952e7c71888f.PNG)
+
 
 
 # Microassembler
