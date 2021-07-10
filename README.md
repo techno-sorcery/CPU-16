@@ -4,11 +4,11 @@ NOTE: THIS USED TO BE AN 8-BIT COMPUTER. I HAVE SINCE REVISED THE DESIGN!
 
 My YouTube account is [here](https://www.youtube.com/channel/UC0kihtgYtJHA7ZHQloiz2jA), I'll be regularly posting progress videos to it.
 
-The CPU-16, from Atlas Digital Industries, is an 16-bit CISC minicomputer based around the 74LS181 ALU.
+The CPU-16, from Atlas Digital Industries, is a 16-bit CISC minicomputer based around the 74LS181 ALU.
 
-Four general-purpose registers are provided to the programmer, including the accumulator. Two index registers are also provided, along with a 16-bit stack pointerstack pointer. 
+Four general-purpose registers are provided to the programmer (A, B, C, D), including the accumulator. Two index registers are also provided (IX, IY), along with a 16-bit stack pointer. 
 
-The instruction set supports a multitude of addressing modes including immediate, direct, indirect, relative, direct indexed relative, and indirect indexed relative. Fast relative addressing is enabled through the inclusion of a memory address adder, separate to the main ALU.
+The instruction set is relatively orthagonal, and supports a multitude of addressing modes including immediate, direct, indirect, relative, direct indexed relative, and indirect indexed relative. Fast relative addressing is enabled through the inclusion of a memory address adder, separate to the main ALU.
 
 Up to 64K of memory can be accessed by the computer at once, as it has a 16-bit wide address bus. For the sake of simplicity, it will (for now) feature a flat memory map with the first 48k delegated to the RAM, the next 8k delegated to device IO, and the final 8k delegated to ROM
 
@@ -18,7 +18,9 @@ The architecture includes a single internal masked interrupt line and, with addi
 
 Although I'm a believer in the RISC way of doing things, I wanted to make a microcoded CISC CPU this time around to make programming easier, and so I could save on RAM space. The control signals for the register loads and bus outputs are encoded and demultiplexed. Although this somewhat slows things down and increases the amount of support logic needed, it reduces the number of microcode EPROMS needed down to only six. 
 
-A two-phase clock is used in order to avoid clock skew. The microcode flip-flops are loaded on the first phase, and all other synchronous chips are clocked on the second. A limited fetch-cycle overlap pipeline is supported, but its not yet used on any instructions.
+A two-phase clock is used in order to avoid clock skew. The microcode flip-flops are loaded on the first phase, and all other synchronous chips are clocked on the second. A limited fetch-cycle overlap pipeline is supported on certain instructions.
+
+A paging unit and modifications to add permission levels are in the works. However, they won't be realized until I've finished building the base system
 
 ![cpu8](https://user-images.githubusercontent.com/83188735/124211509-0e099c00-daa2-11eb-8a8b-396c0b3bc76e.png)
 
@@ -29,7 +31,7 @@ A variety of 74LS series TTL chips will be used, including the 74LS181, 74LS151,
 
 The computer will be built onto 9 18x25cm perfboards, which will be plugged into a custom backplane with two 2x40-pin connectors per card.
 
-The case will probably be custom built. If thermals end up being an issue, I'll probably put the CPU backplane and cards in the it and chuck in a couple fans. Otherwise, I'd like for everything to sit on top of the case.
+The case will probably be custom built. As of now, I want it to include a front panel and enough room to fit all nine cards and a fan.
 
 
 # Simulator
