@@ -22,7 +22,7 @@ A two-phase clock is used in order to avoid clock skew. The microcode flip-flops
 
 A paging unit and modifications to add permission levels are in the works. However, they won't be realized until I've finished building the base system
 
-![cpu8 drawio](https://user-images.githubusercontent.com/83188735/132960743-af0e3f1c-eb67-4bb3-8596-b44a6fa80490.png)
+![cpu8 drawio](https://user-images.githubusercontent.com/83188735/136465631-a6b6c62a-5759-4980-9160-5d20c60be3e4.png)
 
 
 
