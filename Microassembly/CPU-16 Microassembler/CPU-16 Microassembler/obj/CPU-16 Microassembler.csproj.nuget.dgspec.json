@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hayden\\source\\repos\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj": {}
+    "C:\\Users\\Hayden\\Documents\\GitHub\\CPU-16\\Microassembly\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hayden\\source\\repos\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj": {
+    "C:\\Users\\Hayden\\Documents\\GitHub\\CPU-16\\Microassembly\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hayden\\source\\repos\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj",
+        "projectUniqueName": "C:\\Users\\Hayden\\Documents\\GitHub\\CPU-16\\Microassembly\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj",
         "projectName": "CPU-16 Microassembler",
-        "projectPath": "C:\\Users\\Hayden\\source\\repos\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj",
+        "projectPath": "C:\\Users\\Hayden\\Documents\\GitHub\\CPU-16\\Microassembly\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj",
         "packagesPath": "C:\\Users\\Hayden\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hayden\\source\\repos\\CPU-16 Microassembler\\CPU-16 Microassembler\\obj\\",
+        "outputPath": "C:\\Users\\Hayden\\Documents\\GitHub\\CPU-16\\Microassembly\\CPU-16 Microassembler\\CPU-16 Microassembler\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -12,3 +12,17 @@ C:\Users\Hayden\source\repos\CPU-16 Microassembler\CPU-16 Microassembler\obj\Deb
 C:\Users\Hayden\source\repos\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.dll
 C:\Users\Hayden\source\repos\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.pdb
 C:\Users\Hayden\source\repos\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.genruntimeconfig.cache
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\bin\Debug\netcoreapp3.1\CPU-16 Microassembler.exe
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\bin\Debug\netcoreapp3.1\CPU-16 Microassembler.deps.json
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\bin\Debug\netcoreapp3.1\CPU-16 Microassembler.runtimeconfig.json
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\bin\Debug\netcoreapp3.1\CPU-16 Microassembler.runtimeconfig.dev.json
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\bin\Debug\netcoreapp3.1\CPU-16 Microassembler.dll
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\bin\Debug\netcoreapp3.1\CPU-16 Microassembler.pdb
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.csproj.AssemblyReference.cache
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.AssemblyInfoInputs.cache
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.AssemblyInfo.cs
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.csproj.CoreCompileInputs.cache
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.dll
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.pdb
+C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\CPU-16 Microassembler\CPU-16 Microassembler\obj\Debug\netcoreapp3.1\CPU-16 Microassembler.genruntimeconfig.cache
