@@ -1,6 +1,8 @@
 import re
 import sys
-import optparse
+import argparse
+
+
 
 symbols = {}
 
@@ -40,7 +42,14 @@ length = len(lines)
 progCounter = 0;
 
 for x in range(length):
-    result = re.match('\A;', lines[x])
+    tempLine = lines[x].split(";",1)
+    lines[x] = tempLine[0]
     
-    if result:
+    tempLine = re.search("$:", "test: a123 :test")
+    if tempLine:
+            print("lol")
+    
+    
+print(lines)
+print(symbols)
         

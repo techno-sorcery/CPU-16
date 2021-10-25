@@ -1,2 +1,3 @@
 ;Hello, this is a comment!
-tt ;test
+:label test	
+	test :label
