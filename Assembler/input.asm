@@ -1,2 +1,2 @@
-//test
-tt
+;Hello, this is a comment!
+tt ;test

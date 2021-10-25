@@ -24,26 +24,23 @@ opcodes = {
     'STB':14,
     'STC':15,
     'STD':16,
-    'SDE':17,
+    'STE':17,
     'STX':18,
     'STY':19,
     'STF':20,
-    'STP':21,
-    'MVD':22,
-    'MVR':23,
-    'MVA':24,
-    'MVB':25,
-    'MVC':26,
-    'MVD':27,
-    'MVE':28,
-    'MVX':29,
-    'MVY':30,
-    'MVXI':31,
-    'MVYI':32,
-    'MVXD':33,
-    'MVYD':34,
-    'MVSI':35,
-    'MVSD':36,
-}   
+    'STS':21,
+    'STP':22,
+}
+
+file = open("input.asm", "r")
+fileParse = file.read()
+lines = fileParse.splitlines()
+print(lines)
+length = len(lines)
+progCounter = 0;
+
+for x in range(length):
+    result = re.match('\A;', lines[x])
     
-    
+    if result:
+        
