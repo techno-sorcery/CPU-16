@@ -8,17 +8,14 @@ namespace ATLAS_MICRO_ASSEMBLER_8
     {
         static void Main(string[] args)
         {
-            // ATLAS CPU-8 MICRO-ASSEMBLER
+            // ATLAS CPU-16 MICRO-ASSEMBLER
             // WRITTEN BY HAYDEN B. - 2021
 
             // Define microcode file
             string PATH = @"C:\Users\Hayden\Documents\GitHub\CPU-16\Microassembly\MICROCODE.hex";
 
-            if (!File.Exists(PATH))
-            {
-                // Create a file to write to.
-                File.WriteAllText(PATH, "v2.0 raw" + Environment.NewLine);
-            }
+            File.Delete(PATH);
+            File.WriteAllText(PATH, "v2.0 raw" + Environment.NewLine);
 
             // Define mnemonics
             // long TEST_TEST       = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000__00000_00000;
@@ -146,7 +143,7 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 {IRQ_EN|TEMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_RS0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // xC NOP
                 {IRQ_EN|TEMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_RS0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // xD NOP
                 {IRQ_EN|TEMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_RS0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // xE NOP
-                {IRQ_EN|TEMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_RS0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // xF NOP
+                {IRQ_EN|TEMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|X_INC|SEQ_RS0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // xF NOP
 
                 //01x JMP
                 {IRQ_EN|TEMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_RS0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // x0 NOP
@@ -223,14 +220,12 @@ namespace ATLAS_MICRO_ASSEMBLER_8
 
             // Interrupts
 
-            int IRQ_IRQ = 1;
-
             long[] INTERRUPT_TABLE = new long[80] {
-                0, IRQ_IRQ, 0, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
+                1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
             };
 
             int instruction = 0;
@@ -240,37 +235,25 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 Console.WriteLine(instruction);
                 int imode = 0;
 
-                while (imode < 3)
+                while (imode < 4)
                 {
                     int step = 0;
 
                     while (step < 16)
                     {
-                        if ((imode & INTERRUPT_TABLE[instruction]) != 0)
+                        if (imode!= 0)
                         {
-                            if ((imode & 0b01) != 0)
+                            if (imode == 2 && INTERRUPT_TABLE[instruction] == 1)
                             {
-                                    //Console.WriteLine((IRQ_EN | DMA_ACK).ToString("X"));
-                                    File.AppendAllText(PATH, (IRQ_EN | DMA_ACK).ToString("X") + Environment.NewLine);
+                                File.AppendAllText(PATH, TEMPLATE[15, step].ToString("X") + Environment.NewLine);
                             }
-                            else if ((imode & 0b10) != 0)
+                            else
                             {
-
-                                if (INTERRUPT_TABLE[instruction] == 1)
-                                {
-                                    //Console.WriteLine(TEMPLATE[0, step].ToString("X"));
-                                    File.AppendAllText(PATH, TEMPLATE[15, step].ToString("X") + Environment.NewLine);
-                                }
-                                else
-                                {
-                                    //Console.WriteLine(TEMPLATE[instruction, step].ToString("X"));
-                                    File.AppendAllText(PATH, TEMPLATE[instruction, step].ToString("X") + Environment.NewLine);
-                                }
-                            }                           
+                                File.AppendAllText(PATH, (IRQ_EN | DMA_ACK).ToString("X") + Environment.NewLine);
+                            }
                         }
                         else
                         {
-                            //Console.WriteLine(TEMPLATE[instruction, step].ToString("X"));
                             File.AppendAllText(PATH, TEMPLATE[instruction, step].ToString("X") + Environment.NewLine);
                         }
 
@@ -285,5 +268,3 @@ namespace ATLAS_MICRO_ASSEMBLER_8
         }
     }
 }
-
-
