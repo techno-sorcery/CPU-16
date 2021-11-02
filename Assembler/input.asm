@@ -1,3 +1,3 @@
-;Hello, this is a comment!
+#Hello, this is a comment!
 :label test	
 	test :label
