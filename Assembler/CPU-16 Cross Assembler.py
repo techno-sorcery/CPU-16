@@ -12,7 +12,14 @@ opcodes = {
     'CAL':0,
     'JMP':1,
     'JSR':2,
-    'BRA':3,
+    'BIN':3,
+    'BIZ':3,
+    'BIV':3,
+    'BIC':3,
+    'BNN':3,
+    'BNZ':3,
+    'BNV':3,
+    'BNC':3,
     'LDA':4,
     'LDB':5,
     'LDC':6,
@@ -42,12 +49,8 @@ length = len(lines)
 progCounter = 0;
 
 for x in range(length):
-    tempLine = lines[x].split(";",1)
+    tempLine = lines[x].split("#",1)
     lines[x] = tempLine[0]
-    
-    tempLine = re.search("$:", "test: a123 :test")
-    if tempLine:
-            print("lol")
     
     
 print(lines)
