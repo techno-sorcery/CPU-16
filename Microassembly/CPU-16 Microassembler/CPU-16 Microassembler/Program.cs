@@ -36,13 +36,12 @@ namespace ATLAS_MICRO_ASSEMBLER_8
             long OP1_ST     = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01010;
             long OP2_ST     = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01011;
             long IR_ST      = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01100;
-            long HMAR_ST    = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01101;
-            long LMAR_ST    = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01110;
-            long MAR_ST     = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01111;
+            long LMAR_ST    = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01101;
+            long MAR_ST     = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01110;
 
-            long MEM_ST     = 0b10_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_10000;
+            long MDR_ST     = 0b10_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_01111;
 
-            long MDR_ST     = 0b10_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_10001;
+            long MEM_ST     = 0b10_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00000_10000;            
 
 
             long A_DOUT     = 0b00_00_000_0_000_0_0_00_0_00_0_0000_000_0000_000_00001_00000;
@@ -224,16 +223,14 @@ namespace ATLAS_MICRO_ASSEMBLER_8
 
             // Interrupts
 
-            int IRQ_DMA = 0b001;
-            int IRQ_RST = 0b011;
-            int IRQ_IRQ = 0b111;
+            int IRQ_IRQ = 1;
 
             long[] INTERRUPT_TABLE = new long[80] {
-                0, IRQ_IRQ, IRQ_RST, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_RST, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_RST, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_RST, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
-                IRQ_IRQ, IRQ_IRQ, IRQ_RST, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
+                0, IRQ_IRQ, 0, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
+                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
+                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
+                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
+                IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ, IRQ_IRQ,
             };
 
             int instruction = 0;
@@ -243,7 +240,7 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 Console.WriteLine(instruction);
                 int imode = 0;
 
-                while (imode < 8)
+                while (imode < 3)
                 {
                     int step = 0;
 
@@ -251,48 +248,25 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                     {
                         if ((imode & INTERRUPT_TABLE[instruction]) != 0)
                         {
-                            if ((imode & 0b001) != 0)
+                            if ((imode & 0b01) != 0)
                             {
-
-                                if ((INTERRUPT_TABLE[instruction] & 0b00_0001) != 0)
-                                {
                                     //Console.WriteLine((IRQ_EN | DMA_ACK).ToString("X"));
                                     File.AppendAllText(PATH, (IRQ_EN | DMA_ACK).ToString("X") + Environment.NewLine);
-                                }
-                                else
-                                {
-                                    //Console.WriteLine(TEMPLATE[instruction, step].ToString("X"));
-                                    File.AppendAllText(PATH, TEMPLATE[instruction, step].ToString("X") + Environment.NewLine);
-                                }
-
                             }
-                            else if ((imode & 0b010) != 0)
+                            else if ((imode & 0b10) != 0)
                             {
 
-                                if ((INTERRUPT_TABLE[instruction] & 0b00_0010) != 0)
+                                if (INTERRUPT_TABLE[instruction] == 1)
                                 {
                                     //Console.WriteLine(TEMPLATE[0, step].ToString("X"));
-                                    File.AppendAllText(PATH, TEMPLATE[0, step].ToString("X") + Environment.NewLine);
+                                    File.AppendAllText(PATH, TEMPLATE[15, step].ToString("X") + Environment.NewLine);
                                 }
                                 else
                                 {
                                     //Console.WriteLine(TEMPLATE[instruction, step].ToString("X"));
                                     File.AppendAllText(PATH, TEMPLATE[instruction, step].ToString("X") + Environment.NewLine);
                                 }
-                            }
-                            else if ((imode & 0b100) != 0)
-                            {
-                                if ((INTERRUPT_TABLE[instruction] & 0b00_0100) != 0)
-                                {
-                                    //Console.WriteLine(TEMPLATE[2, step].ToString("X"));
-                                    File.AppendAllText(PATH, TEMPLATE[2, step].ToString("X") + Environment.NewLine);
-                                }
-                                else
-                                {
-                                    //Console.WriteLine(TEMPLATE[instruction, step].ToString("X"));
-                                    File.AppendAllText(PATH, TEMPLATE[instruction, step].ToString("X") + Environment.NewLine);
-                                }
-                            }
+                            }                           
                         }
                         else
                         {
