@@ -146,7 +146,7 @@
           <int>2</int>
         </entry>
       </elementAttributes>
-      <pos x="12800" y="2680"/>
+      <pos x="12560" y="2560"/>
     </visualElement>
     <visualElement>
       <elementName>T_FF</elementName>
@@ -156,17 +156,17 @@
           <boolean>false</boolean>
         </entry>
       </elementAttributes>
-      <pos x="13060" y="2680"/>
+      <pos x="12680" y="2560"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="13000" y="2680"/>
+      <pos x="12620" y="2560"/>
     </visualElement>
     <visualElement>
       <elementName>And</elementName>
       <elementAttributes/>
-      <pos x="13180" y="2620"/>
+      <pos x="12800" y="2500"/>
     </visualElement>
     <visualElement>
       <elementName>And</elementName>
@@ -182,7 +182,7 @@
           <int>3</int>
         </entry>
       </elementAttributes>
-      <pos x="13180" y="2700"/>
+      <pos x="12800" y="2580"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -192,7 +192,7 @@
           <string>CLK1</string>
         </entry>
       </elementAttributes>
-      <pos x="13340" y="2640"/>
+      <pos x="12960" y="2520"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -202,7 +202,7 @@
           <string>CLK2</string>
         </entry>
       </elementAttributes>
-      <pos x="13340" y="2720"/>
+      <pos x="12960" y="2600"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -212,7 +212,7 @@
           <string>CLK_1</string>
         </entry>
       </elementAttributes>
-      <pos x="13300" y="2600"/>
+      <pos x="12920" y="2480"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -222,7 +222,7 @@
           <string>CLK_2</string>
         </entry>
       </elementAttributes>
-      <pos x="13300" y="2680"/>
+      <pos x="12920" y="2560"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -232,7 +232,7 @@
           <string>REG_dir</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2360"/>
+      <pos x="12180" y="2280"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -242,7 +242,7 @@
           <string>~SP_en</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2380"/>
+      <pos x="12180" y="2300"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -252,7 +252,7 @@
           <string>Σ_Csel</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2300"/>
+      <pos x="12180" y="2220"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -262,7 +262,7 @@
           <string>Σ_M</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2280"/>
+      <pos x="12180" y="2200"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -272,7 +272,7 @@
           <string>Σ_Cval</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2320"/>
+      <pos x="12180" y="2240"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -282,7 +282,7 @@
           <string>~F_ALUin</string>
         </entry>
       </elementAttributes>
-      <pos x="12320" y="2440"/>
+      <pos x="12320" y="2360"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -292,12 +292,12 @@
           <string>~F_DATin</string>
         </entry>
       </elementAttributes>
-      <pos x="12320" y="2420"/>
+      <pos x="12320" y="2340"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="12260" y="2420"/>
+      <pos x="12260" y="2340"/>
     </visualElement>
     <visualElement>
       <elementName>ALU.dig</elementName>
@@ -361,7 +361,7 @@
           <string>COND_Z</string>
         </entry>
       </elementAttributes>
-      <pos x="12540" y="2220"/>
+      <pos x="12540" y="2140"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -375,7 +375,7 @@
           <string>COND_C</string>
         </entry>
       </elementAttributes>
-      <pos x="12540" y="2340"/>
+      <pos x="12540" y="2260"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -389,7 +389,7 @@
           <string>CONV_V</string>
         </entry>
       </elementAttributes>
-      <pos x="12540" y="2280"/>
+      <pos x="12540" y="2200"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -403,7 +403,7 @@
           <string>COND_N</string>
         </entry>
       </elementAttributes>
-      <pos x="12540" y="2160"/>
+      <pos x="12540" y="2080"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -417,7 +417,7 @@
           <string>FLAG_V</string>
         </entry>
       </elementAttributes>
-      <pos x="12620" y="2460"/>
+      <pos x="12620" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -431,7 +431,7 @@
           <string>FLAG_C</string>
         </entry>
       </elementAttributes>
-      <pos x="12640" y="2460"/>
+      <pos x="12640" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -445,7 +445,7 @@
           <string>FLAG_NZ</string>
         </entry>
       </elementAttributes>
-      <pos x="12580" y="2460"/>
+      <pos x="12580" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -463,7 +463,7 @@
           <string>1,1</string>
         </entry>
       </elementAttributes>
-      <pos x="12580" y="2420"/>
+      <pos x="12580" y="2340"/>
     </visualElement>
     <visualElement>
       <elementName>And</elementName>
@@ -475,7 +475,7 @@
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="12620" y="2160"/>
+      <pos x="12620" y="2080"/>
     </visualElement>
     <visualElement>
       <elementName>And</elementName>
@@ -487,7 +487,7 @@
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="12680" y="2220"/>
+      <pos x="12680" y="2140"/>
     </visualElement>
     <visualElement>
       <elementName>And</elementName>
@@ -500,7 +500,7 @@
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="12800" y="2340"/>
+      <pos x="12800" y="2260"/>
     </visualElement>
     <visualElement>
       <elementName>And</elementName>
@@ -512,27 +512,27 @@
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="12740" y="2280"/>
+      <pos x="12740" y="2200"/>
     </visualElement>
     <visualElement>
       <elementName>Or</elementName>
       <elementAttributes/>
-      <pos x="12820" y="2180"/>
+      <pos x="12820" y="2100"/>
     </visualElement>
     <visualElement>
       <elementName>Or</elementName>
       <elementAttributes/>
-      <pos x="12940" y="2300"/>
+      <pos x="12940" y="2220"/>
     </visualElement>
     <visualElement>
       <elementName>Or</elementName>
       <elementAttributes/>
-      <pos x="13080" y="2200"/>
+      <pos x="13080" y="2120"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="13200" y="2260"/>
+      <pos x="13200" y="2180"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -542,7 +542,7 @@
           <string>COND_RES</string>
         </entry>
       </elementAttributes>
-      <pos x="13420" y="2220"/>
+      <pos x="13420" y="2140"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -552,7 +552,7 @@
           <string>~PC_en</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2400"/>
+      <pos x="12180" y="2320"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -562,7 +562,7 @@
           <string>~SEQ_en</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2440"/>
+      <pos x="12180" y="2360"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -572,7 +572,7 @@
           <string>~SEQ_st</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2460"/>
+      <pos x="12180" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>PullDown</elementName>
@@ -596,7 +596,7 @@
           <string>~WAIT</string>
         </entry>
       </elementAttributes>
-      <pos x="13140" y="2780"/>
+      <pos x="12760" y="2640"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -610,7 +610,7 @@
           <string>CLK_2</string>
         </entry>
       </elementAttributes>
-      <pos x="11400" y="2360"/>
+      <pos x="11320" y="2280"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -624,7 +624,7 @@
           <string>CLK_2</string>
         </entry>
       </elementAttributes>
-      <pos x="11400" y="2500"/>
+      <pos x="11320" y="2420"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -634,7 +634,7 @@
           <string>COND_POS</string>
         </entry>
       </elementAttributes>
-      <pos x="12320" y="2340"/>
+      <pos x="12320" y="2260"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -644,7 +644,7 @@
           <string>COND_NEG</string>
         </entry>
       </elementAttributes>
-      <pos x="13420" y="2200"/>
+      <pos x="13420" y="2120"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -654,12 +654,12 @@
           <string>COND_NEG</string>
         </entry>
       </elementAttributes>
-      <pos x="12320" y="2320"/>
+      <pos x="12320" y="2240"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="12260" y="2320"/>
+      <pos x="12260" y="2240"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -669,17 +669,17 @@
           <string>COND_POS</string>
         </entry>
       </elementAttributes>
-      <pos x="13420" y="2180"/>
+      <pos x="13420" y="2100"/>
     </visualElement>
     <visualElement>
       <elementName>DriverInvSel</elementName>
       <elementAttributes/>
-      <pos x="13280" y="2220"/>
+      <pos x="13280" y="2140"/>
     </visualElement>
     <visualElement>
       <elementName>DriverInvSel</elementName>
       <elementAttributes/>
-      <pos x="13340" y="2260"/>
+      <pos x="13340" y="2180"/>
     </visualElement>
     <visualElement>
       <elementName>ROM</elementName>
@@ -698,7 +698,7 @@
         </entry>
         <entry>
           <string>Data</string>
-          <data>619000009ec,10000a008,100000209,601000009ef,200000229,11*0,16*3000000000
+          <data>619000009ec,10000a008,100000209,601000009ef,80200000229,11*0,16*3000000000
 ,619000009ec,8240000000,14*0,16*3000000000,619000009ec,200000000
 ,14*0,16*3000000000,619000009ec,8240000000,14*0,16*3000000000
 ,619000009ec,140000000,601000009ed,140000000,40100000550,60120000de9
@@ -817,7 +817,7 @@
           <file>C:\Users\Hayden\Documents\ATLAS CPU 8\Microassembly\MICROCODE.hex</file>
         </entry>
       </elementAttributes>
-      <pos x="11800" y="2140"/>
+      <pos x="11800" y="2060"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -831,7 +831,7 @@
           <string>18</string>
         </entry>
       </elementAttributes>
-      <pos x="11680" y="2140"/>
+      <pos x="11680" y="2060"/>
     </visualElement>
     <visualElement>
       <elementName>CounterPreset</elementName>
@@ -848,11 +848,12 @@
           <string>inverterConfig</string>
           <inverterConfig>
             <string>ld</string>
+            <string>clr</string>
             <string>en</string>
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="11440" y="2140"/>
+      <pos x="11360" y="2060"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -866,7 +867,7 @@
           <string>CLK_2</string>
         </entry>
       </elementAttributes>
-      <pos x="11380" y="2160"/>
+      <pos x="11300" y="2080"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -880,7 +881,7 @@
           <string>~SEQ_en</string>
         </entry>
       </elementAttributes>
-      <pos x="11380" y="2140"/>
+      <pos x="11020" y="2040"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -894,7 +895,7 @@
           <string>~SEQ_st</string>
         </entry>
       </elementAttributes>
-      <pos x="10980" y="2200"/>
+      <pos x="11020" y="2120"/>
     </visualElement>
     <visualElement>
       <elementName>Const</elementName>
@@ -904,7 +905,7 @@
           <long>0</long>
         </entry>
       </elementAttributes>
-      <pos x="11380" y="2180"/>
+      <pos x="11300" y="2100"/>
     </visualElement>
     <visualElement>
       <elementName>Register</elementName>
@@ -924,7 +925,7 @@
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="11440" y="2620"/>
+      <pos x="11360" y="2540"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -938,7 +939,7 @@
           <string>CLK_2</string>
         </entry>
       </elementAttributes>
-      <pos x="11400" y="2640"/>
+      <pos x="11320" y="2560"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -952,12 +953,12 @@
           <string>~IR_st</string>
         </entry>
       </elementAttributes>
-      <pos x="11400" y="2660"/>
+      <pos x="11320" y="2580"/>
     </visualElement>
     <visualElement>
       <elementName>Const</elementName>
       <elementAttributes/>
-      <pos x="11720" y="2180"/>
+      <pos x="11720" y="2100"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -975,7 +976,7 @@
           <string>4</string>
         </entry>
       </elementAttributes>
-      <pos x="11340" y="2200"/>
+      <pos x="11260" y="2120"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -989,7 +990,7 @@
           <string>SEQ_val</string>
         </entry>
       </elementAttributes>
-      <pos x="11320" y="2200"/>
+      <pos x="11240" y="2120"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -999,7 +1000,7 @@
           <string>SEQ_val</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2480"/>
+      <pos x="12180" y="2400"/>
     </visualElement>
     <visualElement>
       <elementName>Const</elementName>
@@ -1013,7 +1014,7 @@
           <int>3</int>
         </entry>
       </elementAttributes>
-      <pos x="11320" y="2180"/>
+      <pos x="11240" y="2100"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -1024,10 +1025,10 @@
         </entry>
         <entry>
           <string>Output Splitting</string>
-          <string>5,5,3,4,3,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</string>
+          <string>5,5,3,4,3,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</string>
         </entry>
       </elementAttributes>
-      <pos x="12060" y="2160"/>
+      <pos x="12060" y="2080"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1055,7 +1056,7 @@
           <int>48</int>
         </entry>
       </elementAttributes>
-      <pos x="11960" y="2160"/>
+      <pos x="11960" y="2080"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1069,7 +1070,7 @@
           <string>CLK_1</string>
         </entry>
       </elementAttributes>
-      <pos x="11940" y="2180"/>
+      <pos x="11940" y="2100"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1079,7 +1080,7 @@
           <string>Σ_sel</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2260"/>
+      <pos x="12180" y="2180"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1093,7 +1094,7 @@
           <string>~IRQ_Fst</string>
         </entry>
       </elementAttributes>
-      <pos x="11020" y="2520"/>
+      <pos x="10940" y="2440"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1107,22 +1108,22 @@
           <string>CLK_2</string>
         </entry>
       </elementAttributes>
-      <pos x="11020" y="2500"/>
+      <pos x="10940" y="2420"/>
     </visualElement>
     <visualElement>
       <elementName>PullDown</elementName>
       <elementAttributes/>
-      <pos x="12980" y="2760"/>
+      <pos x="12600" y="2640"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
       <elementAttributes>
         <entry>
           <string>NetName</string>
-          <string>IRQ_en</string>
+          <string>~IRQ_en</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2520"/>
+      <pos x="12180" y="2440"/>
     </visualElement>
     <visualElement>
       <elementName>Rectangle</elementName>
@@ -1250,7 +1251,7 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>Data</string>
-          <data>57328*0,16*25</data>
+          <data>57328*0,16*25,40,1,40,1,8187*0,e000</data>
         </entry>
         <entry>
           <string>lastDataFile</string>
@@ -1276,22 +1277,22 @@ By Hayden B.</string>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
+      <pos x="12100" y="2300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="12100" y="2320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="12100" y="2360"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
       <pos x="12100" y="2380"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Not</elementName>
-      <elementAttributes/>
-      <pos x="12100" y="2400"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Not</elementName>
-      <elementAttributes/>
-      <pos x="12100" y="2440"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Not</elementName>
-      <elementAttributes/>
-      <pos x="12100" y="2460"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1906,7 +1907,7 @@ By Hayden B.</string>
           <string>HLT_ack</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2540"/>
+      <pos x="12180" y="2460"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
@@ -1928,12 +1929,11 @@ By Hayden B.</string>
         <entry>
           <string>inverterConfig</string>
           <inverterConfig>
-            <string>D</string>
             <string>en</string>
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="11440" y="2340"/>
+      <pos x="11360" y="2260"/>
     </visualElement>
     <visualElement>
       <elementName>Register</elementName>
@@ -1949,7 +1949,7 @@ By Hayden B.</string>
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="11440" y="2480"/>
+      <pos x="11360" y="2400"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1960,10 +1960,10 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>NetName</string>
-          <string>IRQ_en</string>
+          <string>~IRQ_en</string>
         </entry>
       </elementAttributes>
-      <pos x="11400" y="2380"/>
+      <pos x="11320" y="2300"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1974,15 +1974,15 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>NetName</string>
-          <string>IRQ_en</string>
+          <string>~IRQ_en</string>
         </entry>
       </elementAttributes>
-      <pos x="11400" y="2520"/>
+      <pos x="11320" y="2440"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="12100" y="2520"/>
+      <pos x="12100" y="2440"/>
     </visualElement>
     <visualElement>
       <elementName>DriverInvSel</elementName>
@@ -3639,7 +3639,7 @@ By Hayden B.</string>
           <string>DOUT_sel</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2180"/>
+      <pos x="12180" y="2100"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -3649,7 +3649,7 @@ By Hayden B.</string>
           <string>ST_sel</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2160"/>
+      <pos x="12180" y="2080"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -3748,7 +3748,7 @@ By Hayden B.</string>
           <string>AOUT_sel</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2200"/>
+      <pos x="12180" y="2120"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -3758,7 +3758,7 @@ By Hayden B.</string>
           <string>FST_sel</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2220"/>
+      <pos x="12180" y="2140"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -3768,7 +3768,7 @@ By Hayden B.</string>
           <string>COND_sel</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2240"/>
+      <pos x="12180" y="2160"/>
     </visualElement>
     <visualElement>
       <elementName>DriverInvSel</elementName>
@@ -3940,7 +3940,7 @@ By Hayden B.</string>
           <string>IRQ_ack</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2560"/>
+      <pos x="12180" y="2480"/>
     </visualElement>
     <visualElement>
       <elementName>NOr</elementName>
@@ -4425,7 +4425,7 @@ By Hayden B.</string>
           <string>IRQ_FTdat</string>
         </entry>
       </elementAttributes>
-      <pos x="11220" y="2520"/>
+      <pos x="11120" y="2440"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -4760,7 +4760,7 @@ By Hayden B.</string>
           <string>12</string>
         </entry>
       </elementAttributes>
-      <pos x="11320" y="2620"/>
+      <pos x="11240" y="2540"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -4774,7 +4774,7 @@ By Hayden B.</string>
           <string>DATA</string>
         </entry>
       </elementAttributes>
-      <pos x="11300" y="2620"/>
+      <pos x="11220" y="2540"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
@@ -4799,7 +4799,7 @@ By Hayden B.</string>
           <string>TEMP_clr</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2500"/>
+      <pos x="12180" y="2420"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -4813,7 +4813,7 @@ By Hayden B.</string>
           <string>DATA</string>
         </entry>
       </elementAttributes>
-      <pos x="10980" y="2460"/>
+      <pos x="10900" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -4827,7 +4827,7 @@ By Hayden B.</string>
           <string>4,1</string>
         </entry>
       </elementAttributes>
-      <pos x="11000" y="2460"/>
+      <pos x="10920" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>Register</elementName>
@@ -4843,7 +4843,7 @@ By Hayden B.</string>
           </inverterConfig>
         </entry>
       </elementAttributes>
-      <pos x="11060" y="2480"/>
+      <pos x="10980" y="2400"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -4944,7 +4944,7 @@ By Hayden B.</string>
           <string>IRQ_REQ</string>
         </entry>
       </elementAttributes>
-      <pos x="11200" y="2460"/>
+      <pos x="11120" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -4963,7 +4963,7 @@ By Hayden B.</string>
     <visualElement>
       <elementName>And</elementName>
       <elementAttributes/>
-      <pos x="11140" y="2200"/>
+      <pos x="11100" y="2120"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -4977,12 +4977,12 @@ By Hayden B.</string>
           <string>COND_RES</string>
         </entry>
       </elementAttributes>
-      <pos x="10980" y="2240"/>
+      <pos x="11020" y="2160"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="11080" y="2240"/>
+      <pos x="11040" y="2160"/>
     </visualElement>
     <visualElement>
       <elementName>Demultiplexer</elementName>
@@ -5357,7 +5357,7 @@ By Hayden B.</string>
           <string>~X_en</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2580"/>
+      <pos x="12180" y="2500"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -5367,17 +5367,17 @@ By Hayden B.</string>
           <string>~Y_en</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2600"/>
+      <pos x="12180" y="2520"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="12100" y="2580"/>
+      <pos x="12100" y="2500"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="12100" y="2600"/>
+      <pos x="12100" y="2520"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -5778,7 +5778,7 @@ By Hayden B.</string>
           <string>MEM_dir</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2620"/>
+      <pos x="12180" y="2540"/>
     </visualElement>
     <visualElement>
       <elementName>74245.dig</elementName>
@@ -5810,15 +5810,15 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>NetName</string>
-          <string>MEM_en</string>
+          <string>~MEM_en</string>
         </entry>
       </elementAttributes>
-      <pos x="12180" y="2640"/>
+      <pos x="12180" y="2560"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
       <elementAttributes/>
-      <pos x="12100" y="2640"/>
+      <pos x="12100" y="2560"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
@@ -5834,7 +5834,7 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>NetName</string>
-          <string>MEM_en</string>
+          <string>~MEM_en</string>
         </entry>
       </elementAttributes>
       <pos x="12040" y="4400"/>
@@ -5844,7 +5844,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>NetName</string>
-          <string>MEM_en</string>
+          <string>~MEM_en</string>
         </entry>
       </elementAttributes>
       <pos x="13140" y="4220"/>
@@ -6414,7 +6414,7 @@ By Hayden B.</string>
     <visualElement>
       <elementName>NOr</elementName>
       <elementAttributes/>
-      <pos x="11260" y="2460"/>
+      <pos x="11180" y="2380"/>
     </visualElement>
     <visualElement>
       <elementName>PullDown</elementName>
@@ -6428,17 +6428,7 @@ By Hayden B.</string>
           <int>12</int>
         </entry>
       </elementAttributes>
-      <pos x="11420" y="2600"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Driver</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>12</int>
-        </entry>
-      </elementAttributes>
-      <pos x="11380" y="2620"/>
+      <pos x="11340" y="2520"/>
     </visualElement>
     <visualElement>
       <elementName>DipSwitch</elementName>
@@ -6748,7 +6738,7 @@ By Hayden B.</string>
           <string>HLT</string>
         </entry>
       </elementAttributes>
-      <pos x="11380" y="2340"/>
+      <pos x="11120" y="2240"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -6770,33 +6760,15 @@ By Hayden B.</string>
       <pos x="14580" y="4720"/>
     </visualElement>
     <visualElement>
-      <elementName>Tunnel</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="2"/>
-        </entry>
-        <entry>
-          <string>NetName</string>
-          <string>RST</string>
-        </entry>
-      </elementAttributes>
-      <pos x="11300" y="2580"/>
-    </visualElement>
-    <visualElement>
       <elementName>DipSwitch</elementName>
       <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>RESET</string>
-        </entry>
         <entry>
           <string>rotation</string>
           <rotation rotation="1"/>
         </entry>
         <entry>
-          <string>dipDefault</string>
-          <boolean>true</boolean>
+          <string>Label</string>
+          <string>RESET</string>
         </entry>
       </elementAttributes>
       <pos x="14860" y="4840"/>
@@ -6810,24 +6782,10 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>NetName</string>
-          <string>RST</string>
+          <string>~RST</string>
         </entry>
       </elementAttributes>
       <pos x="14860" y="4760"/>
-    </visualElement>
-    <visualElement>
-      <elementName>DriverInvSel</elementName>
-      <elementAttributes>
-        <entry>
-          <string>flipSelPos</string>
-          <boolean>true</boolean>
-        </entry>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-      </elementAttributes>
-      <pos x="14800" y="4800"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -6838,20 +6796,198 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>NetName</string>
-          <string>RST</string>
+          <string>~RST</string>
         </entry>
       </elementAttributes>
-      <pos x="11380" y="2240"/>
+      <pos x="11300" y="2160"/>
     </visualElement>
     <visualElement>
-      <elementName>PullDown</elementName>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="11100" y="2040"/>
+    </visualElement>
+    <visualElement>
+      <elementName>7474.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>shapeType</string>
+          <shapeType>SIMPLE</shapeType>
+        </entry>
+      </elementAttributes>
+      <pos x="12080" y="2680"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes/>
+      <pos x="12040" y="2900"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes/>
+      <pos x="12060" y="2640"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
       <elementAttributes>
         <entry>
           <string>rotation</string>
           <rotation rotation="2"/>
         </entry>
+        <entry>
+          <string>NetName</string>
+          <string>TEMP_clr</string>
+        </entry>
       </elementAttributes>
-      <pos x="11400" y="2320"/>
+      <pos x="11960" y="2740"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="11980" y="2740"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>~RST</string>
+        </entry>
+      </elementAttributes>
+      <pos x="11960" y="2680"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="14860" y="4820"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>~RST_SEQen</string>
+        </entry>
+      </elementAttributes>
+      <pos x="12240" y="2700"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>~RST_SEQen</string>
+        </entry>
+      </elementAttributes>
+      <pos x="11020" y="2080"/>
+    </visualElement>
+    <visualElement>
+      <elementName>DriverInvSel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>12</int>
+        </entry>
+      </elementAttributes>
+      <pos x="11300" y="2540"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>~RST</string>
+        </entry>
+      </elementAttributes>
+      <pos x="11960" y="2760"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>RST_ack</string>
+        </entry>
+      </elementAttributes>
+      <pos x="12180" y="2580"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>RST_ack</string>
+        </entry>
+      </elementAttributes>
+      <pos x="11960" y="2820"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="11980" y="2820"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>RST_IRen</string>
+        </entry>
+      </elementAttributes>
+      <pos x="12240" y="2720"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>RST_IRen</string>
+        </entry>
+      </elementAttributes>
+      <pos x="11220" y="2500"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>RST_IRen</string>
+        </entry>
+      </elementAttributes>
+      <pos x="11120" y="2280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NOr</elementName>
+      <elementAttributes/>
+      <pos x="11180" y="2240"/>
     </visualElement>
   </visualElements>
   <wires>
@@ -6864,10 +7000,6 @@ By Hayden B.</string>
       <p2 x="15320" y="3840"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2560"/>
-      <p2 x="12180" y="2560"/>
-    </wire>
-    <wire>
       <p1 x="13980" y="2560"/>
       <p2 x="14020" y="2560"/>
     </wire>
@@ -6878,6 +7010,50 @@ By Hayden B.</string>
     <wire>
       <p1 x="14840" y="2560"/>
       <p2 x="14860" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="11420" y="2560"/>
+      <p2 x="11560" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="11320" y="2560"/>
+      <p2 x="11360" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12660" y="2560"/>
+      <p2 x="12680" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12740" y="2560"/>
+      <p2 x="12780" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12900" y="2560"/>
+      <p2 x="12920" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12560" y="2560"/>
+      <p2 x="12600" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12140" y="2560"/>
+      <p2 x="12180" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2560"/>
+      <p2 x="12100" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12600" y="2560"/>
+      <p2 x="12620" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="11960" y="2820"/>
+      <p2 x="11980" y="2820"/>
+    </wire>
+    <wire>
+      <p1 x="12020" y="2820"/>
+      <p2 x="12080" y="2820"/>
     </wire>
     <wire>
       <p1 x="12240" y="4360"/>
@@ -6964,6 +7140,18 @@ By Hayden B.</string>
       <p2 x="12000" y="3340"/>
     </wire>
     <wire>
+      <p1 x="11700" y="2060"/>
+      <p2 x="11800" y="2060"/>
+    </wire>
+    <wire>
+      <p1 x="11420" y="2060"/>
+      <p2 x="11680" y="2060"/>
+    </wire>
+    <wire>
+      <p1 x="11160" y="2060"/>
+      <p2 x="11340" y="2060"/>
+    </wire>
+    <wire>
       <p1 x="11820" y="3600"/>
       <p2 x="11860" y="3600"/>
     </wire>
@@ -7000,26 +7188,6 @@ By Hayden B.</string>
       <p2 x="14300" y="3600"/>
     </wire>
     <wire>
-      <p1 x="12300" y="2320"/>
-      <p2 x="12320" y="2320"/>
-    </wire>
-    <wire>
-      <p1 x="12240" y="2320"/>
-      <p2 x="12260" y="2320"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2320"/>
-      <p2 x="12180" y="2320"/>
-    </wire>
-    <wire>
-      <p1 x="12620" y="2320"/>
-      <p2 x="12740" y="2320"/>
-    </wire>
-    <wire>
-      <p1 x="13000" y="2320"/>
-      <p2 x="13040" y="2320"/>
-    </wire>
-    <wire>
       <p1 x="14740" y="2320"/>
       <p2 x="14880" y="2320"/>
     </wire>
@@ -7032,24 +7200,32 @@ By Hayden B.</string>
       <p2 x="14660" y="2320"/>
     </wire>
     <wire>
+      <p1 x="12140" y="2320"/>
+      <p2 x="12180" y="2320"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2320"/>
+      <p2 x="12100" y="2320"/>
+    </wire>
+    <wire>
       <p1 x="14660" y="2320"/>
       <p2 x="14720" y="2320"/>
-    </wire>
-    <wire>
-      <p1 x="12140" y="2580"/>
-      <p2 x="12180" y="2580"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2580"/>
-      <p2 x="12100" y="2580"/>
     </wire>
     <wire>
       <p1 x="13980" y="2580"/>
       <p2 x="14020" y="2580"/>
     </wire>
     <wire>
-      <p1 x="11300" y="2580"/>
-      <p2 x="11380" y="2580"/>
+      <p1 x="11320" y="2580"/>
+      <p2 x="11340" y="2580"/>
+    </wire>
+    <wire>
+      <p1 x="12740" y="2580"/>
+      <p2 x="12800" y="2580"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2580"/>
+      <p2 x="12180" y="2580"/>
     </wire>
     <wire>
       <p1 x="14560" y="3860"/>
@@ -7078,6 +7254,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="14180" y="2840"/>
       <p2 x="14360" y="2840"/>
+    </wire>
+    <wire>
+      <p1 x="12060" y="2840"/>
+      <p2 x="12080" y="2840"/>
     </wire>
     <wire>
       <p1 x="14700" y="2840"/>
@@ -7172,16 +7352,32 @@ By Hayden B.</string>
       <p2 x="15340" y="2080"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2340"/>
-      <p2 x="12240" y="2340"/>
+      <p1 x="12540" y="2080"/>
+      <p2 x="12600" y="2080"/>
     </wire>
     <wire>
-      <p1 x="12540" y="2340"/>
-      <p2 x="12780" y="2340"/>
+      <p1 x="11460" y="2080"/>
+      <p2 x="11680" y="2080"/>
     </wire>
     <wire>
-      <p1 x="12900" y="2340"/>
-      <p2 x="12940" y="2340"/>
+      <p1 x="12080" y="2080"/>
+      <p2 x="12180" y="2080"/>
+    </wire>
+    <wire>
+      <p1 x="11300" y="2080"/>
+      <p2 x="11360" y="2080"/>
+    </wire>
+    <wire>
+      <p1 x="11860" y="2080"/>
+      <p2 x="11960" y="2080"/>
+    </wire>
+    <wire>
+      <p1 x="12020" y="2080"/>
+      <p2 x="12060" y="2080"/>
+    </wire>
+    <wire>
+      <p1 x="11020" y="2080"/>
+      <p2 x="11100" y="2080"/>
     </wire>
     <wire>
       <p1 x="14840" y="2340"/>
@@ -7192,20 +7388,20 @@ By Hayden B.</string>
       <p2 x="15220" y="2340"/>
     </wire>
     <wire>
-      <p1 x="11380" y="2340"/>
-      <p2 x="11400" y="2340"/>
+      <p1 x="12300" y="2340"/>
+      <p2 x="12320" y="2340"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2340"/>
+      <p2 x="12240" y="2340"/>
     </wire>
     <wire>
       <p1 x="15220" y="2340"/>
       <p2 x="15340" y="2340"/>
     </wire>
     <wire>
-      <p1 x="11400" y="2340"/>
-      <p2 x="11420" y="2340"/>
-    </wire>
-    <wire>
       <p1 x="12240" y="2340"/>
-      <p2 x="12320" y="2340"/>
+      <p2 x="12260" y="2340"/>
     </wire>
     <wire>
       <p1 x="13880" y="3620"/>
@@ -7232,14 +7428,6 @@ By Hayden B.</string>
       <p2 x="14980" y="3620"/>
     </wire>
     <wire>
-      <p1 x="12140" y="2600"/>
-      <p2 x="12180" y="2600"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2600"/>
-      <p2 x="12100" y="2600"/>
-    </wire>
-    <wire>
       <p1 x="14560" y="2600"/>
       <p2 x="14640" y="2600"/>
     </wire>
@@ -7248,8 +7436,20 @@ By Hayden B.</string>
       <p2 x="14000" y="2600"/>
     </wire>
     <wire>
-      <p1 x="13280" y="2600"/>
-      <p2 x="13300" y="2600"/>
+      <p1 x="12860" y="2600"/>
+      <p2 x="12900" y="2600"/>
+    </wire>
+    <wire>
+      <p1 x="12760" y="2600"/>
+      <p2 x="12780" y="2600"/>
+    </wire>
+    <wire>
+      <p1 x="12900" y="2600"/>
+      <p2 x="12960" y="2600"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2860"/>
+      <p2 x="12080" y="2860"/>
     </wire>
     <wire>
       <p1 x="12620" y="4400"/>
@@ -7364,24 +7564,52 @@ By Hayden B.</string>
       <p2 x="12180" y="3380"/>
     </wire>
     <wire>
-      <p1 x="11500" y="2360"/>
-      <p2 x="11540" y="2360"/>
+      <p1 x="11940" y="2100"/>
+      <p2 x="11960" y="2100"/>
     </wire>
     <wire>
-      <p1 x="11400" y="2360"/>
-      <p2 x="11440" y="2360"/>
+      <p1 x="11300" y="2100"/>
+      <p2 x="11360" y="2100"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2360"/>
-      <p2 x="12180" y="2360"/>
+      <p1 x="11720" y="2100"/>
+      <p2 x="11800" y="2100"/>
     </wire>
     <wire>
-      <p1 x="12860" y="2360"/>
-      <p2 x="12900" y="2360"/>
+      <p1 x="12080" y="2100"/>
+      <p2 x="12180" y="2100"/>
+    </wire>
+    <wire>
+      <p1 x="11240" y="2100"/>
+      <p2 x="11260" y="2100"/>
+    </wire>
+    <wire>
+      <p1 x="12680" y="2100"/>
+      <p2 x="12820" y="2100"/>
+    </wire>
+    <wire>
+      <p1 x="13280" y="2100"/>
+      <p2 x="13420" y="2100"/>
+    </wire>
+    <wire>
+      <p1 x="11520" y="2100"/>
+      <p2 x="11680" y="2100"/>
     </wire>
     <wire>
       <p1 x="14840" y="2360"/>
       <p2 x="14860" y="2360"/>
+    </wire>
+    <wire>
+      <p1 x="12140" y="2360"/>
+      <p2 x="12180" y="2360"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2360"/>
+      <p2 x="12100" y="2360"/>
+    </wire>
+    <wire>
+      <p1 x="12240" y="2360"/>
+      <p2 x="12320" y="2360"/>
     </wire>
     <wire>
       <p1 x="14560" y="3640"/>
@@ -7392,18 +7620,6 @@ By Hayden B.</string>
       <p2 x="15320" y="3640"/>
     </wire>
     <wire>
-      <p1 x="11300" y="2620"/>
-      <p2 x="11320" y="2620"/>
-    </wire>
-    <wire>
-      <p1 x="11340" y="2620"/>
-      <p2 x="11360" y="2620"/>
-    </wire>
-    <wire>
-      <p1 x="11400" y="2620"/>
-      <p2 x="11420" y="2620"/>
-    </wire>
-    <wire>
       <p1 x="14180" y="2620"/>
       <p2 x="14400" y="2620"/>
     </wire>
@@ -7412,20 +7628,12 @@ By Hayden B.</string>
       <p2 x="13860" y="2620"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2620"/>
-      <p2 x="12180" y="2620"/>
-    </wire>
-    <wire>
-      <p1 x="12980" y="2620"/>
-      <p2 x="13180" y="2620"/>
+      <p1 x="12600" y="2620"/>
+      <p2 x="12800" y="2620"/>
     </wire>
     <wire>
       <p1 x="13860" y="2620"/>
       <p2 x="14020" y="2620"/>
-    </wire>
-    <wire>
-      <p1 x="11420" y="2620"/>
-      <p2 x="11440" y="2620"/>
     </wire>
     <wire>
       <p1 x="11040" y="3900"/>
@@ -7490,6 +7698,50 @@ By Hayden B.</string>
     <wire>
       <p1 x="15520" y="3140"/>
       <p2 x="15600" y="3140"/>
+    </wire>
+    <wire>
+      <p1 x="11020" y="2120"/>
+      <p2 x="11100" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="15300" y="2120"/>
+      <p2 x="15320" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="14380" y="2120"/>
+      <p2 x="15260" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="11280" y="2120"/>
+      <p2 x="11360" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="11240" y="2120"/>
+      <p2 x="11260" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2120"/>
+      <p2 x="12180" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="12580" y="2120"/>
+      <p2 x="12620" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="12880" y="2120"/>
+      <p2 x="13080" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="13340" y="2120"/>
+      <p2 x="13420" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="11560" y="2120"/>
+      <p2 x="11680" y="2120"/>
+    </wire>
+    <wire>
+      <p1 x="15320" y="2120"/>
+      <p2 x="15340" y="2120"/>
     </wire>
     <wire>
       <p1 x="12800" y="4680"/>
@@ -7560,34 +7812,6 @@ By Hayden B.</string>
       <p2 x="12300" y="3400"/>
     </wire>
     <wire>
-      <p1 x="15300" y="2120"/>
-      <p2 x="15320" y="2120"/>
-    </wire>
-    <wire>
-      <p1 x="14380" y="2120"/>
-      <p2 x="15260" y="2120"/>
-    </wire>
-    <wire>
-      <p1 x="15320" y="2120"/>
-      <p2 x="15340" y="2120"/>
-    </wire>
-    <wire>
-      <p1 x="11400" y="2380"/>
-      <p2 x="11420" y="2380"/>
-    </wire>
-    <wire>
-      <p1 x="12140" y="2380"/>
-      <p2 x="12180" y="2380"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2380"/>
-      <p2 x="12100" y="2380"/>
-    </wire>
-    <wire>
-      <p1 x="12640" y="2380"/>
-      <p2 x="12780" y="2380"/>
-    </wire>
-    <wire>
       <p1 x="14560" y="3660"/>
       <p2 x="14600" y="3660"/>
     </wire>
@@ -7600,12 +7824,20 @@ By Hayden B.</string>
       <p2 x="15340" y="3660"/>
     </wire>
     <wire>
-      <p1 x="11500" y="2640"/>
-      <p2 x="11640" y="2640"/>
+      <p1 x="10900" y="2380"/>
+      <p2 x="10920" y="2380"/>
     </wire>
     <wire>
-      <p1 x="11400" y="2640"/>
-      <p2 x="11440" y="2640"/>
+      <p1 x="11120" y="2380"/>
+      <p2 x="11180" y="2380"/>
+    </wire>
+    <wire>
+      <p1 x="12140" y="2380"/>
+      <p2 x="12180" y="2380"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2380"/>
+      <p2 x="12100" y="2380"/>
     </wire>
     <wire>
       <p1 x="14460" y="2640"/>
@@ -7616,24 +7848,8 @@ By Hayden B.</string>
       <p2 x="14700" y="2640"/>
     </wire>
     <wire>
-      <p1 x="12140" y="2640"/>
-      <p2 x="12180" y="2640"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2640"/>
-      <p2 x="12100" y="2640"/>
-    </wire>
-    <wire>
-      <p1 x="13240" y="2640"/>
-      <p2 x="13280" y="2640"/>
-    </wire>
-    <wire>
       <p1 x="14700" y="2640"/>
       <p2 x="14720" y="2640"/>
-    </wire>
-    <wire>
-      <p1 x="13280" y="2640"/>
-      <p2 x="13340" y="2640"/>
     </wire>
     <wire>
       <p1 x="11840" y="3920"/>
@@ -7800,24 +8016,36 @@ By Hayden B.</string>
       <p2 x="14980" y="3420"/>
     </wire>
     <wire>
-      <p1 x="11700" y="2140"/>
-      <p2 x="11800" y="2140"/>
+      <p1 x="12080" y="2140"/>
+      <p2 x="12180" y="2140"/>
     </wire>
     <wire>
-      <p1 x="11500" y="2140"/>
-      <p2 x="11680" y="2140"/>
+      <p1 x="12540" y="2140"/>
+      <p2 x="12660" y="2140"/>
     </wire>
     <wire>
-      <p1 x="11380" y="2140"/>
-      <p2 x="11420" y="2140"/>
+      <p1 x="12780" y="2140"/>
+      <p2 x="12820" y="2140"/>
     </wire>
     <wire>
-      <p1 x="12140" y="2400"/>
-      <p2 x="12180" y="2400"/>
+      <p1 x="13140" y="2140"/>
+      <p2 x="13160" y="2140"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2400"/>
-      <p2 x="12100" y="2400"/>
+      <p1 x="13300" y="2140"/>
+      <p2 x="13400" y="2140"/>
+    </wire>
+    <wire>
+      <p1 x="11160" y="2140"/>
+      <p2 x="11340" y="2140"/>
+    </wire>
+    <wire>
+      <p1 x="13160" y="2140"/>
+      <p2 x="13260" y="2140"/>
+    </wire>
+    <wire>
+      <p1 x="13400" y="2140"/>
+      <p2 x="13420" y="2140"/>
     </wire>
     <wire>
       <p1 x="14380" y="2400"/>
@@ -7828,16 +8056,20 @@ By Hayden B.</string>
       <p2 x="14020" y="2400"/>
     </wire>
     <wire>
-      <p1 x="11400" y="2660"/>
-      <p2 x="11420" y="2660"/>
+      <p1 x="10940" y="2400"/>
+      <p2 x="10980" y="2400"/>
+    </wire>
+    <wire>
+      <p1 x="11260" y="2400"/>
+      <p2 x="11360" y="2400"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2400"/>
+      <p2 x="12180" y="2400"/>
     </wire>
     <wire>
       <p1 x="14380" y="2660"/>
       <p2 x="14400" y="2660"/>
-    </wire>
-    <wire>
-      <p1 x="13160" y="2660"/>
-      <p2 x="13180" y="2660"/>
     </wire>
     <wire>
       <p1 x="10960" y="3940"/>
@@ -7936,6 +8168,30 @@ By Hayden B.</string>
       <p2 x="11500" y="4460"/>
     </wire>
     <wire>
+      <p1 x="11020" y="2160"/>
+      <p2 x="11040" y="2160"/>
+    </wire>
+    <wire>
+      <p1 x="11080" y="2160"/>
+      <p2 x="11100" y="2160"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2160"/>
+      <p2 x="12180" y="2160"/>
+    </wire>
+    <wire>
+      <p1 x="12740" y="2160"/>
+      <p2 x="12780" y="2160"/>
+    </wire>
+    <wire>
+      <p1 x="13040" y="2160"/>
+      <p2 x="13080" y="2160"/>
+    </wire>
+    <wire>
+      <p1 x="11300" y="2160"/>
+      <p2 x="11340" y="2160"/>
+    </wire>
+    <wire>
       <p1 x="12180" y="4720"/>
       <p2 x="12200" y="4720"/>
     </wire>
@@ -7984,30 +8240,6 @@ By Hayden B.</string>
       <p2 x="12120" y="3440"/>
     </wire>
     <wire>
-      <p1 x="12540" y="2160"/>
-      <p2 x="12600" y="2160"/>
-    </wire>
-    <wire>
-      <p1 x="11540" y="2160"/>
-      <p2 x="11680" y="2160"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2160"/>
-      <p2 x="12180" y="2160"/>
-    </wire>
-    <wire>
-      <p1 x="11380" y="2160"/>
-      <p2 x="11440" y="2160"/>
-    </wire>
-    <wire>
-      <p1 x="11860" y="2160"/>
-      <p2 x="11960" y="2160"/>
-    </wire>
-    <wire>
-      <p1 x="12020" y="2160"/>
-      <p2 x="12060" y="2160"/>
-    </wire>
-    <wire>
       <p1 x="11800" y="3700"/>
       <p2 x="11880" y="3700"/>
     </wire>
@@ -8022,14 +8254,6 @@ By Hayden B.</string>
     <wire>
       <p1 x="15220" y="3700"/>
       <p2 x="15280" y="3700"/>
-    </wire>
-    <wire>
-      <p1 x="12300" y="2420"/>
-      <p2 x="12320" y="2420"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2420"/>
-      <p2 x="12240" y="2420"/>
     </wire>
     <wire>
       <p1 x="13980" y="2420"/>
@@ -8048,28 +8272,32 @@ By Hayden B.</string>
       <p2 x="14180" y="2420"/>
     </wire>
     <wire>
-      <p1 x="12240" y="2420"/>
-      <p2 x="12260" y="2420"/>
+      <p1 x="10940" y="2420"/>
+      <p2 x="10980" y="2420"/>
     </wire>
     <wire>
-      <p1 x="13040" y="2680"/>
-      <p2 x="13060" y="2680"/>
+      <p1 x="11420" y="2420"/>
+      <p2 x="11520" y="2420"/>
     </wire>
     <wire>
-      <p1 x="13120" y="2680"/>
-      <p2 x="13160" y="2680"/>
+      <p1 x="11320" y="2420"/>
+      <p2 x="11360" y="2420"/>
     </wire>
     <wire>
-      <p1 x="13280" y="2680"/>
-      <p2 x="13300" y="2680"/>
+      <p1 x="11040" y="2420"/>
+      <p2 x="11120" y="2420"/>
     </wire>
     <wire>
-      <p1 x="12800" y="2680"/>
-      <p2 x="12980" y="2680"/>
+      <p1 x="12080" y="2420"/>
+      <p2 x="12180" y="2420"/>
     </wire>
     <wire>
-      <p1 x="12980" y="2680"/>
-      <p2 x="13000" y="2680"/>
+      <p1 x="11120" y="2420"/>
+      <p2 x="11180" y="2420"/>
+    </wire>
+    <wire>
+      <p1 x="11960" y="2680"/>
+      <p2 x="12080" y="2680"/>
     </wire>
     <wire>
       <p1 x="12960" y="4220"/>
@@ -8212,48 +8440,24 @@ By Hayden B.</string>
       <p2 x="14980" y="3460"/>
     </wire>
     <wire>
-      <p1 x="11940" y="2180"/>
-      <p2 x="11960" y="2180"/>
-    </wire>
-    <wire>
-      <p1 x="11380" y="2180"/>
-      <p2 x="11440" y="2180"/>
-    </wire>
-    <wire>
-      <p1 x="11720" y="2180"/>
-      <p2 x="11800" y="2180"/>
-    </wire>
-    <wire>
       <p1 x="12080" y="2180"/>
       <p2 x="12180" y="2180"/>
     </wire>
     <wire>
-      <p1 x="11320" y="2180"/>
-      <p2 x="11340" y="2180"/>
+      <p1 x="12600" y="2180"/>
+      <p2 x="12680" y="2180"/>
     </wire>
     <wire>
-      <p1 x="12680" y="2180"/>
-      <p2 x="12820" y="2180"/>
+      <p1 x="13160" y="2180"/>
+      <p2 x="13200" y="2180"/>
     </wire>
     <wire>
-      <p1 x="13280" y="2180"/>
-      <p2 x="13420" y="2180"/>
+      <p1 x="13240" y="2180"/>
+      <p2 x="13320" y="2180"/>
     </wire>
     <wire>
-      <p1 x="11600" y="2180"/>
-      <p2 x="11680" y="2180"/>
-    </wire>
-    <wire>
-      <p1 x="12140" y="2440"/>
-      <p2 x="12180" y="2440"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2440"/>
-      <p2 x="12100" y="2440"/>
-    </wire>
-    <wire>
-      <p1 x="12240" y="2440"/>
-      <p2 x="12320" y="2440"/>
+      <p1 x="13360" y="2180"/>
+      <p2 x="13400" y="2180"/>
     </wire>
     <wire>
       <p1 x="13980" y="2440"/>
@@ -8270,6 +8474,22 @@ By Hayden B.</string>
     <wire>
       <p1 x="14340" y="2440"/>
       <p2 x="14420" y="2440"/>
+    </wire>
+    <wire>
+      <p1 x="10940" y="2440"/>
+      <p2 x="10960" y="2440"/>
+    </wire>
+    <wire>
+      <p1 x="11320" y="2440"/>
+      <p2 x="11340" y="2440"/>
+    </wire>
+    <wire>
+      <p1 x="12140" y="2440"/>
+      <p2 x="12180" y="2440"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2440"/>
+      <p2 x="12100" y="2440"/>
     </wire>
     <wire>
       <p1 x="15200" y="2440"/>
@@ -8292,8 +8512,12 @@ By Hayden B.</string>
       <p2 x="14640" y="2700"/>
     </wire>
     <wire>
-      <p1 x="13120" y="2700"/>
-      <p2 x="13180" y="2700"/>
+      <p1 x="12040" y="2700"/>
+      <p2 x="12080" y="2700"/>
+    </wire>
+    <wire>
+      <p1 x="12180" y="2700"/>
+      <p2 x="12240" y="2700"/>
     </wire>
     <wire>
       <p1 x="12940" y="4240"/>
@@ -8420,56 +8644,16 @@ By Hayden B.</string>
       <p2 x="12080" y="3480"/>
     </wire>
     <wire>
-      <p1 x="11360" y="2200"/>
-      <p2 x="11440" y="2200"/>
-    </wire>
-    <wire>
-      <p1 x="11320" y="2200"/>
-      <p2 x="11340" y="2200"/>
+      <p1 x="15200" y="2200"/>
+      <p2 x="15280" y="2200"/>
     </wire>
     <wire>
       <p1 x="12080" y="2200"/>
       <p2 x="12180" y="2200"/>
     </wire>
     <wire>
-      <p1 x="10980" y="2200"/>
-      <p2 x="11140" y="2200"/>
-    </wire>
-    <wire>
-      <p1 x="12580" y="2200"/>
-      <p2 x="12620" y="2200"/>
-    </wire>
-    <wire>
-      <p1 x="12880" y="2200"/>
-      <p2 x="13080" y="2200"/>
-    </wire>
-    <wire>
-      <p1 x="13340" y="2200"/>
-      <p2 x="13420" y="2200"/>
-    </wire>
-    <wire>
-      <p1 x="15200" y="2200"/>
-      <p2 x="15280" y="2200"/>
-    </wire>
-    <wire>
-      <p1 x="11640" y="2200"/>
-      <p2 x="11680" y="2200"/>
-    </wire>
-    <wire>
-      <p1 x="10980" y="2460"/>
-      <p2 x="11000" y="2460"/>
-    </wire>
-    <wire>
-      <p1 x="11200" y="2460"/>
-      <p2 x="11260" y="2460"/>
-    </wire>
-    <wire>
-      <p1 x="12140" y="2460"/>
-      <p2 x="12180" y="2460"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2460"/>
-      <p2 x="12100" y="2460"/>
+      <p1 x="12540" y="2200"/>
+      <p2 x="12720" y="2200"/>
     </wire>
     <wire>
       <p1 x="14840" y="2460"/>
@@ -8478,6 +8662,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="14340" y="2460"/>
       <p2 x="14420" y="2460"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2460"/>
+      <p2 x="12180" y="2460"/>
     </wire>
     <wire>
       <p1 x="13880" y="3740"/>
@@ -8500,16 +8688,12 @@ By Hayden B.</string>
       <p2 x="14400" y="2720"/>
     </wire>
     <wire>
-      <p1 x="13240" y="2720"/>
-      <p2 x="13280" y="2720"/>
+      <p1 x="12040" y="2720"/>
+      <p2 x="12080" y="2720"/>
     </wire>
     <wire>
-      <p1 x="13140" y="2720"/>
-      <p2 x="13160" y="2720"/>
-    </wire>
-    <wire>
-      <p1 x="13280" y="2720"/>
-      <p2 x="13340" y="2720"/>
+      <p1 x="12180" y="2720"/>
+      <p2 x="12240" y="2720"/>
     </wire>
     <wire>
       <p1 x="12620" y="4260"/>
@@ -8608,48 +8792,20 @@ By Hayden B.</string>
       <p2 x="12680" y="3500"/>
     </wire>
     <wire>
-      <p1 x="11200" y="2220"/>
-      <p2 x="11420" y="2220"/>
+      <p1 x="14500" y="2220"/>
+      <p2 x="14600" y="2220"/>
     </wire>
     <wire>
       <p1 x="12080" y="2220"/>
       <p2 x="12180" y="2220"/>
     </wire>
     <wire>
-      <p1 x="12540" y="2220"/>
-      <p2 x="12660" y="2220"/>
+      <p1 x="12800" y="2220"/>
+      <p2 x="12940" y="2220"/>
     </wire>
     <wire>
-      <p1 x="12780" y="2220"/>
-      <p2 x="12820" y="2220"/>
-    </wire>
-    <wire>
-      <p1 x="13140" y="2220"/>
-      <p2 x="13160" y="2220"/>
-    </wire>
-    <wire>
-      <p1 x="13300" y="2220"/>
-      <p2 x="13400" y="2220"/>
-    </wire>
-    <wire>
-      <p1 x="14500" y="2220"/>
-      <p2 x="14600" y="2220"/>
-    </wire>
-    <wire>
-      <p1 x="13160" y="2220"/>
-      <p2 x="13260" y="2220"/>
-    </wire>
-    <wire>
-      <p1 x="13400" y="2220"/>
-      <p2 x="13420" y="2220"/>
-    </wire>
-    <wire>
-      <p1 x="11020" y="2480"/>
-      <p2 x="11060" y="2480"/>
-    </wire>
-    <wire>
-      <p1 x="11340" y="2480"/>
-      <p2 x="11440" y="2480"/>
+      <p1 x="12900" y="2480"/>
+      <p2 x="12920" y="2480"/>
     </wire>
     <wire>
       <p1 x="12080" y="2480"/>
@@ -8700,16 +8856,20 @@ By Hayden B.</string>
       <p2 x="14580" y="3760"/>
     </wire>
     <wire>
-      <p1 x="12980" y="2740"/>
-      <p2 x="13180" y="2740"/>
-    </wire>
-    <wire>
       <p1 x="14460" y="2740"/>
       <p2 x="14620" y="2740"/>
     </wire>
     <wire>
       <p1 x="14660" y="2740"/>
       <p2 x="14700" y="2740"/>
+    </wire>
+    <wire>
+      <p1 x="12020" y="2740"/>
+      <p2 x="12080" y="2740"/>
+    </wire>
+    <wire>
+      <p1 x="11960" y="2740"/>
+      <p2 x="11980" y="2740"/>
     </wire>
     <wire>
       <p1 x="14700" y="2740"/>
@@ -8800,6 +8960,46 @@ By Hayden B.</string>
       <p2 x="14980" y="3260"/>
     </wire>
     <wire>
+      <p1 x="12300" y="2240"/>
+      <p2 x="12320" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="12240" y="2240"/>
+      <p2 x="12260" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2240"/>
+      <p2 x="12180" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="12620" y="2240"/>
+      <p2 x="12740" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="13000" y="2240"/>
+      <p2 x="13040" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="15220" y="2240"/>
+      <p2 x="15260" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="15300" y="2240"/>
+      <p2 x="15320" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="14500" y="2240"/>
+      <p2 x="14560" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="11120" y="2240"/>
+      <p2 x="11180" y="2240"/>
+    </wire>
+    <wire>
+      <p1 x="15320" y="2240"/>
+      <p2 x="15340" y="2240"/>
+    </wire>
+    <wire>
       <p1 x="12700" y="3520"/>
       <p2 x="12720" y="3520"/>
     </wire>
@@ -8828,68 +9028,16 @@ By Hayden B.</string>
       <p2 x="12200" y="4800"/>
     </wire>
     <wire>
-      <p1 x="14820" y="4800"/>
-      <p2 x="14860" y="4800"/>
+      <p1 x="12600" y="2500"/>
+      <p2 x="12800" y="2500"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2240"/>
-      <p2 x="12180" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="10980" y="2240"/>
-      <p2 x="11080" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="11120" y="2240"/>
-      <p2 x="11140" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="12740" y="2240"/>
-      <p2 x="12780" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="13040" y="2240"/>
-      <p2 x="13080" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="15220" y="2240"/>
-      <p2 x="15260" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="15300" y="2240"/>
-      <p2 x="15320" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="14500" y="2240"/>
-      <p2 x="14560" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="11380" y="2240"/>
-      <p2 x="11440" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="15320" y="2240"/>
-      <p2 x="15340" y="2240"/>
-    </wire>
-    <wire>
-      <p1 x="11020" y="2500"/>
-      <p2 x="11060" y="2500"/>
-    </wire>
-    <wire>
-      <p1 x="11500" y="2500"/>
-      <p2 x="11600" y="2500"/>
-    </wire>
-    <wire>
-      <p1 x="11400" y="2500"/>
-      <p2 x="11440" y="2500"/>
-    </wire>
-    <wire>
-      <p1 x="11120" y="2500"/>
-      <p2 x="11220" y="2500"/>
+      <p1 x="12140" y="2500"/>
+      <p2 x="12180" y="2500"/>
     </wire>
     <wire>
       <p1 x="12080" y="2500"/>
-      <p2 x="12180" y="2500"/>
+      <p2 x="12100" y="2500"/>
     </wire>
     <wire>
       <p1 x="14340" y="2500"/>
@@ -8897,7 +9045,7 @@ By Hayden B.</string>
     </wire>
     <wire>
       <p1 x="11220" y="2500"/>
-      <p2 x="11260" y="2500"/>
+      <p2 x="11300" y="2500"/>
     </wire>
     <wire>
       <p1 x="12700" y="3780"/>
@@ -8934,6 +9082,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="14380" y="2760"/>
       <p2 x="14400" y="2760"/>
+    </wire>
+    <wire>
+      <p1 x="11960" y="2760"/>
+      <p2 x="12080" y="2760"/>
     </wire>
     <wire>
       <p1 x="12740" y="4300"/>
@@ -8984,6 +9136,26 @@ By Hayden B.</string>
       <p2 x="11340" y="3280"/>
     </wire>
     <wire>
+      <p1 x="12080" y="2260"/>
+      <p2 x="12240" y="2260"/>
+    </wire>
+    <wire>
+      <p1 x="12540" y="2260"/>
+      <p2 x="12780" y="2260"/>
+    </wire>
+    <wire>
+      <p1 x="12900" y="2260"/>
+      <p2 x="12940" y="2260"/>
+    </wire>
+    <wire>
+      <p1 x="11260" y="2260"/>
+      <p2 x="11360" y="2260"/>
+    </wire>
+    <wire>
+      <p1 x="12240" y="2260"/>
+      <p2 x="12320" y="2260"/>
+    </wire>
+    <wire>
       <p1 x="12700" y="3540"/>
       <p2 x="12720" y="3540"/>
     </wire>
@@ -8992,32 +9164,8 @@ By Hayden B.</string>
       <p2 x="12800" y="3540"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2260"/>
-      <p2 x="12180" y="2260"/>
-    </wire>
-    <wire>
-      <p1 x="12600" y="2260"/>
-      <p2 x="12680" y="2260"/>
-    </wire>
-    <wire>
-      <p1 x="13160" y="2260"/>
-      <p2 x="13200" y="2260"/>
-    </wire>
-    <wire>
-      <p1 x="13240" y="2260"/>
-      <p2 x="13320" y="2260"/>
-    </wire>
-    <wire>
-      <p1 x="13360" y="2260"/>
-      <p2 x="13400" y="2260"/>
-    </wire>
-    <wire>
-      <p1 x="11020" y="2520"/>
-      <p2 x="11040" y="2520"/>
-    </wire>
-    <wire>
-      <p1 x="11400" y="2520"/>
-      <p2 x="11420" y="2520"/>
+      <p1 x="12860" y="2520"/>
+      <p2 x="12900" y="2520"/>
     </wire>
     <wire>
       <p1 x="12140" y="2520"/>
@@ -9042,6 +9190,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="14080" y="2520"/>
       <p2 x="14420" y="2520"/>
+    </wire>
+    <wire>
+      <p1 x="12900" y="2520"/>
+      <p2 x="12960" y="2520"/>
     </wire>
     <wire>
       <p1 x="12700" y="3800"/>
@@ -9074,6 +9226,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="14560" y="3800"/>
       <p2 x="14600" y="3800"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2780"/>
+      <p2 x="12080" y="2780"/>
     </wire>
     <wire>
       <p1 x="12240" y="4320"/>
@@ -9156,6 +9312,34 @@ By Hayden B.</string>
       <p2 x="12680" y="3300"/>
     </wire>
     <wire>
+      <p1 x="11420" y="2280"/>
+      <p2 x="11460" y="2280"/>
+    </wire>
+    <wire>
+      <p1 x="11320" y="2280"/>
+      <p2 x="11360" y="2280"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2280"/>
+      <p2 x="12180" y="2280"/>
+    </wire>
+    <wire>
+      <p1 x="12860" y="2280"/>
+      <p2 x="12900" y="2280"/>
+    </wire>
+    <wire>
+      <p1 x="14580" y="2280"/>
+      <p2 x="14660" y="2280"/>
+    </wire>
+    <wire>
+      <p1 x="14500" y="2280"/>
+      <p2 x="14520" y="2280"/>
+    </wire>
+    <wire>
+      <p1 x="11120" y="2280"/>
+      <p2 x="11180" y="2280"/>
+    </wire>
+    <wire>
       <p1 x="12100" y="4840"/>
       <p2 x="12160" y="4840"/>
     </wire>
@@ -9184,20 +9368,24 @@ By Hayden B.</string>
       <p2 x="14580" y="3560"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2280"/>
-      <p2 x="12180" y="2280"/>
+      <p1 x="12780" y="2540"/>
+      <p2 x="12800" y="2540"/>
     </wire>
     <wire>
-      <p1 x="12540" y="2280"/>
-      <p2 x="12720" y="2280"/>
+      <p1 x="11220" y="2540"/>
+      <p2 x="11240" y="2540"/>
     </wire>
     <wire>
-      <p1 x="14580" y="2280"/>
-      <p2 x="14660" y="2280"/>
+      <p1 x="11260" y="2540"/>
+      <p2 x="11280" y="2540"/>
     </wire>
     <wire>
-      <p1 x="14500" y="2280"/>
-      <p2 x="14520" y="2280"/>
+      <p1 x="11320" y="2540"/>
+      <p2 x="11340" y="2540"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2540"/>
+      <p2 x="12180" y="2540"/>
     </wire>
     <wire>
       <p1 x="13940" y="2540"/>
@@ -9216,12 +9404,12 @@ By Hayden B.</string>
       <p2 x="14420" y="2540"/>
     </wire>
     <wire>
-      <p1 x="12080" y="2540"/>
-      <p2 x="12180" y="2540"/>
-    </wire>
-    <wire>
       <p1 x="15180" y="2540"/>
       <p2 x="15340" y="2540"/>
+    </wire>
+    <wire>
+      <p1 x="11340" y="2540"/>
+      <p2 x="11360" y="2540"/>
     </wire>
     <wire>
       <p1 x="12700" y="3820"/>
@@ -9278,6 +9466,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="14560" y="2800"/>
       <p2 x="14640" y="2800"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2800"/>
+      <p2 x="12080" y="2800"/>
     </wire>
     <wire>
       <p1 x="11400" y="4340"/>
@@ -9384,6 +9576,26 @@ By Hayden B.</string>
       <p2 x="11340" y="3320"/>
     </wire>
     <wire>
+      <p1 x="11020" y="2040"/>
+      <p2 x="11100" y="2040"/>
+    </wire>
+    <wire>
+      <p1 x="11320" y="2300"/>
+      <p2 x="11340" y="2300"/>
+    </wire>
+    <wire>
+      <p1 x="12140" y="2300"/>
+      <p2 x="12180" y="2300"/>
+    </wire>
+    <wire>
+      <p1 x="12080" y="2300"/>
+      <p2 x="12100" y="2300"/>
+    </wire>
+    <wire>
+      <p1 x="12640" y="2300"/>
+      <p2 x="12780" y="2300"/>
+    </wire>
+    <wire>
       <p1 x="15260" y="3580"/>
       <p2 x="15340" y="3580"/>
     </wire>
@@ -9398,14 +9610,6 @@ By Hayden B.</string>
     <wire>
       <p1 x="13880" y="3580"/>
       <p2 x="13920" y="3580"/>
-    </wire>
-    <wire>
-      <p1 x="12080" y="2300"/>
-      <p2 x="12180" y="2300"/>
-    </wire>
-    <wire>
-      <p1 x="12800" y="2300"/>
-      <p2 x="12940" y="2300"/>
     </wire>
     <wire>
       <p1 x="14080" y="4540"/>
@@ -9436,6 +9640,10 @@ By Hayden B.</string>
       <p2 x="11520" y="4600"/>
     </wire>
     <wire>
+      <p1 x="11520" y="2100"/>
+      <p2 x="11520" y="2420"/>
+    </wire>
+    <wire>
       <p1 x="15620" y="3780"/>
       <p2 x="15620" y="3800"/>
     </wire>
@@ -9450,6 +9658,26 @@ By Hayden B.</string>
     <wire>
       <p1 x="13320" y="4580"/>
       <p2 x="13320" y="4720"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2700"/>
+      <p2 x="12040" y="2720"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2720"/>
+      <p2 x="12040" y="2780"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2780"/>
+      <p2 x="12040" y="2800"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2800"/>
+      <p2 x="12040" y="2860"/>
+    </wire>
+    <wire>
+      <p1 x="12040" y="2860"/>
+      <p2 x="12040" y="2900"/>
     </wire>
     <wire>
       <p1 x="11020" y="3220"/>
@@ -9481,10 +9709,10 @@ By Hayden B.</string>
     </wire>
     <wire>
       <p1 x="14860" y="4760"/>
-      <p2 x="14860" y="4800"/>
+      <p2 x="14860" y="4780"/>
     </wire>
     <wire>
-      <p1 x="14860" y="4800"/>
+      <p1 x="14860" y="4820"/>
       <p2 x="14860" y="4840"/>
     </wire>
     <wire>
@@ -9520,10 +9748,6 @@ By Hayden B.</string>
       <p2 x="12820" y="4740"/>
     </wire>
     <wire>
-      <p1 x="11540" y="2160"/>
-      <p2 x="11540" y="2360"/>
-    </wire>
-    <wire>
       <p1 x="11540" y="4340"/>
       <p2 x="11540" y="4580"/>
     </wire>
@@ -9548,8 +9772,8 @@ By Hayden B.</string>
       <p2 x="14620" y="4840"/>
     </wire>
     <wire>
-      <p1 x="13340" y="2200"/>
-      <p2 x="13340" y="2240"/>
+      <p1 x="13340" y="2120"/>
+      <p2 x="13340" y="2160"/>
     </wire>
     <wire>
       <p1 x="13340" y="4340"/>
@@ -9564,20 +9788,28 @@ By Hayden B.</string>
       <p2 x="12060" y="4740"/>
     </wire>
     <wire>
+      <p1 x="12060" y="2640"/>
+      <p2 x="12060" y="2840"/>
+    </wire>
+    <wire>
       <p1 x="12320" y="4420"/>
       <p2 x="12320" y="4440"/>
     </wire>
     <wire>
-      <p1 x="12580" y="2420"/>
-      <p2 x="12580" y="2460"/>
+      <p1 x="12580" y="2340"/>
+      <p2 x="12580" y="2380"/>
     </wire>
     <wire>
-      <p1 x="12580" y="2200"/>
-      <p2 x="12580" y="2400"/>
+      <p1 x="12580" y="2120"/>
+      <p2 x="12580" y="2320"/>
     </wire>
     <wire>
       <p1 x="11300" y="3180"/>
       <p2 x="11300" y="3220"/>
+    </wire>
+    <wire>
+      <p1 x="11300" y="2500"/>
+      <p2 x="11300" y="2520"/>
     </wire>
     <wire>
       <p1 x="13860" y="2560"/>
@@ -9602,6 +9834,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="11560" y="4280"/>
       <p2 x="11560" y="4560"/>
+    </wire>
+    <wire>
+      <p1 x="11560" y="2120"/>
+      <p2 x="11560" y="2560"/>
     </wire>
     <wire>
       <p1 x="14380" y="2120"/>
@@ -9680,16 +9916,28 @@ By Hayden B.</string>
       <p2 x="15160" y="2320"/>
     </wire>
     <wire>
-      <p1 x="12600" y="2260"/>
-      <p2 x="12600" y="2400"/>
+      <p1 x="12600" y="2180"/>
+      <p2 x="12600" y="2320"/>
     </wire>
     <wire>
       <p1 x="12600" y="3300"/>
       <p2 x="12600" y="3500"/>
     </wire>
     <wire>
+      <p1 x="12600" y="2500"/>
+      <p2 x="12600" y="2560"/>
+    </wire>
+    <wire>
+      <p1 x="12600" y="2620"/>
+      <p2 x="12600" y="2640"/>
+    </wire>
+    <wire>
       <p1 x="12600" y="3500"/>
       <p2 x="12600" y="3700"/>
+    </wire>
+    <wire>
+      <p1 x="12600" y="2560"/>
+      <p2 x="12600" y="2620"/>
     </wire>
     <wire>
       <p1 x="11320" y="3200"/>
@@ -9768,6 +10016,10 @@ By Hayden B.</string>
       <p2 x="11080" y="3520"/>
     </wire>
     <wire>
+      <p1 x="11340" y="2520"/>
+      <p2 x="11340" y="2540"/>
+    </wire>
+    <wire>
       <p1 x="15180" y="2280"/>
       <p2 x="15180" y="2540"/>
     </wire>
@@ -9792,8 +10044,8 @@ By Hayden B.</string>
       <p2 x="13900" y="4840"/>
     </wire>
     <wire>
-      <p1 x="12620" y="2320"/>
-      <p2 x="12620" y="2460"/>
+      <p1 x="12620" y="2240"/>
+      <p2 x="12620" y="2380"/>
     </wire>
     <wire>
       <p1 x="12620" y="3200"/>
@@ -9802,10 +10054,6 @@ By Hayden B.</string>
     <wire>
       <p1 x="12620" y="3420"/>
       <p2 x="12620" y="3600"/>
-    </wire>
-    <wire>
-      <p1 x="11600" y="2180"/>
-      <p2 x="11600" y="2500"/>
     </wire>
     <wire>
       <p1 x="15440" y="3760"/>
@@ -9824,10 +10072,6 @@ By Hayden B.</string>
       <p2 x="12880" y="4740"/>
     </wire>
     <wire>
-      <p1 x="13140" y="2720"/>
-      <p2 x="13140" y="2780"/>
-    </wire>
-    <wire>
       <p1 x="13140" y="4400"/>
       <p2 x="13140" y="4700"/>
     </wire>
@@ -9836,8 +10080,8 @@ By Hayden B.</string>
       <p2 x="13140" y="4720"/>
     </wire>
     <wire>
-      <p1 x="13400" y="2220"/>
-      <p2 x="13400" y="2260"/>
+      <p1 x="13400" y="2140"/>
+      <p2 x="13400" y="2180"/>
     </wire>
     <wire>
       <p1 x="13400" y="4280"/>
@@ -9912,16 +10156,16 @@ By Hayden B.</string>
       <p2 x="14940" y="3840"/>
     </wire>
     <wire>
-      <p1 x="12640" y="2380"/>
-      <p2 x="12640" y="2460"/>
+      <p1 x="12640" y="2300"/>
+      <p2 x="12640" y="2380"/>
     </wire>
     <wire>
       <p1 x="15200" y="2280"/>
       <p2 x="15200" y="2440"/>
     </wire>
     <wire>
-      <p1 x="12900" y="2340"/>
-      <p2 x="12900" y="2360"/>
+      <p1 x="12900" y="2260"/>
+      <p2 x="12900" y="2280"/>
     </wire>
     <wire>
       <p1 x="12900" y="4420"/>
@@ -9930,6 +10174,14 @@ By Hayden B.</string>
     <wire>
       <p1 x="12900" y="4240"/>
       <p2 x="12900" y="4400"/>
+    </wire>
+    <wire>
+      <p1 x="12900" y="2560"/>
+      <p2 x="12900" y="2600"/>
+    </wire>
+    <wire>
+      <p1 x="12900" y="2480"/>
+      <p2 x="12900" y="2520"/>
     </wire>
     <wire>
       <p1 x="12900" y="4580"/>
@@ -9956,12 +10208,8 @@ By Hayden B.</string>
       <p2 x="15460" y="3800"/>
     </wire>
     <wire>
-      <p1 x="13160" y="2660"/>
-      <p2 x="13160" y="2680"/>
-    </wire>
-    <wire>
-      <p1 x="13160" y="2220"/>
-      <p2 x="13160" y="2260"/>
+      <p1 x="13160" y="2140"/>
+      <p2 x="13160" y="2180"/>
     </wire>
     <wire>
       <p1 x="13160" y="4420"/>
@@ -10032,6 +10280,10 @@ By Hayden B.</string>
       <p2 x="14960" y="3480"/>
     </wire>
     <wire>
+      <p1 x="11120" y="2420"/>
+      <p2 x="11120" y="2440"/>
+    </wire>
+    <wire>
       <p1 x="15220" y="2280"/>
       <p2 x="15220" y="2340"/>
     </wire>
@@ -10040,20 +10292,12 @@ By Hayden B.</string>
       <p2 x="15220" y="2260"/>
     </wire>
     <wire>
-      <p1 x="11380" y="2580"/>
-      <p2 x="11380" y="2600"/>
-    </wire>
-    <wire>
       <p1 x="12920" y="4180"/>
       <p2 x="12920" y="4200"/>
     </wire>
     <wire>
       <p1 x="12920" y="4200"/>
       <p2 x="12920" y="4520"/>
-    </wire>
-    <wire>
-      <p1 x="11640" y="2200"/>
-      <p2 x="11640" y="2640"/>
     </wire>
     <wire>
       <p1 x="14200" y="4540"/>
@@ -10144,10 +10388,6 @@ By Hayden B.</string>
       <p2 x="13960" y="4840"/>
     </wire>
     <wire>
-      <p1 x="11400" y="2320"/>
-      <p2 x="11400" y="2340"/>
-    </wire>
-    <wire>
       <p1 x="12940" y="4240"/>
       <p2 x="12940" y="4560"/>
     </wire>
@@ -10186,10 +10426,6 @@ By Hayden B.</string>
     <wire>
       <p1 x="14480" y="2360"/>
       <p2 x="14480" y="2380"/>
-    </wire>
-    <wire>
-      <p1 x="11420" y="2600"/>
-      <p2 x="11420" y="2620"/>
     </wire>
     <wire>
       <p1 x="12700" y="4280"/>
@@ -10256,18 +10492,6 @@ By Hayden B.</string>
       <p2 x="15280" y="3820"/>
     </wire>
     <wire>
-      <p1 x="12980" y="2620"/>
-      <p2 x="12980" y="2680"/>
-    </wire>
-    <wire>
-      <p1 x="12980" y="2680"/>
-      <p2 x="12980" y="2740"/>
-    </wire>
-    <wire>
-      <p1 x="12980" y="2740"/>
-      <p2 x="12980" y="2760"/>
-    </wire>
-    <wire>
       <p1 x="14260" y="4540"/>
       <p2 x="14260" y="4580"/>
     </wire>
@@ -10324,6 +10548,10 @@ By Hayden B.</string>
       <p2 x="11200" y="3920"/>
     </wire>
     <wire>
+      <p1 x="11460" y="2080"/>
+      <p2 x="11460" y="2280"/>
+    </wire>
+    <wire>
       <p1 x="11460" y="4580"/>
       <p2 x="11460" y="4660"/>
     </wire>
@@ -10360,20 +10588,16 @@ By Hayden B.</string>
       <p2 x="14800" y="4380"/>
     </wire>
     <wire>
-      <p1 x="14800" y="4820"/>
+      <p1 x="14800" y="4760"/>
       <p2 x="14800" y="4840"/>
     </wire>
     <wire>
-      <p1 x="14800" y="4760"/>
-      <p2 x="14800" y="4780"/>
+      <p1 x="12240" y="2240"/>
+      <p2 x="12240" y="2260"/>
     </wire>
     <wire>
-      <p1 x="12240" y="2320"/>
-      <p2 x="12240" y="2340"/>
-    </wire>
-    <wire>
-      <p1 x="12240" y="2420"/>
-      <p2 x="12240" y="2440"/>
+      <p1 x="12240" y="2340"/>
+      <p2 x="12240" y="2360"/>
     </wire>
     <wire>
       <p1 x="10960" y="3340"/>
@@ -10392,12 +10616,8 @@ By Hayden B.</string>
       <p2 x="13780" y="4840"/>
     </wire>
     <wire>
-      <p1 x="11220" y="2500"/>
-      <p2 x="11220" y="2520"/>
-    </wire>
-    <wire>
-      <p1 x="11480" y="4520"/>
-      <p2 x="11480" y="4640"/>
+      <p1 x="12760" y="2600"/>
+      <p2 x="12760" y="2640"/>
     </wire>
     <wire>
       <p1 x="12760" y="4560"/>
@@ -10412,6 +10632,10 @@ By Hayden B.</string>
       <p2 x="12760" y="4740"/>
     </wire>
     <wire>
+      <p1 x="11480" y="4520"/>
+      <p2 x="11480" y="4640"/>
+    </wire>
+    <wire>
       <p1 x="15320" y="2120"/>
       <p2 x="15320" y="2140"/>
     </wire>
@@ -10420,20 +10644,8 @@ By Hayden B.</string>
       <p2 x="15320" y="2260"/>
     </wire>
     <wire>
-      <p1 x="12000" y="3480"/>
-      <p2 x="12000" y="3500"/>
-    </wire>
-    <wire>
-      <p1 x="13280" y="2680"/>
-      <p2 x="13280" y="2720"/>
-    </wire>
-    <wire>
-      <p1 x="13280" y="2600"/>
-      <p2 x="13280" y="2640"/>
-    </wire>
-    <wire>
-      <p1 x="13280" y="2180"/>
-      <p2 x="13280" y="2200"/>
+      <p1 x="13280" y="2100"/>
+      <p2 x="13280" y="2120"/>
     </wire>
     <wire>
       <p1 x="13280" y="4540"/>
@@ -10442,6 +10654,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="13280" y="4560"/>
       <p2 x="13280" y="4720"/>
+    </wire>
+    <wire>
+      <p1 x="12000" y="3480"/>
+      <p2 x="12000" y="3500"/>
     </wire>
     <wire>
       <p1 x="14560" y="2240"/>
@@ -10468,12 +10684,12 @@ By Hayden B.</string>
       <p2 x="11240" y="3340"/>
     </wire>
     <wire>
-      <p1 x="11500" y="4460"/>
-      <p2 x="11500" y="4620"/>
+      <p1 x="12780" y="2540"/>
+      <p2 x="12780" y="2560"/>
     </wire>
     <wire>
-      <p1 x="12780" y="2220"/>
-      <p2 x="12780" y="2240"/>
+      <p1 x="12780" y="2140"/>
+      <p2 x="12780" y="2160"/>
     </wire>
     <wire>
       <p1 x="12780" y="4540"/>
@@ -10486,6 +10702,14 @@ By Hayden B.</string>
     <wire>
       <p1 x="12780" y="4700"/>
       <p2 x="12780" y="4740"/>
+    </wire>
+    <wire>
+      <p1 x="11500" y="4460"/>
+      <p2 x="11500" y="4620"/>
+    </wire>
+    <wire>
+      <p1 x="13040" y="2160"/>
+      <p2 x="13040" y="2240"/>
     </wire>
     <wire>
       <p1 x="14320" y="4540"/>
@@ -10502,10 +10726,6 @@ By Hayden B.</string>
     <wire>
       <p1 x="11760" y="3320"/>
       <p2 x="11760" y="3380"/>
-    </wire>
-    <wire>
-      <p1 x="13040" y="2240"/>
-      <p2 x="13040" y="2320"/>
     </wire>
     <wire>
       <p1 x="13300" y="4380"/>
