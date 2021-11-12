@@ -4716,20 +4716,6 @@ By Hayden B.</string>
       <pos x="12000" y="3400"/>
     </visualElement>
     <visualElement>
-      <elementName>Splitter</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Input Splitting</string>
-          <string>16</string>
-        </entry>
-        <entry>
-          <string>Output Splitting</string>
-          <string>12</string>
-        </entry>
-      </elementAttributes>
-      <pos x="11240" y="2540"/>
-    </visualElement>
-    <visualElement>
       <elementName>Tunnel</elementName>
       <elementAttributes>
         <entry>
@@ -5654,7 +5640,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[500]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[499]/elementAttributes/entry/rotation"/>
         </entry>
         <entry>
           <string>NetName</string>
@@ -6075,7 +6061,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[554]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[553]/elementAttributes/entry/rotation"/>
         </entry>
       </elementAttributes>
       <pos x="12780" y="4240"/>
@@ -6085,7 +6071,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[554]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[553]/elementAttributes/entry/rotation"/>
         </entry>
       </elementAttributes>
       <pos x="12800" y="4240"/>
@@ -6095,7 +6081,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[554]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[553]/elementAttributes/entry/rotation"/>
         </entry>
       </elementAttributes>
       <pos x="12820" y="4240"/>
@@ -6105,7 +6091,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[554]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[553]/elementAttributes/entry/rotation"/>
         </entry>
       </elementAttributes>
       <pos x="12840" y="4240"/>
@@ -6115,7 +6101,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[554]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[553]/elementAttributes/entry/rotation"/>
         </entry>
       </elementAttributes>
       <pos x="12860" y="4240"/>
@@ -6125,7 +6111,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[554]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[553]/elementAttributes/entry/rotation"/>
         </entry>
       </elementAttributes>
       <pos x="12880" y="4240"/>
@@ -6135,7 +6121,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation reference="../../../../visualElement[554]/elementAttributes/entry/rotation"/>
+          <rotation reference="../../../../visualElement[553]/elementAttributes/entry/rotation"/>
         </entry>
       </elementAttributes>
       <pos x="12900" y="4240"/>
@@ -6392,7 +6378,7 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>Bits</string>
-          <int>12</int>
+          <int>16</int>
         </entry>
       </elementAttributes>
       <pos x="11340" y="2520"/>
@@ -6851,7 +6837,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>Bits</string>
-          <int>12</int>
+          <int>16</int>
         </entry>
       </elementAttributes>
       <pos x="11300" y="2540"/>
@@ -9690,14 +9676,6 @@ By Hayden B.</string>
       <p2 x="12860" y="2540"/>
     </wire>
     <wire>
-      <p1 x="11220" y="2540"/>
-      <p2 x="11240" y="2540"/>
-    </wire>
-    <wire>
-      <p1 x="11260" y="2540"/>
-      <p2 x="11280" y="2540"/>
-    </wire>
-    <wire>
       <p1 x="11320" y="2540"/>
       <p2 x="11340" y="2540"/>
     </wire>
@@ -9720,6 +9698,10 @@ By Hayden B.</string>
     <wire>
       <p1 x="14340" y="2540"/>
       <p2 x="14420" y="2540"/>
+    </wire>
+    <wire>
+      <p1 x="11220" y="2540"/>
+      <p2 x="11280" y="2540"/>
     </wire>
     <wire>
       <p1 x="15180" y="2540"/>
