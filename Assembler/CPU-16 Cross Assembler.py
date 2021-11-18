@@ -16,13 +16,13 @@ lines = fileParse.splitlines()
 #print(lines)
 
 adsImm = re.compile(r'^#(?P<immediate>[0-9A-F]+)\Z')
-adsReg = re.compile(r'^d(?P<register>[0-7]+)\Z')
+adsReg = re.compile(r'^(D|d)(?P<register>[0-7]+)\Z')
 adsDir = re.compile(r'^\$(?P<address>[0-9A-F]+)\Z')
 adsRel = re.compile (r'^\$(?P<address>[0-9A-F]+)\(PC\)\Z')
-adsInd = re.compile (r'^\(d(?P<register>[0-7]+)\)\Z')
+adsInd = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\Z')
 adsIndOff = re.compile(r'^\$(?P<address>[0-9A-F]+)\((?P<register>d[0-7])\)\Z')
-adsIndInc = re.compile (r'^\(d(?P<register>[0-7]+)\)\+\Z')
-adsIndDec = re.compile(r'^-\(d(?P<register>[0-7]+)\)\Z')
+adsIndInc = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\+\Z')
+adsIndDec = re.compile(r'^-\((D|d)(?P<register>[0-7]+)\)\Z')
 
 #Find labels & corresponding addresses
 def labelParse(arg):
@@ -46,26 +46,34 @@ def instParse(arg):
         opcode = "01"
         byteCount = byteCount+1
         m = modeParse(arg[1])
-        print(m[0])
+        opcode = opcode + str(m[0])
+        m = modeParse(arg[2])
+        if m[0] != 7:
+            opcode = opcode + str(m[0])
+            print(opcode)
+        else: 
+            wait = input('Incompatible addressing mode on line #')
+            exit()
+        
         
 #Parse addressing modes
 def modeParse(arg):
     if adsReg.match(arg):
-        return [0,2]
+        return [0,adsReg.match(arg).group('register')]
     elif adsDir.match(arg):
-        return [1,2]
+        return [1,adsDir.match(arg).group('address')]
     elif  adsRel.match(arg):
-        return [2,2]
+        return [2,adsRel.match(arg).group('address')]
     elif adsInd.match(arg):
-        return [3,2]
+        return [3,adsInd.match(arg).group('register')]
     elif adsIndOff.match(arg):
-        return [4,2]
+        return [4,adsIndOff.match(arg).group('address'),adsIndOff.match(arg).group('register')]
     elif adsIndInc.match(arg):
-        return [5,2]
+        return [5,adsIndInc.match(arg).group('register')]
     elif adsIndDec.match(arg):
-        return [6,2]
+        return [6,adsIndDec.match(arg).group('register')]
     elif adsImm.match(arg):
-        return [7,2]
+        return [7,adsImm.match(arg).group('immediate')]
         
 #First pass    
 with open("input.asm") as f:
