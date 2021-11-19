@@ -4,9 +4,9 @@ NOTE: THIS USED TO BE AN 8-BIT COMPUTER. I HAVE SINCE REVISED THE DESIGN!
 
 My YouTube account is [here](https://www.youtube.com/channel/UC0kihtgYtJHA7ZHQloiz2jA), I'll be regularly posting progress videos to it.
 
-The CPU-16, from Atlas Digital Industries, is a 16-bit CISC minicomputer based around the 74LS181 ALU.
+The CPU-16, from Atlas Digital Industries, is a 16-bit CISC minicomputer based around the 74LS181 ALU. The design is somewhat inspired by the Motorola 68000.
 
-Seven 16-bit general-purpose registers are provided to the programmer (A, B, C, D, E, X, Y), two of which (X and Y) are optimized for indexed addressing. Also provided are a 16-bit stack pointer and a 16-bit program counter.
+Eight general-purpose registers are supplied for the user (D0-D7), which are adressable within the instruction word. Any register can be used with any supported addressing mode. Also provided are a 16-bit stack pointer and a 16-bit program counter.
 
 The instruction set very orthagonal, allowing the user to perform arithmetic operations between any of the general-purpose registers. Multiple addressing modes are supported, including immediate, direct, dirrect + offset, indirect register + offset, post incremented/decremented indirect X/Y + offset, and incremented/decremented stack.
 
@@ -22,8 +22,7 @@ A two-phase clock is used in order to avoid clock skew. The microcode flip-flops
 
 A paging unit and modifications to add permission levels are in the works. However, they won't be realized until I've finished building the base system
 
-![cpu8 drawio](https://user-images.githubusercontent.com/83188735/136465631-a6b6c62a-5759-4980-9160-5d20c60be3e4.png)
-
+![cpu8 drawio](https://user-images.githubusercontent.com/83188735/142703821-ef99d777-590d-48bb-9fa6-9236f5234404.png)
 
 
 # Construction
