@@ -23,24 +23,6 @@ adsIndInc = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\+\Z')
 adsIndDec = re.compile(r'^-\((D|d)(?P<register>[0-7]+)\)\Z')
 adsOrg = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\Z')
 
-file = open("input.asm", "r")
-fileParse = file.read()
-fileParse = fileParse.strip()
-lines = fileParse.splitlines()
-
-#Find labels & corresponding addresses
-def labelParse(arg):
-    global posCounter
-    arg = arg.strip()
-    #print(arg)
-    if arg[0] == '.':
-        print('Label ',arg,' found @ $',hex(posCounter),sep='')
-        arg = arg.split('.')
-        labels[arg[1]] = posCounter
-    elif arg[0] != ';' and arg[0] != '':
-        posCounter = posCounter + instParse(arg)[0]
-        print(posCounter)
-
 #Parse instructions
 def instParse(arg):
     global posCounter
@@ -96,10 +78,36 @@ def modeParse(arg):
         print('Invalid addressing mode @ line',lineNum)
         wait = input('')
         exit()
-        
-#First pass    
+
+#Parse numbers & addresses
+#def numParse(arg)
+
+#First pass - Find labels & calculate addresses   
 with open("input.asm") as f:
     for line in f:
-        labelParse(line)
+        line = line.strip()
+        if line != '' and line[0] == '.':
+            print('Label ',line,' found @ $',hex(posCounter),sep='')
+            labels[line] = posCounter
+            line = line.split(' ', 1)
+            if len(line) > 0:
+                line = line[1]
+            print(line)
+        if line != '' and line[0] != ';':
+            posCounter = posCounter + instParse(line)[0]
+            print(posCounter)
         lineNum = lineNum + 1
-print(labels)
+    print(labels)
+        
+#Second pass - Translate ASM to machine code
+#with open("input.asm") as f:
+#    posCounter = 1
+#    lineNum = 1
+#    for line in f:
+#        line = line.strip()
+#        print(line)
+#        if line != '' and line[0] != '.' and line[0] != ';':
+#            instParse(line)
+#        lineNum = lineNum + 1
+    
+    
