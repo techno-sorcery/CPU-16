@@ -13,19 +13,20 @@ labels = {}
 lineNum = 1
 posCounter = 1
 
-adsImm = re.compile(r'^#(?P<immediate>[0-9A-Fa-f]+)\Z')
 adsReg = re.compile(r'^(D|d)(?P<register>[0-7]+)\Z')
-adsDir = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\Z')
+adsDir = re.compile(r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\Z')
 adsRel = re.compile (r'^\$(?P<address>[0-9A-F]+)\(PC\)\Z')
 adsInd = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\Z')
 adsIndOff = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\((D|d)(?P<register>[0-7])\)\Z')
 adsIndInc = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\+\Z')
 adsIndDec = re.compile(r'^-\((D|d)(?P<register>[0-7]+)\)\Z')
+adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\Z')
 adsOrg = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\Z')
 
 #Parse instructions
 def instParse(arg):
     global posCounter
+    arg = arg.strip()
     arg = arg.replace(',', ' ')
     arg = arg.split()
     print(arg)
@@ -79,7 +80,7 @@ def modeParse(arg):
         wait = input('')
         exit()
 
-#Parse numbers & addresses
+#Parse immediates & addresses
 #def numParse(arg)
 
 #First pass - Find labels & calculate addresses   
@@ -87,15 +88,16 @@ with open("input.asm") as f:
     for line in f:
         line = line.strip()
         if line != '' and line[0] == '.':
-            print('Label ',line,' found @ $',hex(posCounter),sep='')
-            labels[line] = posCounter
+            line = line.split('.')[1]
+            labels[line.split(' ')[0]] = posCounter
+            print('Label ',line.split(' ')[0],' found @ $',hex(posCounter),sep='')
             line = line.split(' ', 1)
-            if len(line) > 0:
+            if len(line) > 1:
                 line = line[1]
-            print(line)
+            else:
+                line = ''
         if line != '' and line[0] != ';':
             posCounter = posCounter + instParse(line)[0]
-            print(posCounter)
         lineNum = lineNum + 1
     print(labels)
         
