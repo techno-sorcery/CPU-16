@@ -10,17 +10,18 @@ import argparse
 opcodes = { 'MOV':'01', 'MOV.H':'02', 'MOV.L':'03', 'EXG':'04', 'ADD':'06', 'ADC':'07',
             'SUB':'10', 'SBB':'11',   'AND':'12',   'OR':'13',  'XOR':'14', 'CMP':'15'  }
 labels = {}
+words = {}
 lineNum = 1
 posCounter = 1
 
 adsReg = re.compile(r'^(D|d)(?P<register>[0-7]+)\Z')
-adsDir = re.compile(r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\Z')
-adsRel = re.compile (r'^\$(?P<address>[0-9A-F]+)\(PC\)\Z')
+adsDir = re.compile(r'\A(?P<address>([0-9]+|\$[0-9A-f]+|%[0-1]+|[A-z]{1}[A-z0-9]+))\Z')
+adsRel = re.compile (r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\(PC\)\Z')
 adsInd = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\Z')
-adsIndOff = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\((D|d)(?P<register>[0-7])\)\Z')
+adsIndOff = re.compile(r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\((D|d)(?P<register>[0-7])\)\Z')
 adsIndInc = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\+\Z')
 adsIndDec = re.compile(r'^-\((D|d)(?P<register>[0-7]+)\)\Z')
-adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\Z')
+adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+|\'[ -~]{1}\'))\Z')
 adsOrg = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\Z')
 
 #Parse instructions
@@ -62,7 +63,7 @@ def modeParse(arg):
     if adsReg.match(arg):
         return [0,0,adsReg.match(arg).group('register'),0]
     elif adsDir.match(arg):
-        return [1,1,0,adsDir.match(arg).group('address')]
+        return [1,1,0,numParse(adsDir.match(arg).group('address'))]
     elif  adsRel.match(arg):
         return [2,1,0,adsRel.match(arg).group('address')]
     elif adsInd.match(arg):
@@ -74,14 +75,22 @@ def modeParse(arg):
     elif adsIndDec.match(arg):
         return [6,0,adsIndDec.match(arg).group('register'),0]
     elif adsImm.match(arg):
-        return [7,1,0,adsImm.match(arg).group('immediate')]
+        return [7,1,0,numParse(adsImm.match(arg).group('immediate'))]
     else:
         print('Invalid addressing mode @ line',lineNum)
         wait = input('')
         exit()
 
 #Parse immediates & addresses
-#def numParse(arg)
+def numParse(arg):
+    if arg[0] == '$':
+        return int(arg.split('$')[1],16)
+    elif arg[0] == '%':
+        return int(arg.split('%')[1],2)
+    elif arg[0] == '\'':
+        return ord(arg.split('\'')[1])
+    else:
+        return arg
 
 #First pass - Find labels & calculate addresses   
 with open("input.asm") as f:
@@ -100,6 +109,7 @@ with open("input.asm") as f:
             posCounter = posCounter + instParse(line)[0]
         lineNum = lineNum + 1
     print(labels)
+print()
         
 #Second pass - Translate ASM to machine code
 #with open("input.asm") as f:
@@ -107,9 +117,9 @@ with open("input.asm") as f:
 #    lineNum = 1
 #    for line in f:
 #        line = line.strip()
-#        print(line)
+#        #print(line)
 #        if line != '' and line[0] != '.' and line[0] != ';':
 #            instParse(line)
 #        lineNum = lineNum + 1
-    
-    
+
+        
