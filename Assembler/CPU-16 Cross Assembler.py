@@ -12,7 +12,7 @@ opcodes = { 'MOV':'01', 'MOV.H':'02', 'MOV.L':'03', 'EXG':'04', 'ADD':'06', 'ADC
 labels = {}
 words = {}
 lineNum = 1
-posCounter = 1
+posCounter = 0
 
 adsReg = re.compile(r'^(D|d)(?P<register>[0-7]+)\Z')
 adsDir = re.compile(r'\A(?P<address>([0-9]+|\$[0-9A-f]+|%[0-1]+|[A-z]{1}[A-z0-9]+))\Z')
@@ -81,21 +81,22 @@ with open("input.asm") as f:
         if line != '' and line[0] != ';':
             #Parse instructions
             line = line.strip()
-            line = line.replace(',', ' ')
-            line = line.split()
+            line = line.split(' ',1)
             print(line)
             opcode = 0
             if line[0].upper() == 'MOV':
-                opcode = "01"
-                ads1 = modeParse(line[1])
+                line = line[1].rsplit(',',1)
+                print(line)
+                opcode = '01'
+                ads1 = modeParse(line[0])
                 if ads1[1] == 1:
                     words[posCounter+1] = ads1[3] 
                 opcode = opcode + str(ads1[0])
-                ads2 = modeParse(line[2])
+                ads2 = modeParse(line[1])
                 if ads2[1] == 1:
                     words[posCounter+2] = ads2[3]
                 if ads2[0] != 7:
-                    opcode = opcode + str(ads1[0])
+                    opcode = opcode + str(ads2[0])
                     opcode = opcode + str(ads1[2]) + str(ads2[2])
                     print(opcode)
                     words[posCounter] = hex(int(opcode,8))
@@ -104,6 +105,26 @@ with open("input.asm") as f:
                     print('Invalid addressing mode @ line',lineNum)
                     wait = input('')
                     exit()
+            elif line[0].upper() == 'JMP':
+                opcode = '002'
+                ads1 = modeParse(line[1])
+                if ads1[1] == 1:
+                    words[posCounter+1] = ads1[3]
+                    print('lol')
+                opcode = opcode + str(ads1[0]) + '0' + str(ads1[2])
+                print(opcode)
+                words[posCounter] = hex(int(opcode,8))
+                posCounter = posCounter + 1 + ads1[1]
+            elif line[0].upper() == 'BIZ':
+                opcode = '002'
+                ads1 = modeParse(line[1])
+                if ads1[1] == 1:
+                    words[posCounter+1] = ads1[3]
+                    print('lol')
+                opcode = opcode + str(ads1[0]) + '0' + str(ads1[2])
+                print(opcode)
+                words[posCounter] = hex(int(opcode,8))
+                posCounter = posCounter + 1 + ads1[1]
             elif line[0].upper() == 'ORG':
                 if adsOrg.match(line[1]):
                     posCounter = int(adsOrg.match(line[1]).group('address'),16)
@@ -111,7 +132,13 @@ with open("input.asm") as f:
                 else:
                     print('Invalid addressing mode @ line',lineNum)
                     wait = input('')
-                    exit()  
+                    exit()
+            elif line[0].upper() == 'DW':
+                line = line[1].split('\'',1)[1]
+                line = line.split('\'',1)[0]
+                for x in range(0, len(line)):
+                    words[posCounter] = hex(ord(line[x]))
+                    posCounter = posCounter + 1
             else:
                 print('Illegal instruction',arg[0],'@ line',lineNum)
                 wait = input('')
@@ -129,13 +156,12 @@ f = open('output.hex','x')
 f.write('v2.0 raw\n')
 
 #Second pass - Fill in labels, write to hex file
-posCounter = 1
-lineNum = 1
+posCounter = 0
 multiplier = 0
-for line in range(1,max(map(int,words))+1):
+for line in range(0,max(map(int,words))+1):
     if line in words:
         if multiplier > 0:
-            f.write(str(multiplier + 1))
+            f.write(str(multiplier))
             f.write('*0')
             f.write('\n')
             multiplier = 0
@@ -143,7 +169,7 @@ for line in range(1,max(map(int,words))+1):
             words[line] = words[line].split('x')[1]
         else:
             if words[line] in labels:
-                words[line] = labels[words[line]]
+                words[line] = hex(labels[words[line]])
             else:
                 print('Undefined label',words[line])
                 wait = input('')
