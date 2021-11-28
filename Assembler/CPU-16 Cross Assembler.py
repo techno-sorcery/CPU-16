@@ -7,8 +7,17 @@ import re
 import sys
 import os
 
-opcodes = { 'MOV':'01', 'MOV.H':'02', 'MOV.L':'03', 'EXG':'04', 'ADD':'06', 'ADC':'07',
-            'SUB':'10', 'SBB':'11',   'AND':'12',   'OR':'13',  'XOR':'14', 'CMP':'15'  }
+opcodes1 = {  'JMP':'002', 'JSR':'003', 'LDS':'034', 'STS':'035', 'SWP':'036',
+              'NOT':'150', 'NEG':'151', 'NEX':'152', 'LSH':'153', 'RSH':'154',
+              'INC':'155', 'DEC':'156', 'SEX':'157'  }
+opcodes2 = {  'MOV':'01', 'EXG':'02', 'ADD':'03', 'ADC':'04', 'SUB':'06',
+              'SBB':'07', 'AND':'10', 'OR':'11',  'XOR':'12', 'CMP':'13'  }
+opcodesB = {  'BIN':'004000', 'BIE':'004100', 'BIV':'004200', 'BIC':'004300', 'BNN':'004400',
+              'BNE':'004500', 'BNV':'004600', 'BNC':'004700', 'BGE':'005000', 'BGT':'005100',
+              'BLE':'005200', 'BLT':'005300'  }
+opcodesI = {  'RST':'000000', 'HLT':'000100'  }
+
+path = sys.argv[1]
 labels = {}
 words = {}
 lineNum = 1
@@ -23,32 +32,39 @@ adsIndInc = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\+\Z')
 adsIndDec = re.compile(r'^-\((D|d)(?P<register>[0-7]+)\)\Z')
 adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+|\'[ -~]{1}\'))\Z')
 adsOrg = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\Z')
-        
+spComma = re.compile(r'[\\]{0},')
+
+if path.rsplit('.',1)[1].upper() != 'ASM':
+    print('Invalid file extension .',path.rsplit('.',1)[1],sep='')
+    wait = input('Press enter to exit')
+    exit()
+
+
 #Parse addressing modes
 def modeParse(arg):
     if adsReg.match(arg):
         return [0,0,adsReg.match(arg).group('register'),0]
     elif adsDir.match(arg):
-        return [1,1,0,numParse(adsDir.match(arg).group('address'))]
+        return [1,1,0,numParse(adsDir.match(arg).group('address'),0)]
     elif  adsRel.match(arg):
-        return [2,1,0,numParse(adsRel.match(arg).group('address'))]
+        return [2,1,0,numParse(adsRel.match(arg).group('address'),1)]
     elif adsInd.match(arg):
         return [3,0,adsInd.match(arg).group('register'),0]
     elif adsIndOff.match(arg):
-        return [4,1,adsIndOff.match(arg).group('register'),numParse(adsIndOff.match(arg).group('address'))]
+        return [4,1,adsIndOff.match(arg).group('register'),numParse(adsIndOff.match(arg).group('address'),0)]
     elif adsIndInc.match(arg):
         return [5,0,adsIndInc.match(arg).group('register'),0]
     elif adsIndDec.match(arg):
         return [6,0,adsIndDec.match(arg).group('register'),0]
     elif adsImm.match(arg):
-        return [7,1,0,numParse(adsImm.match(arg).group('immediate'))]
+        return [7,1,0,numParse(adsImm.match(arg).group('immediate'),0)]
     else:
-        print('Invalid addressing mode @ line',lineNum)
-        wait = input('')
+        print('Invalid addressing mode @ line #',lineNum,sep='')
+        wait = input('Press enter to exit')
         exit()
 
 #Parse immediates & addresses
-def numParse(arg):
+def numParse(arg,rel):
     if arg[0] == '$':
         return tohex(int(arg.split('$')[1],16),16)
     elif arg[0] == '%':
@@ -59,14 +75,17 @@ def numParse(arg):
         if arg.lstrip('-').isdigit() == True:
             return tohex(int(arg),16)
         else:
-            return arg
+            if rel == 1:
+                return '@'+arg
+            else:
+                return arg
 
 #Convert negative to two's compliment hex
 def tohex(val, nbits):
   return hex((val + (1 << nbits)) % (1 << nbits))
 
 #First pass - Find labels & parse instructions   
-with open("input.asm") as f:
+with open(path) as f:
     for line in f:
         line = line.strip()
         if line != '' and line[0] == '.':
@@ -80,21 +99,25 @@ with open("input.asm") as f:
                 line = ''
         if line != '' and line[0] != ';':
             #Parse instructions
+            tempPos = posCounter
             line = line.strip()
             line = line.split(' ',1)
             print(line)
             opcode = 0
-            if line[0].upper() == 'MOV':
+            #MOV, EXG, ADD, ADC, SUB, SBB, AND, OR, XOR, CMP
+            if line[0].upper() in opcodes2:
+                opcode = opcodes2[line[0].upper()]
                 line = line[1].rsplit(',',1)
                 print(line)
-                opcode = '01'
                 ads1 = modeParse(line[0])
                 if ads1[1] == 1:
-                    words[posCounter+1] = ads1[3] 
+                    tempPos = tempPos+1
+                    words[tempPos] = ads1[3] 
                 opcode = opcode + str(ads1[0])
                 ads2 = modeParse(line[1])
                 if ads2[1] == 1:
-                    words[posCounter+2] = ads2[3]
+                    tempPos = tempPos+1
+                    words[tempPos] = ads2[3]
                 if ads2[0] != 7:
                     opcode = opcode + str(ads2[0])
                     opcode = opcode + str(ads1[2]) + str(ads2[2])
@@ -102,46 +125,51 @@ with open("input.asm") as f:
                     words[posCounter] = hex(int(opcode,8))
                     posCounter = posCounter + (1 + ads1[1] + ads2[1])
                 else:
-                    print('Invalid addressing mode @ line',lineNum)
-                    wait = input('')
+                    print('Invalid addressing mode @ line #',lineNum,sep='')
+                    wait = input('Press enter to exit')
                     exit()
-            elif line[0].upper() == 'JMP':
-                opcode = '002'
+            #JMP, JSR, LDS, STS, SWP, NOT, NEG, NEX, LSH, RSH, INC, DEC, SEX
+            elif line[0].upper() in opcodes1:
+                opcode = opcodes1[line[0].upper()]
                 ads1 = modeParse(line[1])
                 if ads1[1] == 1:
                     words[posCounter+1] = ads1[3]
-                    print('lol')
                 opcode = opcode + str(ads1[0]) + '0' + str(ads1[2])
                 print(opcode)
                 words[posCounter] = hex(int(opcode,8))
                 posCounter = posCounter + 1 + ads1[1]
-            elif line[0].upper() == 'BIZ':
-                opcode = '002'
-                ads1 = modeParse(line[1])
-                if ads1[1] == 1:
-                    words[posCounter+1] = ads1[3]
-                    print('lol')
-                opcode = opcode + str(ads1[0]) + '0' + str(ads1[2])
-                print(opcode)
-                words[posCounter] = hex(int(opcode,8))
-                posCounter = posCounter + 1 + ads1[1]
+            #BIN, BIE, BIV, BIC, BNN, BNE, BNV, BNC, BGE, BGT, BLE, BLT
+            elif line[0].upper() in opcodesB:
+                words[posCounter] = hex(int(opcodesB[line[0].upper()],8))
+                words[posCounter+1] = numParse(line[1],1)
+                posCounter = posCounter + 2
+            #RST, HLT
+            elif line[0].upper() in opcodesI:
+                words[posCounter] = hex(int(opcodesI[line[0].upper()],8))
+                posCounter = posCounter + 1
+            #Directives
             elif line[0].upper() == 'ORG':
                 if adsOrg.match(line[1]):
                     posCounter = int(adsOrg.match(line[1]).group('address'),16)
                     print()
                 else:
-                    print('Invalid addressing mode @ line',lineNum)
-                    wait = input('')
+                    print('Invalid addressing mode @ line #',lineNum,sep='')
+                    wait = input('Press enter to exit')
                     exit()
             elif line[0].upper() == 'DW':
-                line = line[1].split('\'',1)[1]
-                line = line.split('\'',1)[0]
+                line = re.split(r'(?<!\\),',line[1])
                 for x in range(0, len(line)):
-                    words[posCounter] = hex(ord(line[x]))
-                    posCounter = posCounter + 1
+                    print(numParse(line[x],0))
+                #line = line[0].split('\'',1)[1]
+                #line = line.split('\'',1)[0]
+                #for x in range(0, len(line)):
+                #    print(line)
+                #    words[posCounter] = hex(ord(line[x]))
+                #    posCounter = posCounter + 1
+            #Illegal instruction
             else:
-                print('Illegal instruction',arg[0],'@ line',lineNum)
-                wait = input('')
+                print('Illegal instruction \'',line[0],'\' @ line #',lineNum,sep='')
+                wait = input('Press enter to exit')
                 exit()
             
         lineNum = lineNum + 1
@@ -150,9 +178,10 @@ with open("input.asm") as f:
 print()
         
 #Create output hex file
-if os.path.exists("output.hex"):
-  os.remove("output.hex")
-f = open('output.hex','x')
+path = path.rsplit('.',1)[0] + '.hex'
+if os.path.exists(path):
+  os.remove(path)
+f = open(path,'x')
 f.write('v2.0 raw\n')
 
 #Second pass - Fill in labels, write to hex file
@@ -168,15 +197,19 @@ for line in range(0,max(map(int,words))+1):
         if words[line][0] == '0':
             words[line] = words[line].split('x')[1]
         else:
-            if words[line] in labels:
+            if words[line][0] == '@':
+                words[line] = tohex(labels[words[line].split('@',1)[1]]-line,16)
+            elif words[line] in labels:
                 words[line] = hex(labels[words[line]])
             else:
-                print('Undefined label',words[line])
-                wait = input('')
+                print('Undefined label \'',words[line],'\'',sep='')
+                wait = input('Press enter to exit')
                 exit()
         f.write(str(words[line]))
         f.write('\n')
-        print(words[line])
+        #print(words[line])
     else:
         multiplier = multiplier + 1
 f.close()
+wait = input('Press enter to exit')
+exit()
