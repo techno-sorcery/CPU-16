@@ -20,8 +20,8 @@ ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
               'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92',
               ',':'44', '\'':'39'  }
 
-#path = sys.argv[1]
-path = 'Hello.asm'
+path = sys.argv[1]
+#path = 'Hello.asm'
 labels = {}
 words = {}
 lineNum = 1
@@ -200,7 +200,7 @@ with open(path) as f:
                         for y in range(1,len(line[x])-1):
                             if escape == True:
                                 if line[x][y] in ctrlChar:
-                                    print(line[x][y]) #ctrlChar[line[x][y]]
+                                    #print(line[x][y]) #ctrlChar[line[x][y]]
                                     words[posCounter] = hex(int(ctrlChar[line[x][y]]))
                                     escape = False
                                     posCounter = posCounter+1
@@ -212,21 +212,12 @@ with open(path) as f:
                                 escape = not escape
                             else:
                                 words[posCounter] = hex(ord(line[x][y]))
-                                print(line[x][y])
+                                #print(line[x][y])
                                 posCounter = posCounter+1
                     else:
                         print('Invalid value \'',line[x],'\' @ line #',lineNum,sep='')
                         wait = input('Press enter to exit')
                         exit()
-                    #if line[x][0] == '\'':
-                    #    line[x]=4
-                    #print(line[x])
-                #line = line[1].split('\'',1)[1]
-                #line = line.split('\'',1)[0]
-                #for x in range(0, len(line)):
-                #    print(line)
-                #    words[posCounter] = hex(ord(line[x]))
-                #    posCounter = posCounter + 1
             #Illegal instruction
             else:
                 print('Illegal instruction \'',line[0],'\' @ line #',lineNum,sep='')
@@ -235,7 +226,7 @@ with open(path) as f:
             
         lineNum = lineNum + 1
     print(labels)
-    print(words)
+    #print(words)
 print()
         
 #Create output hex file
