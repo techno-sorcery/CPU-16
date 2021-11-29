@@ -17,7 +17,8 @@ opcodesB = {  'BIN':'004000', 'BIE':'004100', 'BIV':'004200', 'BIC':'004300', 'B
               'BLE':'005200', 'BLT':'005300'  }
 opcodesI = {  'RST':'000000', 'HLT':'000100'  }
 ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
-              'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92' }
+              'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92',
+              ',':'44', '\'':'39'  }
 
 #path = sys.argv[1]
 path = 'Hello.asm'
@@ -197,12 +198,22 @@ with open(path) as f:
                     elif defStr.match(line[x]):
                         escape = False
                         for y in range(1,len(line[x])-1):
-                            if line[x][y] == '\\':
-                                escape = not escape
                             if escape == True:
-                                
+                                if line[x][y] in ctrlChar:
+                                    print(line[x][y]) #ctrlChar[line[x][y]]
+                                    words[posCounter] = hex(int(ctrlChar[line[x][y]]))
+                                    escape = False
+                                    posCounter = posCounter+1
+                                else:
+                                    print('Invalid ctrl character \'\\',line[x][y],'\' @ line #',lineNum,sep='')
+                                    wait = input('Press enter to exit')
+                                    exit()
+                            elif line[x][y] == '\\':
+                                escape = not escape
                             else:
+                                words[posCounter] = hex(ord(line[x][y]))
                                 print(line[x][y])
+                                posCounter = posCounter+1
                     else:
                         print('Invalid value \'',line[x],'\' @ line #',lineNum,sep='')
                         wait = input('Press enter to exit')
