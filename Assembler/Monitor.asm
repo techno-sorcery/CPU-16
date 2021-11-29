@@ -15,47 +15,39 @@
 ;	MOV (D0)+,devTerm
 ;	CMP #0,(D0)
 ;	BNE write
-	MOV #$E000,D6
+	MOV #$E000,D7
+	JMP address
+	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	
+;	Convert binary word to ascii hex, and output to terminal	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .address
-	MOV D6,D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	AND #%1111,D5
-	MOV hexTable(D5),devTerm
-	MOV D6,D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	AND #%1111,D5
-	MOV hexTable(D5),devTerm
-	MOV D6,D5
-	RSH D5
-	RSH D5
-	RSH D5
-	RSH D5
-	AND #%1111,D5
-	MOV hexTable(D5),devTerm
-	MOV D6,D5
-	AND #%1111,D5
-	MOV hexTable(D5),devTerm
+	MOV D7,D6
+	SWP D6
+	RSH D6
+	RSH D6
+	RSH D6
+	RSH D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
+	MOV D7,D6
+	SWP D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
+	MOV D7,D6
+	RSH D6
+	RSH D6
+	RSH D6
+	RSH D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
+	MOV D7,D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
 	MOV #'\n',devTerm
-	INC D6
-	CMP #$FFFF,D6
+	INC D7
+	CMP #$FFFF,D7
 	BNE address
 	HLT
 	
