@@ -16,8 +16,11 @@ opcodesB = {  'BIN':'004000', 'BIE':'004100', 'BIV':'004200', 'BIC':'004300', 'B
               'BNE':'004500', 'BNV':'004600', 'BNC':'004700', 'BGE':'005000', 'BGT':'005100',
               'BLE':'005200', 'BLT':'005300'  }
 opcodesI = {  'RST':'000000', 'HLT':'000100'  }
+ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
+              'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92' }
 
-path = sys.argv[1]
+#path = sys.argv[1]
+path = 'Hello.asm'
 labels = {}
 words = {}
 lineNum = 1
@@ -30,9 +33,11 @@ adsInd = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\Z')
 adsIndOff = re.compile(r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\((D|d)(?P<register>[0-7])\)\Z')
 adsIndInc = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\+\Z')
 adsIndDec = re.compile(r'^-\((D|d)(?P<register>[0-7]+)\)\Z')
-adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+|\'[ -~]{1}\'))\Z')
+adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+|\'[\\]?[ -~]{1}\'))\Z')
 adsOrg = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\Z')
 spComma = re.compile(r'[\\]{0},')
+defImm = re.compile(r'\A(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+|\'[\\]?[ -~]{1}\'))\Z')
+defStr = re.compile(r'^\'([ -~]+)\'\Z')
 
 if path.rsplit('.',1)[1].upper() != 'ASM':
     print('Invalid file extension .',path.rsplit('.',1)[1],sep='')
@@ -42,20 +47,28 @@ if path.rsplit('.',1)[1].upper() != 'ASM':
 
 #Parse addressing modes
 def modeParse(arg):
+    #Register   [reg]
     if adsReg.match(arg):
         return [0,0,adsReg.match(arg).group('register'),0]
+    #Direct     $m
     elif adsDir.match(arg):
         return [1,1,0,numParse(adsDir.match(arg).group('address'),0)]
+    #Relative   $m(PC)
     elif  adsRel.match(arg):
         return [2,1,0,numParse(adsRel.match(arg).group('address'),1)]
+    #Register indirect (reg)
     elif adsInd.match(arg):
         return [3,0,adsInd.match(arg).group('register'),0]
+    #Register indirect offset   $m(reg)
     elif adsIndOff.match(arg):
         return [4,1,adsIndOff.match(arg).group('register'),numParse(adsIndOff.match(arg).group('address'),0)]
+    #Register indirect post inc (reg)+
     elif adsIndInc.match(arg):
         return [5,0,adsIndInc.match(arg).group('register'),0]
+    #Register indirect pre dec  -(reg)
     elif adsIndDec.match(arg):
         return [6,0,adsIndDec.match(arg).group('register'),0]
+    #Immediate #m
     elif adsImm.match(arg):
         return [7,1,0,numParse(adsImm.match(arg).group('immediate'),0)]
     else:
@@ -65,16 +78,29 @@ def modeParse(arg):
 
 #Parse immediates & addresses
 def numParse(arg,rel):
+    #Hex
     if arg[0] == '$':
         return tohex(int(arg.split('$')[1],16),16)
-    elif arg[0] == '%':
+    #Bin
+    elif arg[0] == '%':         
         return tohex(int(arg.split('%')[1],2),16)
+    #Char
     elif arg[0] == '\'':
-        return hex(ord(arg.split('\'')[1]))
+        arg = re.split(r'(?<!\\)\'',arg)
+        #Escape character
+        if arg[1][0] == '\\':
+            if arg[1][1] in ctrlChar:
+                return hex(int(ctrlChar[arg[1][1]]))
+            else:
+                return hex(ord(arg[1][1]))
+        else:
+            return hex(ord(arg[1]))
+    #Label
     else:
         if arg.lstrip('-').isdigit() == True:
             return tohex(int(arg),16)
         else:
+            #Relative label
             if rel == 1:
                 return '@'+arg
             else:
@@ -88,6 +114,7 @@ def tohex(val, nbits):
 with open(path) as f:
     for line in f:
         line = line.strip()
+        #Find labels
         if line != '' and line[0] == '.':
             line = line.split('.')[1]
             labels[line.split(' ')[0]] = posCounter
@@ -97,8 +124,8 @@ with open(path) as f:
                 line = line[1]
             else:
                 line = ''
+        #Parse instructions
         if line != '' and line[0] != ';':
-            #Parse instructions
             tempPos = posCounter
             line = line.strip()
             line = line.split(' ',1)
@@ -156,11 +183,34 @@ with open(path) as f:
                     print('Invalid addressing mode @ line #',lineNum,sep='')
                     wait = input('Press enter to exit')
                     exit()
+            #Define constant
             elif line[0].upper() == 'DW':
                 line = re.split(r'(?<!\\),',line[1])
+                print(line)
+                #Parse constants
                 for x in range(0, len(line)):
-                    print(numParse(line[x],0))
-                #line = line[0].split('\'',1)[1]
+                    if defImm.match(line[x]):
+                        print(numParse(line[x],0))
+                        words[posCounter] = numParse(line[x],0)
+                        posCounter = posCounter + 1
+                    #Parse strings
+                    elif defStr.match(line[x]):
+                        escape = False
+                        for y in range(1,len(line[x])-1):
+                            if line[x][y] == '\\':
+                                escape = not escape
+                            if escape == True:
+                                
+                            else:
+                                print(line[x][y])
+                    else:
+                        print('Invalid value \'',line[x],'\' @ line #',lineNum,sep='')
+                        wait = input('Press enter to exit')
+                        exit()
+                    #if line[x][0] == '\'':
+                    #    line[x]=4
+                    #print(line[x])
+                #line = line[1].split('\'',1)[1]
                 #line = line.split('\'',1)[0]
                 #for x in range(0, len(line)):
                 #    print(line)
@@ -189,6 +239,7 @@ posCounter = 0
 multiplier = 0
 for line in range(0,max(map(int,words))+1):
     if line in words:
+        #Write 0s
         if multiplier > 0:
             f.write(str(multiplier))
             f.write('*0')
@@ -196,6 +247,7 @@ for line in range(0,max(map(int,words))+1):
             multiplier = 0
         if words[line][0] == '0':
             words[line] = words[line].split('x')[1]
+        #Fill in labels
         else:
             if words[line][0] == '@':
                 words[line] = tohex(labels[words[line].split('@',1)[1]]-line,16)
