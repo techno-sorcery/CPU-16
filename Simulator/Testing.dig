@@ -1197,6 +1197,55 @@
       <elementAttributes/>
       <pos x="1620" y="60"/>
     </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes/>
+      <pos x="300" y="-560"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~memst</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-100" y="-580"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~sel</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-100" y="-540"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes>
+        <entry>
+          <string>wideShape</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>In_1</string>
+          </inverterConfig>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="-580"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -1310,6 +1359,10 @@
     <wire>
       <p1 x="880" y="-540"/>
       <p2 x="1040" y="-540"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-540"/>
+      <p2 x="60" y="-540"/>
     </wire>
     <wire>
       <p1 x="-440" y="540"/>
@@ -1500,6 +1553,10 @@
       <p2 x="800" y="-560"/>
     </wire>
     <wire>
+      <p1 x="140" y="-560"/>
+      <p2 x="300" y="-560"/>
+    </wire>
+    <wire>
       <p1 x="-1480" y="-560"/>
       <p2 x="-1460" y="-560"/>
     </wire>
@@ -1582,6 +1639,10 @@
     <wire>
       <p1 x="-1880" y="-580"/>
       <p2 x="-1620" y="-580"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-580"/>
+      <p2 x="40" y="-580"/>
     </wire>
     <wire>
       <p1 x="-400" y="580"/>
