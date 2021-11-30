@@ -72,7 +72,7 @@ namespace ATLAS_MICRO_ASSEMBLER_8
 
             long PC_INC     = 0b00_0_000_0_00_0_0_0_00_00_1_000_00_0_0000_000_000_0000_0000;
 
-            long SP_INC     = 0b00_0_000_0_00_0_0_0_00_01_0_000_00_0_0000_000_000_0000_0000;
+            long SP_INC     = 0b00_0_000_0_00_0_0_0_00_10_0_000_00_0_0000_000_000_0000_0000;
             long SP_DEC     = 0b00_0_000_0_00_0_0_0_00_11_0_000_00_0_0000_000_000_0000_0000;
 
             long COND_NEG   = 0b00_0_000_0_00_0_0_1_00_00_0_000_00_0_0000_000_000_0000_0000;
@@ -204,7 +204,7 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c7 NOP
 
                 //013c MOV (reg),[ads]
-                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c0 NOP
+                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|REG_DOUT|MAR_ST|SEQ_INC, MAR_AOUT|MEM_DOUT|MDR_ST|SEQ_INC, REG_SEL2|MDR_DOUT|REG_ST|SEQ_RS0, 0, 0, 0, 0}, // c0 MOV (reg),[reg]
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c1 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c2 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c3 NOP
@@ -333,18 +333,18 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c6 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c7 NOP
                 
-                //030c [ctrl2]
-                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c0 NOP
+                //030c PSH [ads]
+                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SP_DEC|SEQ_INC, SP_AOUT|REG_SEL2|REG_DOUT|MEM_ST|SEQ_RS0, 0, 0, 0, 0, 0}, // c0 PSH [reg]
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c1 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c2 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c3 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c4 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c5 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c6 NOP
-                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c7 NOP
+                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SP_DEC|SEQ_INC, PC_AOUT|MEM_DOUT|MDR_ST|SEQ_INC, PC_INC|SP_AOUT|MDR_DOUT|MEM_ST|SEQ_RS0,  0, 0, 0, 0}, // c7 PSH #m
 
-                //031c [ctrl2]
-                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c0 NOP
+                //031c POP [ads]
+                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SP_AOUT|MEM_DOUT|REG_SEL2|REG_ST|SEQ_INC, SP_INC|IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC|SEQ_RS1, 0, 0, 0, 0, 0}, // c0 POP [reg]
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c1 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c2 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c3 NOP
