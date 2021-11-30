@@ -16,6 +16,7 @@ opcodesB = {  'BIN':'004000', 'BIE':'004100', 'BIV':'004200', 'BIC':'004300', 'B
               'BNE':'004500', 'BNV':'004600', 'BNC':'004700', 'BGE':'005000', 'BGT':'005100',
               'BLE':'005200', 'BLT':'005300'  }
 opcodesI = {  'RST':'000000', 'HLT':'000100', 'RTS':'000500'  }
+opcodesF = {  'LDF':'00100',  'LDT':'00110', 'STC':'00120'}
 ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
               'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92',
               ',':'44', '\'':'39'  }
@@ -168,6 +169,7 @@ with open(path) as f:
                 posCounter = posCounter + 1 + ads1[1]
             #BIN, BIE, BIV, BIC, BNN, BNE, BNV, BNC, BGE, BGT, BLE, BLT
             elif line[0].upper() in opcodesB:
+                print(opcodesB[line[0].upper()])
                 words[posCounter] = hex(int(opcodesB[line[0].upper()],8))
                 words[posCounter+1] = numParse(line[1],1)
                 posCounter = posCounter + 2
@@ -175,6 +177,17 @@ with open(path) as f:
             elif line[0].upper() in opcodesI:
                 words[posCounter] = hex(int(opcodesI[line[0].upper()],8))
                 posCounter = posCounter + 1
+            #LDF, LDT, STC
+            elif line[0].upper() in opcodesF:
+                opcode = opcodesF[line[0].upper()]
+                if adsReg.match(line[1]):
+                    opcode = opcode+adsReg.match(line[1]).group('register')
+                    words[posCounter] = hex(int(opcode,8))
+                    posCounter = posCounter + 1
+                else:
+                    print('Invalid addressing mode @ line #',lineNum,sep='')
+                    wait = input('Press enter to exit')
+                    exit() 
             #Directives
             elif line[0].upper() == 'ORG':
                 if adsOrg.match(line[1]):
