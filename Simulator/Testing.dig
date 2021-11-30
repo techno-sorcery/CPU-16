@@ -1246,6 +1246,49 @@
       </elementAttributes>
       <pos x="60" y="-580"/>
     </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes/>
+      <pos x="300" y="-820"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~memst</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-100" y="-840"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~sel</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-100" y="-800"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>wideShape</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="-840"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -1391,6 +1434,10 @@
     <wire>
       <p1 x="-800" y="-800"/>
       <p2 x="-760" y="-800"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-800"/>
+      <p2 x="60" y="-800"/>
     </wire>
     <wire>
       <p1 x="-280" y="160"/>
@@ -1585,6 +1632,10 @@
       <p2 x="800" y="-820"/>
     </wire>
     <wire>
+      <p1 x="140" y="-820"/>
+      <p2 x="300" y="-820"/>
+    </wire>
+    <wire>
       <p1 x="-920" y="-820"/>
       <p2 x="-760" y="-820"/>
     </wire>
@@ -1679,6 +1730,10 @@
     <wire>
       <p1 x="880" y="-840"/>
       <p2 x="1040" y="-840"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-840"/>
+      <p2 x="60" y="-840"/>
     </wire>
     <wire>
       <p1 x="-580" y="200"/>

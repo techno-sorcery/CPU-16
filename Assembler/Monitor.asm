@@ -9,47 +9,57 @@
 	org $C000
 .devTerm
 	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	init
+;	Program initialization
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ORG $E000
-;	MOV #splash,D0
-;.write 
-;	MOV (D0)+,devTerm
-;	CMP #0,(D0)
-;	BNE write
+	LDS #6
 	MOV #$E000,D7
-	JMP address
-	
+	MOV #$E0FF,D5
+	JSR mDump
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;	
-;	Convert binary word to ascii hex, and output to terminal	
+;	mDump
+;	Dumps memory from (D7)-(D5) to terminal
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-.address
-	MOV D7,D6
-	SWP D6
-	RSH D6
-	RSH D6
-	RSH D6
-	RSH D6
-	AND #%1111,D6
-	MOV hexTable(D6),devTerm
-	MOV D7,D6
-	SWP D6
-	AND #%1111,D6
-	MOV hexTable(D6),devTerm
-	MOV D7,D6
-	RSH D6
-	RSH D6
-	RSH D6
-	RSH D6
-	AND #%1111,D6
-	MOV hexTable(D6),devTerm
-	MOV D7,D6
-	AND #%1111,D6
-	MOV hexTable(D6),devTerm
+.mDump
+	JSR srBinHexTerm
 	MOV #'\n',devTerm
 	INC D7
-	CMP #$FFFF,D7
-	BNE address
+	CMP D5,D7
+	BNE mDump
 	HLT
+	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	srBinHexTerm
+;	Convert binary word to ascii hex, and output to terminal	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ORG $F000
+.srBinHexTerm
+	MOV D7,D6
+	SWP D6
+	RSH D6
+	RSH D6
+	RSH D6
+	RSH D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
+	MOV D7,D6
+	SWP D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
+	MOV D7,D6
+	RSH D6
+	RSH D6
+	RSH D6
+	RSH D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
+	MOV D7,D6
+	AND #%1111,D6
+	MOV hexTable(D6),devTerm
+	RTS
 	
 	ORG $FFFF
 	dw $E000

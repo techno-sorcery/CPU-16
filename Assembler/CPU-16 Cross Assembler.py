@@ -15,13 +15,13 @@ opcodes2 = {  'MOV':'01', 'EXG':'02', 'ADD':'03', 'ADC':'04', 'SUB':'06',
 opcodesB = {  'BIN':'004000', 'BIE':'004100', 'BIV':'004200', 'BIC':'004300', 'BNN':'004400',
               'BNE':'004500', 'BNV':'004600', 'BNC':'004700', 'BGE':'005000', 'BGT':'005100',
               'BLE':'005200', 'BLT':'005300'  }
-opcodesI = {  'RST':'000000', 'HLT':'000100'  }
+opcodesI = {  'RST':'000000', 'HLT':'000100', 'RTS':'000500'  }
 ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
               'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92',
               ',':'44', '\'':'39'  }
 
 path = sys.argv[1]
-#path = 'Hello.asm'
+#path = 'Monitor.asm'
 labels = {}
 words = {}
 lineNum = 1
@@ -241,6 +241,7 @@ posCounter = 0
 multiplier = 0
 for line in range(0,max(map(int,words))+1):
     if line in words:
+        #print(words[line])
         #Write 0s
         if multiplier > 0:
             f.write(str(multiplier))
@@ -251,7 +252,7 @@ for line in range(0,max(map(int,words))+1):
             words[line] = words[line].split('x')[1]
         #Fill in labels
         else:
-            if words[line][0] == '@':
+            if words[line][0] == '@' and words[line].split('@',1)[1] in labels:
                 words[line] = tohex(labels[words[line].split('@',1)[1]]-line,16)
             elif words[line] in labels:
                 words[line] = hex(labels[words[line]])
@@ -261,7 +262,7 @@ for line in range(0,max(map(int,words))+1):
                 exit()
         f.write(str(words[line]))
         f.write('\n')
-        #print(words[line])
+        
     else:
         multiplier = multiplier + 1
 f.close()

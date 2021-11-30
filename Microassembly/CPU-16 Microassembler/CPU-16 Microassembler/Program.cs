@@ -99,7 +99,7 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c2 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c3 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c4 NOP
-                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c5 NOP
+                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, SP_AOUT|MEM_DOUT|PC_ST|SEQ_INC, SP_INC|SEQ_INC, SP_AOUT|MEM_DOUT|F_DIN|F_ST|STAT_ST|SEQ_INC, SP_INC|IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC|SEQ_RS1, 0, 0, 0}, // c5 RTS
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c6 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c7 NOP
 
@@ -373,7 +373,7 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c6 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c7 NOP
 
-                //034c [ctrl2]
+                //034c LDS
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c0 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c1 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c2 NOP
@@ -381,7 +381,7 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c4 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c5 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c6 NOP
-                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c7 NOP
+                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, PC_AOUT|MEM_DOUT|SP_ST|SEQ_INC, PC_INC|SEQ_RS0, 0, 0, 0, 0}, // c7 LDS #m
 
                 //035c [ctrl2]
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c0 NOP
@@ -973,8 +973,8 @@ namespace ATLAS_MICRO_ASSEMBLER_8
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c6 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c7 NOP
                 
-                //130c [ctrl2]
-                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c0 NOP
+                //130c CMP [reg],[reg]
+                {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|REG_SEL2|REG_DOUT|OP1_ST|SEQ_INC, REG_DOUT|OP2_ST|SEQ_INC, ALU_SUB|F_ST|SEQ_RS0, 0, 0, 0, 0}, // c0 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c1 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c2 NOP
                 {IRQ_EN|TMP_CLR|PC_AOUT|MEM_DOUT|IR_ST|SEQ_INC, PC_INC|SEQ_INC, 0, 0, 0, 0, 0, 0}, // c3 NOP
