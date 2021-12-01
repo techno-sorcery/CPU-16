@@ -6,8 +6,10 @@
 	org $FD00
 .splash
 	dw 'ATLAS Machine Code Monitor 16\n(c)2021 ATLAS Digital Systems\, Hayden Buscher\n\n\0'
+.prompt
+	dw '>> \0'
 .hexTable
-	dw '0123456789ABCDEF'
+	dw '0123456789ABCDEF\0'
 .asciiTable
 	dw '................................'
 	dw ' !"#$%&\'()*+\,-./0123456789:;<='
@@ -17,7 +19,7 @@
 	dw '................................'
 	dw '................................'
 	dw '................................'
-	dw '...'
+	dw '...\0'
 	org $C000
 .devTerm
 	org $C001
@@ -36,21 +38,32 @@
 ;	init
 ;	Program initialization
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ORG $E000			
+.init
+	ORG $E000
+	;Init stack & key buffer
+	LDS #$C000
 	MOV #keyStart,wrPos
 	MOV #keyStart,rdPos
-;	MOV #srKeyStore,1
-;	LDS #$BFFF
-;	MOV #%0111111100000000,D7
-;	LDT D7
-;	MOV #splash,D7
-;	JSR srStrTermWord
-	MOV #'>',devTerm
+	MOV #srKeyStore,1
+	;Generate splash screen
+	LNK D7,#0
+	PSH #splash
+	JSR srStrTermWord
+	ULNK D7
+	;Init status reg
+	MOV #%0111111100000000,D0
+	LDT D0
+	;Display prompt
+	LNK D7,#0
+	PSH #prompt
+	JSR srStrTermWord
+	ULNK D7
+	;Read from key buffer
 .getInput
 	CMP wrPos,rdPos
 	BIE getInput
-;	JSR srKeyRead
-	MOV D7,devTerm
+	JSR srKeyRead
+	MOV D0,devTerm
 	JMP getInput
 	
 ;	MOV #$FD00,D5
@@ -60,7 +73,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	mDump
-;	Dumps memory from (D5)-(D6) to terminal
+;	Dumps memory from p1-p2 to terminal
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ORG $F000
 .mDump
@@ -151,12 +164,11 @@
 ;	Output ascii-encoded string @ (D7) to terminal
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srStrTermWord
-	PSH D7
+	MOV -1(D7),D0
 .LOC_StrTermWordX
-	MOV (D7)+,devTerm
-	CMP #0,(D7)
+	MOV (D0)+,devTerm
+	CMP #0,(D0)
 	BNE LOC_StrTermWordX
-	POP D7
 	RTS
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -164,33 +176,29 @@
 ;	Stores key input to the keybuffer
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyStore
-	PSH D7
-	MOV wrPos,D7
-	MOV devKey,(D7)
-	INC D7
-	CMP #keyEnd,D7
-	BNE LOC_KeyStore_End
-	MOV #0,D7
+    MOV wrPos,D0
+    MOV devKey,(D0)
+    INC D0
+    CMP #keyEnd,D0
+    BNE LOC_KeyStore_End
+    MOV #keyStart,D0
 .LOC_KeyStore_End
-	MOV D7,wrPos
-	POP D7
-	RTS
+    MOV D0,wrPos
+    RTS
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	srKeyRead
 ;	Stores character from key buffer to register D6
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyRead
-	PSH D7
-	MOV rdPos,D7
-	MOV (D7),D6
-	INC D7
-	CMP #keyEnd,D7
+	MOV rdPos,D1
+	MOV (D1),D0
+	INC D1
+	CMP #keyEnd,D1
 	BNE LOC_KeyRead_End
-	MOV #0,D7
+	MOV #keyStart,D1
 .LOC_KeyRead_End
-	MOV D7,rdPos
-	POP D7
+	MOV D1,rdPos
 	RTS
 	
 	

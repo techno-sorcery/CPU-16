@@ -16,13 +16,14 @@ opcodesB = {  'BIN':'004000', 'BIE':'004100', 'BIV':'004200', 'BIC':'004300', 'B
               'BNE':'004500', 'BNV':'004600', 'BNC':'004700', 'BGE':'005000', 'BGT':'005100',
               'BLE':'005200', 'BLT':'005300'  }
 opcodesI = {  'RST':'000000', 'HLT':'000100', 'RTS':'000500'  }
-opcodesF = {  'LDF':'00100',  'LDT':'00110', 'STC':'00120'}
+opcodesF = {  'LDF':'00100',  'LDT':'00110', 'STC':'00120', 'ULNK':'00170'}
+opcodesL = {  'LNK':'00160'  }
 ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
               'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92',
               ',':'44', '\'':'39'  }
 
-path = sys.argv[1]
-#path = 'Monitor.asm'
+#path = sys.argv[1]
+path = 'Monitor.asm'
 labels = {}
 words = {}
 lineNum = 1
@@ -177,12 +178,26 @@ with open(path) as f:
             elif line[0].upper() in opcodesI:
                 words[posCounter] = hex(int(opcodesI[line[0].upper()],8))
                 posCounter = posCounter + 1
-            #LDF, LDT, STC
+            #LDF, LDT, STC, ULNK
             elif line[0].upper() in opcodesF:
                 opcode = opcodesF[line[0].upper()]
                 if adsReg.match(line[1]):
                     opcode = opcode+adsReg.match(line[1]).group('register')
                     words[posCounter] = hex(int(opcode,8))
+                    posCounter = posCounter + 1
+                else:
+                    print('Invalid addressing mode @ line #',lineNum,sep='')
+                    wait = input('Press enter to exit')
+                    exit()
+            #LNK
+            elif line[0].upper() in opcodesL:
+                opcode = opcodesL[line[0].upper()]
+                line = line[1].rsplit(',',1)
+                if adsReg.match(line[0]) and adsImm.match(line[1]):
+                    opcode = opcode+adsReg.match(line[0]).group('register')
+                    words[posCounter] = hex(int(opcode,8))
+                    posCounter = posCounter + 1
+                    words[posCounter] = numParse(adsImm.match(line[1]).group('immediate'),1)
                     posCounter = posCounter + 1
                 else:
                     print('Invalid addressing mode @ line #',lineNum,sep='')
