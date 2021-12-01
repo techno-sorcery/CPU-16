@@ -32,6 +32,8 @@
 .keyStart
 	org $02FF
 .keyEnd
+	org $0300
+.cmdBuffer
 	
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -58,13 +60,31 @@
 	PSH #prompt
 	JSR srStrTermWord
 	ULNK D7
+	
 	;Read from key buffer
 .getInput
+	MOV #0,D1
+.LOC_getInput_readKey
 	CMP wrPos,rdPos
-	BIE getInput
+	BIE LOC_getInput_readKey
+	PSH D1
 	JSR srKeyRead
+	POP D1
+;	CMP #31,D0
+;	BIC LOC_getInput_noBK
+;	CMP #8,D0
+;	BNE LOC_getInput_readKey
+;	CMP #0,D1
+;	BNE LOC_getInput_decCursor
+;	JMP LOC_getInput_readKey
+;.LOC_getInput_decCursor
+;	DEC D1
+;	MOV #8,devTerm
+;	JMP LOC_getInput_readKey
+.LOC_getInput_noBK
 	MOV D0,devTerm
-	JMP getInput
+	INC D1
+	JMP LOC_getInput_readKey
 	
 ;	MOV #$FD00,D5
 ;	MOV #$FFFF,D6
