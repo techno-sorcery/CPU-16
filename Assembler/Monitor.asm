@@ -70,17 +70,17 @@
 	PSH D1
 	JSR srKeyRead
 	POP D1
-;	CMP #31,D0
-;	BIC LOC_getInput_noBK
-;	CMP #8,D0
-;	BNE LOC_getInput_readKey
-;	CMP #0,D1
-;	BNE LOC_getInput_decCursor
-;	JMP LOC_getInput_readKey
-;.LOC_getInput_decCursor
-;	DEC D1
-;	MOV #8,devTerm
-;	JMP LOC_getInput_readKey
+	CMP #31,D0
+	BIC LOC_getInput_noBK
+	CMP #8,D0
+	BNE LOC_getInput_readKey
+	CMP #0,D1
+	BNE LOC_getInput_decCursor
+	JMP LOC_getInput_readKey
+.LOC_getInput_decCursor
+	DEC D1
+	MOV #8,devTerm
+	JMP LOC_getInput_readKey
 .LOC_getInput_noBK
 	MOV D0,devTerm
 	INC D1
@@ -211,6 +211,8 @@
 ;	Stores character from key buffer to register D6
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyRead
+	MOV #%0000000000000000,D4
+	LDT D4
 	MOV rdPos,D1
 	MOV (D1),D0
 	INC D1
@@ -219,6 +221,8 @@
 	MOV #keyStart,D1
 .LOC_KeyRead_End
 	MOV D1,rdPos
+	MOV #%0111111100000000,D4
+	LDT D4
 	RTS
 	
 	
