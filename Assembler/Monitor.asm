@@ -48,13 +48,12 @@
 	MOV #keyStart,rdPos
 	MOV #srKeyStore,1
 	;Generate splash screen
-	LNK D7,#0
-	PSH #splash
-	JSR srStrTermWord
-	ULNK D7
+;	LNK D7,#0
+;	PSH #splash
+;	JSR srStrTermWord
+;	ULNK D7
 	;Init status reg
-	MOV #%0111111100000000,D0
-	LDT D0
+	ORT #%1111111100000000
 	;Display prompt
 	LNK D7,#0
 	PSH #prompt
@@ -63,27 +62,27 @@
 	
 	;Read from key buffer
 .getInput
-	MOV #0,D1
+;	MOV #0,D1
 .LOC_getInput_readKey
 	CMP wrPos,rdPos
 	BIE LOC_getInput_readKey
-	PSH D1
+;	PSH D1
 	JSR srKeyRead
-	POP D1
-	CMP #31,D0
-	BIC LOC_getInput_noBK
-	CMP #8,D0
-	BNE LOC_getInput_readKey
-	CMP #0,D1
-	BNE LOC_getInput_decCursor
-	JMP LOC_getInput_readKey
-.LOC_getInput_decCursor
-	DEC D1
-	MOV #8,devTerm
-	JMP LOC_getInput_readKey
-.LOC_getInput_noBK
+;	POP D1
+;	CMP #31,D0
+;	BIC LOC_getInput_noBK
+;	CMP #8,D0
+;	BNE LOC_getInput_readKey
+;	CMP #0,D1
+;	BNE LOC_getInput_decCursor
+;	JMP LOC_getInput_readKey
+;.LOC_getInput_decCursor
+;	DEC D1
+;	MOV #8,devTerm
+;	JMP LOC_getInput_readKey
+;.LOC_getInput_noBK
 	MOV D0,devTerm
-	INC D1
+;	INC D1
 	JMP LOC_getInput_readKey
 	
 ;	MOV #$FD00,D5
@@ -211,8 +210,7 @@
 ;	Stores character from key buffer to register D6
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyRead
-	MOV #%0000000000000000,D4
-	LDT D4
+	ANT #%100000000000000
 	MOV rdPos,D1
 	MOV (D1),D0
 	INC D1
@@ -221,8 +219,7 @@
 	MOV #keyStart,D1
 .LOC_KeyRead_End
 	MOV D1,rdPos
-	MOV #%0111111100000000,D4
-	LDT D4
+	ORT #%01111111100000000
 	RTS
 	
 	
