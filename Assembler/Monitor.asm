@@ -39,19 +39,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	init
 ;	Program initialization
+;	Parameters:
+;		None
+;	Modifies: SP, $1, STAT 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .init
 	ORG $E000
-	;Init stack & key buffer
+	;Init stack & vectors
 	LDS #$C000
-	MOV #keyStart,wrPos
-	MOV #keyStart,rdPos
 	MOV #srKeyStore,1
 	;Generate splash screen
-;	LNK D7,#0
-;	PSH #splash
-;	JSR srStrTermWord
-;	ULNK D7
+	LNK D7,#0
+	PSH #splash
+	JSR srStrTermWord
+	ULNK D7
 	;Init status reg
 	ORT #%1111111100000000
 	;Display prompt
@@ -60,30 +61,47 @@
 	JSR srStrTermWord
 	ULNK D7
 	
-	;Read from key buffer
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	getInput
+;	Read & handle input from key buffer
+;	Parameters:
+;		None
+;	Modifies: D0, D1, wrPos, rdPos, (wrPos)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .getInput
-;	MOV #0,D1
+	;Initialize key buffer and cursor position
+	MOV #0,D1
+	MOV #keyStart,wrPos
+	MOV #keyStart,rdPos
 .LOC_getInput_readKey
+	;Read from key buffer
 	CMP wrPos,rdPos
 	BIE LOC_getInput_readKey
-;	PSH D1
+	PSH D1
 	JSR srKeyRead
-;	POP D1
-;	CMP #31,D0
-;	BIC LOC_getInput_noBK
-;	CMP #8,D0
-;	BNE LOC_getInput_readKey
-;	CMP #0,D1
-;	BNE LOC_getInput_decCursor
-;	JMP LOC_getInput_readKey
-;.LOC_getInput_decCursor
-;	DEC D1
-;	MOV #8,devTerm
-;	JMP LOC_getInput_readKey
-;.LOC_getInput_noBK
-	MOV D0,devTerm
-;	INC D1
+	POP D1
+	CMP #31,D0
+	BIC LOC_getInput_noCTRL
+	CMP #10,D0
+	BIE LOC_getInput_enter
+	CMP #8,D0
+	BNE LOC_getInput_readKey
+	CMP #0,D1
+	BNE LOC_getInput_decCursor
 	JMP LOC_getInput_readKey
+.LOC_getInput_decCursor
+	DEC D1
+	MOV #8,devTerm
+	JMP LOC_getInput_readKey
+.LOC_getInput_noCTRL
+	MOV D0,devTerm
+	INC D1
+	JMP LOC_getInput_readKey
+.LOC_getInput_enter
+	MOV #0,wrPos
+	LNK D7,#0
+	PSH #keyStart
+	JSR srStringParse
 	
 ;	MOV #$FD00,D5
 ;	MOV #$FFFF,D6
@@ -93,6 +111,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	mDump
 ;	Dumps memory from p1-p2 to terminal
+;	Parameters:
+;		
+;	Modifies:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ORG $F000
 .mDump
@@ -133,7 +154,10 @@
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	srBinHexTerm
-;	Convert binary word (D7) to ascii hex, and output to terminal	
+;	Convert binary word (D7) to ascii hex, and output to terminal
+; 	Parameters: 
+;		
+;	Modifies:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srBinHexTerm
 	PSH D6
@@ -165,6 +189,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	srBinAsciiTerm
 ;	Convert binary word (D7) to ascii, and output to terminal	
+;	Parameters:
+;		
+;	Modifies: 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srBinAsciiTerm
 	PSH D6
@@ -181,6 +208,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	srStrTermWord
 ;	Output ascii-encoded string @ (D7) to terminal
+;	Parameters: 
+;		-1(BP): String start address
+;	Modifies: D0, devTerm
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srStrTermWord
 	MOV -1(D7),D0
@@ -193,6 +223,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	srKeyStore
 ;	Stores key input to the keybuffer
+;	Parameters:
+;		None
+;	Modifies: D0, wrPos, (wrPos)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyStore
     MOV wrPos,D0
@@ -207,7 +240,10 @@
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	srKeyRead
-;	Stores character from key buffer to register D6
+;	Stores character from key buffer to register D0
+;	Parameters:
+;		None
+;	Modifies: D0, D1, rdPos
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyRead
 	ANT #%100000000000000
@@ -219,7 +255,44 @@
 	MOV #keyStart,D1
 .LOC_KeyRead_End
 	MOV D1,rdPos
-	ORT #%01111111100000000
 	RTS
 	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	srStringParse
+;	Parses string, accounting for control characters
+;	Parameters:
+;		-1(BP): String start address
+;	Modifies: D0, D1, (-1(BP))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+.srStringParse
+	ANT #%100000000000000
+	PSH D2
+	;Read
+	MOV -1(D7),D0
+	;Write
+	MOV -1(D7),D1
+.LOC_StringParse_X
+	MOV (D0),D2
+	CMP #31,D2
+	BIC LOC_StringParse_write
+	CMP #0,D2
+	BIE LOC_StringParse_exit
+	CMP #8,D2
+	BIE LOC_StringParse_bkSpace
+	JMP LOC_StringParse_exit
+.LOC_StringParse_write
+	MOV D2,(D1)+
+.LOC_StringParse_incRead
+	INC D0
+	JMP LOC_StringParse_X
+.LOC_StringParse_exit
+	MOV #0,(D1)
+	POP D2
+	HLT
+	RTS
+.LOC_StringParse_bkSpace
+	CMP -1(D7),D1
+	BIE LOC_StringParse_incRead
+	DEC D1
+	JMP LOC_StringParse_incRead
 	
