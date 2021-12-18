@@ -8,6 +8,8 @@
 	dw 'ATLAS Machine Code Monitor 16\n(c)2021 ATLAS Digital Systems\, Hayden Buscher\n\n\0'
 .prompt
 	dw '>> \0'
+.syntaxError
+	dw 'Syntax error\n\0'
 .hexTable
 	dw '0123456789ABCDEF\0'
 .asciiTable
@@ -20,9 +22,10 @@
 	dw '................................'
 	dw '................................'
 	dw '...\0'
+	
 	org $C000
 .devTerm
-	org $C001
+	org $C000
 .devKey
 	org $01FE
 .wrPos
@@ -43,8 +46,8 @@
 ;		None
 ;	Modifies: SP, $1, STAT 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-.init
 	ORG $E000
+.init
 	;Init stack & vectors
 	LDS #$C000
 	MOV #srKeyStore,1
@@ -53,13 +56,11 @@
 	PSH #splash
 	JSR srStrTermWord
 	ULNK D7
-	;Init status reg
+.main
 	ORT #%1111111100000000
-	;Display prompt
-	LNK D7,#0
-	PSH #prompt
-	JSR srStrTermWord
-	ULNK D7
+	MOV #'>',devTerm
+	JSR getInput
+	
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	getInput
@@ -69,7 +70,7 @@
 ;	Modifies: D0, D1, wrPos, rdPos, (wrPos)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .getInput
-	;Initialize key buffer and cursor position
+	;Initialize status register, key buffer, and cursor position
 	MOV #0,D1
 	MOV #keyStart,wrPos
 	MOV #keyStart,rdPos
@@ -98,15 +99,21 @@
 	INC D1
 	JMP LOC_getInput_readKey
 .LOC_getInput_enter
-	MOV #0,wrPos
+	ANT #%100000000000000
+	MOV D0,devTerm
+	MOV rdPos,D0
+	DEC D0
+	MOV #0,(D0)
 	LNK D7,#0
 	PSH #keyStart
 	JSR srStringParse
+	ULNK D7
+	LNK D7,#0
+	PSH #syntaxError
+	JSR srStrTermWord
+	ULNK D7
+	JMP getInput
 	
-;	MOV #$FD00,D5
-;	MOV #$FFFF,D6
-;	INC D6
-;	JSR mDump
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;	mDump
@@ -192,7 +199,7 @@
 ;	Parameters:
 ;		
 ;	Modifies: 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;		;;;;;;;;;;;;;;
 .srBinAsciiTerm
 	PSH D6
 	MOV D7,D6
@@ -265,7 +272,6 @@
 ;	Modifies: D0, D1, (-1(BP))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srStringParse
-	ANT #%100000000000000
 	PSH D2
 	;Read
 	MOV -1(D7),D0
@@ -288,7 +294,6 @@
 .LOC_StringParse_exit
 	MOV #0,(D1)
 	POP D2
-	HLT
 	RTS
 .LOC_StringParse_bkSpace
 	CMP -1(D7),D1
