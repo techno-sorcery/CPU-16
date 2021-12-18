@@ -56,10 +56,19 @@
 	PSH #splash
 	JSR srStrTermWord
 	ULNK D7
-.main
 	ORT #%1111111100000000
+.main
 	MOV #'>',devTerm
 	JSR getInput
+	LNK D7,#0
+	PSH #keyStart
+	JSR srStringParse
+	ULNK D7
+	LNK D7,#0
+	PSH #syntaxError
+	JSR srStrTermWord
+	ULNK D7
+	JMP main
 	
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -104,15 +113,7 @@
 	MOV rdPos,D0
 	DEC D0
 	MOV #0,(D0)
-	LNK D7,#0
-	PSH #keyStart
-	JSR srStringParse
-	ULNK D7
-	LNK D7,#0
-	PSH #syntaxError
-	JSR srStrTermWord
-	ULNK D7
-	JMP getInput
+	RTS
 	
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -301,3 +302,13 @@
 	DEC D1
 	JMP LOC_StringParse_incRead
 	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	srStringSplit
+;	Program initialization
+;	Parameters:
+;		-1(BP): String start address
+;		-2(BP): Separator character
+;		-3(BP): String index number
+;	Modifies: SP, $1, STAT 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+.srStringSplit
