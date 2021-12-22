@@ -7,41 +7,39 @@ import re
 import sys
 import os
 
-opcodes1 = {  'JMP':'002', 'JSR':'003', 'PSH':'030', 'POP':'031', 'LDS':'034',
-              'STS':'035', 'SWP':'036', 'NOT':'150', 'NEG':'151', 'NEX':'152',
-              'LSH':'153', 'RSH':'154', 'INC':'155', 'DEC':'156', 'SEX':'157'  }
-opcodes2 = {  'MOV':'01', 'EXG':'02', 'ADD':'04', 'ADC':'05', 'SUB':'06',
-              'SBB':'07', 'AND':'10', 'OR':'11',  'XOR':'12', 'CMP':'13'  }
-opcodesB = {  'BIN':'004000', 'BIE':'004100', 'BIV':'004200', 'BIC':'004300', 'BNN':'004400',
-              'BNE':'004500', 'BNV':'004600', 'BNC':'004700', 'BGE':'005000', 'BGT':'005100',
-              'BLE':'005200', 'BLT':'005300'  }
-opcodesI = {  'RST':'000000', 'HLT':'000100', 'RTS':'000500'  }
-opcodesF = {  'LDF':'00100',  'LDT':'00110', 'STC':'00120', 'ULNK':'00170'}
-opcodesL = {  'LNK':'00160'  }
-opcodesX = {  'ANF':'006000', 'ORF':'006100', 'XOF':'006200', 'ANT':'006400', 'ORT':'006500',
-              'XOT':'006600'  }
+opcodes1 = {  'JMP':'003', 'JSR':'004', 'NOT':'130', 'LSH':'131', 'RSH':'132', 'INC':'133',
+              'DEC':'134', 'SEX':'135'  }
+opcodes2 = {  'MOV':'01', 'ADD':'02', 'ADC':'03', 'SUB':'04', 'SBB':'05', 'AND':'06',
+              'OR':'07',  'XOR':'10', 'CMP':'11'  }
+opcodesB = {  'BIN':'005000', 'BIE':'005100', 'BIV':'005200', 'BIC':'005300', 'BNN':'005400', 'BNE':'005500',
+              'BNV':'005600', 'BNC':'005700', 'BGE':'006000', 'BGT':'006100', 'BLE':'006200', 'BLT':'006300'  }
+opcodesI = {  'RST':'000000', 'HLT':'000100', 'RTS':'000700'  }
+opcodesF = {  'LDF':'00230',  'LDT':'00270', 'STC':'00100', 'ULNK':'00170', 'SWP':'00140', 'EXG':'00150'  }
+opcodesL = {  'LNK':'00160', }
+opcodesX = {  'ANF':'002000', 'ORF':'002100', 'XOF':'002200', 'ANT':'002400', 'ORT':'002500',
+              'XOT':'002600'  }
 ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
               'v':'11', 'f':'12', 'r':'13', 'e':'27', '\\':'92',
               ',':'44', '\'':'39'  }
 
-path = sys.argv[1]
-#path = 'Monitor.asm'
+#path = sys.argv[1]
+path = 'Hello.asm'
 labels = {}
 words = {}
 lineNum = 1
 posCounter = 0
 
-adsReg = re.compile(r'^(D|d)(?P<register>[0-7]+)\Z')
-adsDir = re.compile(r'\A(?P<address>([0-9]+|\$[0-9A-f]+|%[0-1]+|[A-z]{1}[A-z0-9]+))\Z')
-adsRel = re.compile (r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\(PC\)\Z')
-adsInd = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\Z')
-adsIndOff = re.compile(r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+))\((D|d)(?P<register>[0-7])\)\Z')
-adsIndInc = re.compile (r'^\((D|d)(?P<register>[0-7]+)\)\+\Z')
-adsIndDec = re.compile(r'^-\((D|d)(?P<register>[0-7]+)\)\Z')
-adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+|\'[\\]?[ -~]{1}\'))\Z')
+adsReg = re.compile(r'\A(?P<register>([Dd][0-7])|[Ss][Pp])\Z')
+adsDir = re.compile(r'\A(?P<address>([0-9]+|\$[0-9A-f]+|%[0-1]+|[A-z]{1}[A-z0-9]*))\Z')
+adsRel = re.compile (r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]*))\(PC\)\Z')
+adsInd = re.compile (r'^\((?P<register>([Dd][0-7]|[Ss][Pp]))\)\Z')
+adsIndOff = re.compile(r'\A(?P<address>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]*))\((?P<register>([Dd][0-7]|[Ss][Pp]))\)\Z')
+adsIndInc = re.compile (r'^\((?P<register>([Dd][0-7]|[Ss][Pp]))\)\+\Z')
+adsIndDec = re.compile(r'^-\((?P<register>([Dd][0-7]|[Ss][Pp]))\)\Z')
+adsImm = re.compile(r'^#(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]*|\'[\\]?[ -~]{1}\'))\Z')
 adsOrg = re.compile(r'^\$(?P<address>[0-9A-Fa-f]+)\Z')
 spComma = re.compile(r'[\\]{0},')
-defImm = re.compile(r'\A(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]+|\'[\\]?[ -~]{1}\'))\Z')
+defImm = re.compile(r'\A(?P<immediate>(-?[0-9]+|\$-?[0-9A-f]+|%-?[0-1]+|[A-z]{1}[A-z0-9]*|\'[\\]?[ -~]{1}\'))\Z')
 defStr = re.compile(r'^\'([ -~]+)\'\Z')
 
 if path.rsplit('.',1)[1].upper() != 'ASM':
@@ -54,7 +52,10 @@ if path.rsplit('.',1)[1].upper() != 'ASM':
 def modeParse(arg):
     #Register   [reg]
     if adsReg.match(arg):
-        return [0,0,adsReg.match(arg).group('register'),0]
+        if adsReg.match(arg).group('register').upper() == 'SP':
+            return [0,0,7,0]
+        else:
+            return [0,0,adsReg.match(arg).group('register')[1],0]
     #Direct     $m
     elif adsDir.match(arg):
         return [1,1,0,numParse(adsDir.match(arg).group('address'),0)]
@@ -63,16 +64,28 @@ def modeParse(arg):
         return [2,1,0,numParse(adsRel.match(arg).group('address'),1)]
     #Register indirect (reg)
     elif adsInd.match(arg):
-        return [3,0,adsInd.match(arg).group('register'),0]
+        if adsInd.match(arg).group('register').upper() == 'SP':
+            return [3,0,7,0]
+        else:
+            return [3,0,adsInd.match(arg).group('register')[1],0]
     #Register indirect offset   $m(reg)
     elif adsIndOff.match(arg):
-        return [4,1,adsIndOff.match(arg).group('register'),numParse(adsIndOff.match(arg).group('address'),0)]
+        if adsIndOff.match(arg).group('register').upper() == 'SP':
+            return [4,1,7,numParse(adsIndOff.match(arg).group('address'),0)]
+        else:
+            return [4,1,adsIndOff.match(arg).group('register')[1],numParse(adsIndOff.match(arg).group('address'),0)]
     #Register indirect post inc (reg)+
     elif adsIndInc.match(arg):
-        return [5,0,adsIndInc.match(arg).group('register'),0]
+        if adsIndInc.match(arg).group('register').upper() == 'SP':
+            return [5,0,7,0]
+        else:
+            return [5,0,adsIndInc.match(arg).group('register')[1],0]
     #Register indirect pre dec  -(reg)
     elif adsIndDec.match(arg):
-        return [6,0,adsIndDec.match(arg).group('register'),0]
+        if adsIndDec.match(arg).group('register').upper() == 'SP':
+            return [6,0,7,0]
+        else:
+            return [6,0,adsIndDec.match(arg).group('register')[1],0]
     #Immediate #m
     elif adsImm.match(arg):
         return [7,1,0,numParse(adsImm.match(arg).group('immediate'),0)]
@@ -136,7 +149,7 @@ with open(path) as f:
             line = line.split(' ',1)
             print(line)
             opcode = 0
-            #MOV, EXG, ADD, ADC, SUB, SBB, AND, OR, XOR, CMP
+            #MOV, ADD, ADC, SUB, SBB, AND, OR, XOR, CMP
             if line[0].upper() in opcodes2:
                 opcode = opcodes2[line[0].upper()]
                 line = line[1].rsplit(',',1)
@@ -160,7 +173,7 @@ with open(path) as f:
                     print('Invalid addressing mode @ line #',lineNum,sep='')
                     wait = input('Press enter to exit')
                     exit()
-            #JMP, JSR, LDS, STS, SWP, NOT, NEG, NEX, LSH, RSH, INC, DEC, SEX
+            #JMP, JSR, NOT, LSH, RSH, INC, DEC, SEX
             elif line[0].upper() in opcodes1:
                 opcode = opcodes1[line[0].upper()]
                 ads1 = modeParse(line[1])
@@ -180,7 +193,7 @@ with open(path) as f:
             elif line[0].upper() in opcodesI:
                 words[posCounter] = hex(int(opcodesI[line[0].upper()],8))
                 posCounter = posCounter + 1
-            #LDF, LDT, STC, ULNK
+            #LDF, LDT, STC, ULNK, SWP
             elif line[0].upper() in opcodesF:
                 opcode = opcodesF[line[0].upper()]
                 if adsReg.match(line[1]):
@@ -217,6 +230,7 @@ with open(path) as f:
                     wait = input('Press enter to exit')
                     exit()
             #Directives
+            #ORG
             elif line[0].upper() == 'ORG':
                 if adsOrg.match(line[1]):
                     posCounter = int(adsOrg.match(line[1]).group('address'),16)

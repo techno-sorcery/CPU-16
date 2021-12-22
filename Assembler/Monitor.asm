@@ -45,17 +45,18 @@
 ;	Parameters:
 ;		None
 ;	Modifies: SP, $1, STAT 
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ORG $E000
 .init
 	;Init stack & vectors
-	LDS #$C000
+	MOV #$C000,SP
 	MOV #srKeyStore,1
 	;Generate splash screen
-	LNK D7,#0
 	PSH #splash
 	JSR srStrTermWord
-	ULNK D7
+	ADD #1,SP
+	;Initialize status register
 	ORT #%1111111100000000
 .main
 	MOV #'>',devTerm
@@ -77,9 +78,10 @@
 ;	Parameters:
 ;		None
 ;	Modifies: D0, D1, wrPos, rdPos, (wrPos)
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .getInput
-	;Initialize status register, key buffer, and cursor position
+	;Initialize key buffer and cursor position
 	MOV #0,D1
 	MOV #keyStart,wrPos
 	MOV #keyStart,rdPos
@@ -90,12 +92,16 @@
 	PSH D1
 	JSR srKeyRead
 	POP D1
+	;Check if control char
 	CMP #31,D0
 	BIC LOC_getInput_noCTRL
+	;Check if enter
 	CMP #10,D0
 	BIE LOC_getInput_enter
+	;Check if backspace
 	CMP #8,D0
 	BNE LOC_getInput_readKey
+	;Check if null
 	CMP #0,D1
 	BNE LOC_getInput_decCursor
 	JMP LOC_getInput_readKey
@@ -122,8 +128,8 @@
 ;	Parameters:
 ;		
 ;	Modifies:
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ORG $F000
 .mDump
 	PSH D4
 	PSH D7
@@ -166,6 +172,7 @@
 ; 	Parameters: 
 ;		
 ;	Modifies:
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srBinHexTerm
 	PSH D6
@@ -200,7 +207,8 @@
 ;	Parameters:
 ;		
 ;	Modifies: 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;		;;;;;;;;;;;;;;
+;	LNK Offset: 0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srBinAsciiTerm
 	PSH D6
 	MOV D7,D6
@@ -219,9 +227,10 @@
 ;	Parameters: 
 ;		-1(BP): String start address
 ;	Modifies: D0, devTerm
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srStrTermWord
-	MOV -1(D7),D0
+	POP D0
 .LOC_StrTermWordX
 	MOV (D0)+,devTerm
 	CMP #0,(D0)
@@ -234,6 +243,7 @@
 ;	Parameters:
 ;		None
 ;	Modifies: D0, wrPos, (wrPos)
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyStore
     MOV wrPos,D0
@@ -252,6 +262,7 @@
 ;	Parameters:
 ;		None
 ;	Modifies: D0, D1, rdPos
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srKeyRead
 	ANT #%100000000000000
@@ -271,6 +282,7 @@
 ;	Parameters:
 ;		-1(BP): String start address
 ;	Modifies: D0, D1, (-1(BP))
+;	LNK Offset: 0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srStringParse
 	PSH D2
@@ -310,5 +322,23 @@
 ;		-2(BP): Separator character
 ;		-3(BP): String index number
 ;	Modifies: SP, $1, STAT 
+;	LNK Offset: -1
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .srStringSplit
+	PSH D2
+	;String address
+	MOV -1(D7),D0
+	PSH D0
+	;Index number
+	MOV #0,D1
+.LOC_StringSplit_X
+	MOV (D0),D2
+	CMP -2(D7),D2
+	BNE LOC_StringSplit_inc
+	CMP -3(D7),D1
+	BIE LOC_StringSplit_exit
+	
+.LOC_StringSplit_inc
+
+.LOC_StringSplit_exit
+	POP D0
