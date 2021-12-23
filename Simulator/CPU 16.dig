@@ -2572,7 +2572,7 @@
         </entry>
         <entry>
           <string>Output Splitting</string>
-          <string>4,4,2,3,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</string>
+          <string>4,4,2,3,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10</string>
         </entry>
       </elementAttributes>
       <pos x="12740" y="2180"/>
@@ -7975,12 +7975,12 @@ By Hayden B.</string>
       <elementName>Multiplexer</elementName>
       <elementAttributes>
         <entry>
-          <string>flipSelPos</string>
-          <boolean>true</boolean>
-        </entry>
-        <entry>
           <string>rotation</string>
           <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>flipSelPos</string>
+          <boolean>true</boolean>
         </entry>
       </elementAttributes>
       <pos x="14160" y="2340"/>
@@ -7989,16 +7989,16 @@ By Hayden B.</string>
       <elementName>Splitter</elementName>
       <elementAttributes>
         <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
           <string>Input Splitting</string>
           <string>16</string>
         </entry>
         <entry>
           <string>Output Splitting</string>
           <string>1</string>
-        </entry>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
         </entry>
       </elementAttributes>
       <pos x="14140" y="2560"/>

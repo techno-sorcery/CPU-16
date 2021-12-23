@@ -8,7 +8,7 @@ import sys
 import os
 
 opcodes1 = {  'JMP':'003', 'JSR':'004', 'NOT':'130', 'LSH':'131', 'RSH':'132', 'INC':'133',
-              'DEC':'134', 'SEX':'135'  }
+              'DEC':'134', 'SEX':'135', 'POP':'015'  }
 opcodes2 = {  'MOV':'01', 'ADD':'02', 'ADC':'03', 'SUB':'04', 'SBB':'05', 'AND':'06',
               'OR':'07',  'XOR':'10', 'CMP':'11'  }
 opcodesB = {  'BIN':'005000', 'BIE':'005100', 'BIV':'005200', 'BIC':'005300', 'BNN':'005400', 'BNE':'005500',
