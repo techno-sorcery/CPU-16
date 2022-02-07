@@ -7781,7 +7781,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>NetName</string>
-          <string>HLT_MODE</string>
+          <string>DMA_MODE</string>
         </entry>
       </elementAttributes>
       <pos x="12600" y="2740"/>
@@ -7805,7 +7805,7 @@ By Hayden B.</string>
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>~HLT</string>
+          <string>~DMA</string>
         </entry>
         <entry>
           <string>InDefault</string>
@@ -7847,7 +7847,7 @@ By Hayden B.</string>
         </entry>
         <entry>
           <string>NetName</string>
-          <string>HLT_MODE</string>
+          <string>DMA_MODE</string>
         </entry>
       </elementAttributes>
       <pos x="11880" y="2080"/>
@@ -7866,12 +7866,12 @@ By Hayden B.</string>
       <elementName>Splitter</elementName>
       <elementAttributes>
         <entry>
-          <string>Input Splitting</string>
-          <string>3,8</string>
-        </entry>
-        <entry>
           <string>mirror</string>
           <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>3,8</string>
         </entry>
         <entry>
           <string>Output Splitting</string>
