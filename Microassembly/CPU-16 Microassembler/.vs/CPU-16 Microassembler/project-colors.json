@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d0d7f96a-5e65-43c2-ba4f-f5a5cb3f40f9": {
+      "ProjectGuid": "d0d7f96a-5e65-43c2-ba4f-f5a5cb3f40f9",
+      "DisplayName": "CPU-16 Microassembler",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
