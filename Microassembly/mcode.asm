@@ -1,0 +1,5 @@
+$000
+PC_INC,FETCH																					;000 - RST
+$400
+.FETCH
+MODE_FETCH,IRQ_EN,PC_AOUT,MEM_DOUT,IR_ST					;000 - FETCH

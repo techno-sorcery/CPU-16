@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HhtpMbyxF+utazf1M7e/NylJs2/Nx40/ihrr/DVQWr3gwQhGawTvELGzw6tGZoBu3l0dtj2Nf9Md7xO69fRwVw==",
+  "dgSpecHash": "JWbykArEhVBN89lwmFSWvhRv4wWEyvQwPz8IxQHW8oqVSfOkyu3YPVlmLVq8RYSb2bVpax/tVt9NGHczSGHybQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hayden\\Documents\\GitHub\\CPU-16\\Microassembly\\CPU-16 Microassembler\\CPU-16 Microassembler\\CPU-16 Microassembler.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512",
-    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Hayden\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/haydenbuscher/Documents/GitHub/CPU-16/Microassembly/Old/CPU-16 Microassembler/CPU-16 Microassembler/CPU-16 Microassembler.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

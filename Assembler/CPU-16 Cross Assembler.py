@@ -281,7 +281,7 @@ with open(path) as f:
             
         lineNum = lineNum + 1
     print(labels)
-    #print(words)
+    print(words)
 print()
         
 #Create output hex file
