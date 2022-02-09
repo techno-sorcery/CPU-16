@@ -113,7 +113,13 @@ with open(path) as f:
                 elif word[0] == ';':
                     break
                 else:
-                    label = word
+                    if word[0] == '+':
+                        word = word.split('+')
+                        if currentLine >= 1024:
+                            word[1] = int(word[1]) - 1024
+                        currentLine = (int(lineNum)+(int(word[1])))|currentLine
+                    else:
+                        label = word
             if instruction == True or label != '':
                 words[lineNum] = currentLine
                 if label != '':
@@ -132,15 +138,18 @@ f = open(path,'x')
 f.write('v2.0 raw\n')
 
 #Second pass - Fill in labels, write to hex file
-for line in range(0,max(map(int,words))+1):
+for line in range(0,2048):
     currentLine = 0
     if line in words:
         #if words[line][0] == '@':
         #    words[line] = (words[line].split('@'))[1]
         #    if currentLine:
         if words[line] in labels2:
-            words[line] = words[line]|labels[labels2[words[line]]]
-            currentLine = words[line]
+            if words[line]|labels[labels2[words[line]]] >= 1024:
+                words[line] = words[line]|labels[labels2[words[line]]]-1024
+            else:    
+                words[line] = words[line]|labels[labels2[words[line]]]
+        currentLine = words[line]
     f.write(hex(currentLine))
     f.write('\n')
 f.close()
