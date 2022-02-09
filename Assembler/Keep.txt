@@ -1,0 +1,39 @@
+#Create output hex file
+path = path.rsplit('.',1)[0] + '.hex'
+if os.path.exists(path):
+  os.remove(path)
+f = open(path,'x')
+f.write('v2.0 raw\n')
+
+#Second pass - Fill in labels, write to hex file
+posCounter = 0
+multiplier = 0
+for line in range(0,max(map(int,words))+1):
+    if line in words:
+        #print(words[line])
+        #Write 0s
+        if multiplier > 0:
+            f.write(str(multiplier))
+            f.write('*0')
+            f.write('\n')
+            multiplier = 0
+        if words[line][0] == '0':
+            words[line] = words[line].split('x')[1]
+        #Fill in labels
+        else:
+            if words[line][0] == '@' and words[line].split('@',1)[1] in labels:
+                words[line] = tohex(labels[words[line].split('@',1)[1]]-line,16)
+            elif words[line] in labels:
+                words[line] = hex(labels[words[line]])
+            else:
+                print('Undefined label \'',words[line],'\'',sep='')
+                wait = input('Press enter to exit')
+                exit()
+        f.write(str(words[line]))
+        f.write('\n')
+        
+    else:
+        multiplier = multiplier + 1
+f.close()
+wait = input('Press enter to exit')
+exit()
