@@ -123,10 +123,13 @@ with open(path) as f:
             if instruction == True or label != '':
                 words[lineNum] = currentLine
                 if label != '':
-                    labels2[currentLine] = label
+                    labels2[lineNum] = label
                 lineNum = lineNum + 1
+    print()
     print(labels)
+    print()
     print(words)
+    print()
     print (labels2)
 print()
 
@@ -144,11 +147,12 @@ for line in range(0,2048):
         #if words[line][0] == '@':
         #    words[line] = (words[line].split('@'))[1]
         #    if currentLine:
-        if words[line] in labels2:
-            if words[line]|labels[labels2[words[line]]] >= 1024:
-                words[line] = words[line]|labels[labels2[words[line]]]-1024
+        if line in labels2:
+            #print(labels[labels2[line]])
+            if int(labels[labels2[line]]) >= 1024:
+                words[line] = words[line]|labels[labels2[line]]-1024
             else:    
-                words[line] = words[line]|labels[labels2[words[line]]]
+                words[line] = words[line]|labels[labels2[line]]
         currentLine = words[line]
     f.write(hex(currentLine))
     f.write('\n')
