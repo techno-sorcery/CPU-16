@@ -29,7 +29,7 @@ mcode = {
     'REG1_DOUT' :'0b000000000000000000000101100000000000000',
     'REG2_DOUT' :'0b000000000000000000000110000000000000000',
     'SP_DOUT'   :'0b000000000000000000000110100000000000000',
-    
+
     'PC_AOUT'   :'0b000000000000000000001000000000000000000',
     'MAR_AOUT'  :'0b000000000000000000010000000000000000000',
     
@@ -96,10 +96,9 @@ with open(path) as f:
             else:
                 line = ''
         else:
-            #print(line)
             line = line.replace(',',' ')
             line = line.split()
-            print(line)
+            #print(line)
             currentLine = 0;
             instruction = False
             label = ''
@@ -125,12 +124,12 @@ with open(path) as f:
                 if label != '':
                     labels2[lineNum] = label
                 lineNum = lineNum + 1
-    print()
-    print(labels)
-    print()
-    print(words)
-    print()
-    print (labels2)
+    #print()
+    #print(labels)
+    #print()
+    #print(words)
+    #print()
+    #print (labels2)
 print()
 
 #Create output hex file
