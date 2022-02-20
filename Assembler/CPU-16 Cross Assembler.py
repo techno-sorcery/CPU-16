@@ -23,7 +23,7 @@ ctrlChar = {  '0':'0',  'a':'7',  'b':'8',  't':'9',  'n':'10',
               ',':'44', '\'':'39'  }
 
 #path = sys.argv[1]
-path = 'Hello.asm'
+path = 'TEST.asm'
 labels = {}
 words = {}
 lineNum = 1
@@ -209,7 +209,7 @@ with open(path) as f:
                 opcode = opcodesL[line[0].upper()]
                 line = line[1].rsplit(',',1)
                 if adsReg.match(line[0]) and adsImm.match(line[1]):
-                    opcode = opcode+adsReg.match(line[0]).group('register')
+                    opcode = opcode+adsReg.match(line[0]).group('register')[1]
                     words[posCounter] = hex(int(opcode,8))
                     words[posCounter+1] = numParse(adsImm.match(line[1]).group('immediate'),1)
                     posCounter = posCounter + 2
