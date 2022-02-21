@@ -41,7 +41,7 @@
         </entry>
         <entry>
           <string>Frequency</string>
-          <int>2147483647</int>
+          <int>500</int>
         </entry>
       </elementAttributes>
       <pos x="12860" y="2760"/>
@@ -591,7 +591,7 @@
       <elementAttributes>
         <entry>
           <string>RectHeight</string>
-          <int>50</int>
+          <int>57</int>
         </entry>
         <entry>
           <string>Label</string>
@@ -602,7 +602,7 @@
           <int>140</int>
         </entry>
       </elementAttributes>
-      <pos x="10800" y="3020"/>
+      <pos x="10800" y="2880"/>
     </visualElement>
     <visualElement>
       <elementName>Rectangle</elementName>
