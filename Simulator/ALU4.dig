@@ -241,12 +241,8 @@
           <string>Label</string>
           <string>A=B</string>
         </entry>
-        <entry>
-          <string>Bits</string>
-          <int>2</int>
-        </entry>
       </elementAttributes>
-      <pos x="1520" y="440"/>
+      <pos x="1520" y="460"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -269,18 +265,9 @@
       <pos x="1020" y="1040"/>
     </visualElement>
     <visualElement>
-      <elementName>Splitter</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Input Splitting</string>
-          <string>1,1</string>
-        </entry>
-        <entry>
-          <string>Output Splitting</string>
-          <string>2</string>
-        </entry>
-      </elementAttributes>
-      <pos x="1480" y="440"/>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="1440" y="440"/>
     </visualElement>
   </visualElements>
   <wires>
@@ -325,8 +312,8 @@
       <p2 x="1300" y="460"/>
     </wire>
     <wire>
-      <p1 x="1380" y="460"/>
-      <p2 x="1480" y="460"/>
+      <p1 x="1500" y="460"/>
+      <p2 x="1520" y="460"/>
     </wire>
     <wire>
       <p1 x="980" y="780"/>
@@ -387,6 +374,10 @@
     <wire>
       <p1 x="980" y="480"/>
       <p2 x="1060" y="480"/>
+    </wire>
+    <wire>
+      <p1 x="1380" y="480"/>
+      <p2 x="1440" y="480"/>
     </wire>
     <wire>
       <p1 x="980" y="800"/>
@@ -493,10 +484,6 @@
       <p2 x="960" y="500"/>
     </wire>
     <wire>
-      <p1 x="1500" y="440"/>
-      <p2 x="1520" y="440"/>
-    </wire>
-    <wire>
       <p1 x="980" y="440"/>
       <p2 x="1060" y="440"/>
     </wire>
@@ -506,7 +493,7 @@
     </wire>
     <wire>
       <p1 x="1280" y="440"/>
-      <p2 x="1480" y="440"/>
+      <p2 x="1440" y="440"/>
     </wire>
     <wire>
       <p1 x="980" y="760"/>
@@ -557,7 +544,7 @@
       <p2 x="900" y="900"/>
     </wire>
     <wire>
-      <p1 x="1380" y="460"/>
+      <p1 x="1380" y="480"/>
       <p2 x="1380" y="840"/>
     </wire>
     <wire>
