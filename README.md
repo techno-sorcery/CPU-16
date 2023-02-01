@@ -1,4 +1,4 @@
-### ATLAS CPU-16
+## ATLAS CPU-16
 **Links**  
 [Website](https://www.techno-sorcery.com/projects/cpu16.html)  
 [Infosheet](https://docs.google.com/spreadsheets/d/1oUmNbYWaNhDA6R6yvVTsaPwRNyT6d51xgqEzrvvlCoQ/edit?usp=sharing)  
